@@ -1,0 +1,157 @@
+/*==========  Desktop First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px)
+	.container
+		padding: 0 7px
+
+	.holidays
+		margin-bottom: 25px
+		padding-left: 3%
+		label
+			width: 48%
+			margin-right: 0
+			input[type="text"]
+				width: 100%
+				max-width: 100%
+			span
+				margin-bottom: 15px
+	.title_form
+		position: static
+		width: 100%
+		text-align: center
+		padding-bottom: 0
+		&::after
+			display: none
+		h3,
+		h4
+			display: inline-block
+			margin-right: 10px
+			font-size: 25px
+
+	.when 
+		.ui-datepicker-trigger
+			top: 45px
+
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px)
+
+	.top_links
+		display: none
+		position: absolute
+		top: 40px
+		left: -1px
+		background-color: $title-color
+		z-index: 3
+		li
+			float: none
+			border-bottom: 1px solid #17202a
+			transition: all .3s ease
+			&:hover
+				background-color: #3f4f5f
+
+	.main_head 
+		.title-wrap
+			h1
+				font-size: 40px
+				margin-bottom: 10px
+			h2
+				margin-bottom: 20px
+				font-size: 20px
+			.btn-transparent
+				margin-left: 3%
+		.owl-nav
+			height: 40px
+			.owl-prev,
+			.owl-next
+				width: 40px
+				background-position: -4px center
+			.owl-next
+				background-position: -291px center
+
+	/* Footer */
+	.top_footer
+		padding-bottom: 20px
+	.f_item
+		width: 50%
+		margin-bottom: 40px
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px)
+
+	.midline
+		text-align: center
+		.logo_wrap
+			float: none
+			display: inline-block
+		.top_nav
+			float: none
+			li
+				width: 50%
+				margin: 0
+				&.search_box
+					width: auto
+					float: right
+					.top_search
+						input
+							&[type="search"]
+								opacity: 1
+								width: 300px
+							&[type="submit"]
+								z-index: 2
+
+	.main_head 
+		.title-wrap
+			margin-bottom: 20px
+			position: relative
+			left: auto
+			transform: translate(0, 0)
+			h1
+				font-size: 35px
+			h2
+				font-size: 15px
+			.button-wrap
+				text-align: center
+				.btn-transparent
+					margin-left: 0
+
+	/* Footer */
+	.bottom_nav
+		li
+			margin-bottom: 10px
+
+@media only screen and (max-width : 600px)
+	.rev_box
+		max-width: 100%
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+	
+	.main_head
+		.title-wrap
+			h1
+				font-size: 28px
+		.buttons 
+			margin-bottom: 25px
+		.owl-nav
+			top: 25%
+
+	.holidays
+		label
+			width: 100%
+
+	/* Footer */
+	.f_item
+		width: 100%
+
+
+
+/*==========  Mobile First Method  ==========*/
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px)
+	.top_links
+		display: block !important
+	.toggle-mnu
+		display: none

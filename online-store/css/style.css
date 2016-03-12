@@ -1,0 +1,1222 @@
+/*Общие стили*/
+
+/*Шрифт Oswald*/
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+/**Шрифт Oswald**/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+html {height: 100%;}
+body {
+	height: 100%;
+	font: 13px/16px Arial, Tahoma, sans-serif;
+	color: #000;
+	background: #fff url(../img/bg.jpg) repeat;
+}
+ol, ul {list-style: none;}
+* {
+	margin: 0;
+	padding: 0;
+	outline: none;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+a, a:hover {color: #000; text-decoration: none;}
+
+/*Отступы*/
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+.clearfix:after {clear: both;}
+
+.left {float:left;}
+.right {float:right;}
+.text-right {text-align: right;}
+.text-center {text-align: center;}
+
+.center {
+	width: 960px;
+	margin: 0 auto;
+}
+
+#wrapper{
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+
+.middle{
+	padding-bottom: 295px;
+}
+
+#footer{
+	padding: 25px 0;
+	border-top: 5px solid #000;
+	margin-top: -295px;  /*Прижатие футера к низу без позиционирования*/
+	height: 295px;
+	background: #191919 url(../img/f-bg.jpg) repeat;
+}
+
+/*Индивидуальные стили сайта*/
+/* Панель в шапке */
+.panel-top{
+	height: 34px;
+	background-color: #2a2b2c;
+	border-top: 3px solid #cc3333;
+}
+
+/* Социальные сети */
+.social{
+	float: left;
+	padding: 4px 0;
+}
+
+.social a{
+	display: inline-block;
+	height: 23px;
+	width: 23px;
+	vertical-align: middle;
+	background: url(../img/sprite-social.png) no-repeat center;
+	-webkit-border-radius: 50%;
+	   -moz-border-radius: 50%;
+		 -o-border-radius: 50%;
+			border-radius: 50%;
+}
+
+.social a.s-fb{
+	background-position: 0 0;
+}
+.social a.s-dribble{
+	background-position: -23px 0;
+}
+.social a.s-tw{
+	background-position: -46px 0;
+}
+.social a.s-mail{
+	background-position: -69px 0;
+}
+.social a.s-vimeo{
+	background-position: -92px 0;
+}
+
+/* Вход на сайт*/
+.login{
+	padding-top: 7px;
+}
+
+.login a,
+.login span{
+	color: #fff;
+}
+.login a:hover{
+	text-decoration: underline;
+}
+/* Корзинка */
+.basket{
+	float: right;
+	width: 100px;
+	height: 45px;
+	-webkit-border-radius: 0 0 10px 10px;
+	   -moz-border-radius: 0 0 10px 10px;
+		 -o-border-radius: 0 0 10px 10px;
+			border-radius: 0 0 10px 10px;
+	background: #cc3333 url(../img/basket.png) no-repeat 5px 6px;
+	margin-left: 25px;
+	overflow: hidden;
+}
+.basket a{
+	display: block;
+	height: 45px;
+	width: 100px;
+	color: #fff;
+	padding-top: 13px;
+	padding-left:40px
+}
+
+/* Шапка сайта*/
+#header{
+	padding: 18px 0;
+}
+
+/* Логотип */
+#logo img,
+#logo span{
+	display: inline-block;
+	vertical-align: middle;
+	font: normal 30px/30px arial, sans-serif;
+}
+
+/* Навигация */
+.nav{
+	margin-top: 25px;
+}
+
+.nav li{
+	position: relative;
+	float: left;
+	
+}
+.nav li+li{ margin-left: 30px;}
+.nav li a{
+	font: bold 14px arial, sans-serif;
+	text-transform: uppercase;
+}
+
+.nav li:before{
+	content:"";
+	position: absolute;
+	top: -17px;
+	left: 50%;
+	margin-left: -18px;
+	display: none;
+	width: 35px;
+	border-top: 4px solid #efc539;
+}
+.nav li:hover:before,
+.nav li.active:before { display: block;}
+
+/*HOME*/
+#home{
+	background: #fff;
+	margin-bottom: 40px;
+	height: 100px; 
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.home-bg{
+	background-color: #cd3737;
+	padding: 20px 0;
+	height: 90px;
+	-webkit-box-shadow: inset 0 5px 5px rgba(0,0,0,.25);
+	   -moz-box-shadow: inset 0 5px 5px rgba(0,0,0,.25);
+		-ms-box-shadow: inset 0 5px 5px rgba(0,0,0,.25);
+		 -o-box-shadow: inset 0 5px 5px rgba(0,0,0,.25);
+			box-shadow: inset 0 5px 5px rgba(0,0,0,.25);
+	
+}
+
+.title-home{
+	font: normal 28px 'Oswald', sans-serif;
+	color: #fff;
+	text-transform: uppercase;
+	-webkit-text-shadow: 0 1px 1px rgba(0,0,0,.25);
+	   -moz-text-shadow: 0 1px 1px rgba(0,0,0,.25);
+		-ms-text-shadow: 0 1px 1px rgba(0,0,0,.25);
+		 -o-text-shadow: 0 1px 1px rgba(0,0,0,.25);
+			text-shadow: 0 1px 1px rgba(0,0,0,.25);
+}	
+
+/*Хлебные крошки*/
+.breadcrumbs li{
+	float: left;
+}
+.breadcrumbs li,
+.breadcrumbs li a{
+	font: 12px/10px arial, sans-serif;
+	color: #fff;
+	-webkit-text-shadow: 0 1px 1px rgba(0,0,0,.25);
+	   -moz-text-shadow: 0 1px 1px rgba(0,0,0,.25);
+		-ms-text-shadow: 0 1px 1px rgba(0,0,0,.25);
+		 -o-text-shadow: 0 1px 1px rgba(0,0,0,.25);
+			text-shadow: 0 1px 1px rgba(0,0,0,.25);
+}
+
+.breadcrumbs li .sp{
+	display: inline-block;
+	margin-left: 3px;
+	margin-right: 5px;
+	font-size: 16px;
+}
+
+.breadcrumbs li a:hover{
+	text-decoration: underline;
+}
+/**Хлебные крошки**/
+
+.link-home{
+	display: inline-block;
+	margin-top: 8px;
+	width: 36px;
+	height: 33px;
+	background: url(../img/home.png) no-repeat;
+}
+
+.sorting{
+	background: #fff;
+	border: 1px solid #eaeaea;
+	padding: 18px 20px;
+	height: 60px;
+}
+
+.s-category li{
+	float: left;
+	background: url(../img/s-sp.png) no-repeat right center;
+}
+
+.s-category a{
+	display:inline-block;
+	padding-left: 7px;
+	padding-right: 12px;
+	text-transform: uppercase;
+	color: #1e1e20;
+}
+
+.s-category a:hover{
+	font-weight: bold;
+	color: #000;
+}
+.s-category li.active a{
+	font-weight: bold;
+	color: #000;
+}
+
+.s-category li:last-child{
+	background-image: none;
+}
+
+.s-list{
+	float: right;
+}
+
+.s-list a{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.s-list a+a{
+	margin-left: 10px;
+}
+
+.ic-squares{
+	width: 28px;
+	height: 18px;
+	background: url(../img/squares.png) no-repeat ;
+}
+
+.ic-list{
+	width: 30px;
+	height: 20px;
+	background: url(../img/list.png) no-repeat;	
+}
+
+.select-sort{
+	display: inline-block;
+	margin-right: 80px;
+}
+
+
+/*Сайдбар*/
+.sidebar{
+	width: 260px;
+	
+}
+
+.sidebar-title{
+	position: relative;
+	margin: 0 0 10px;
+	padding: 0 0 15px 15px;
+	font: normal 18px/20px 'Oswald', sans-serif;
+	color: #2a2b2c;
+	text-transform: uppercase;
+	border-bottom: 1px dotted #d5d5d5;
+}
+
+.sidebar-title .sidebar-title-br{
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 1;
+	width: 40px;
+	height: 7px;
+	margin-top: -3px;
+	background: #cc3333;
+}
+
+.sidebar-products{
+	padding-left: 15px;
+}
+
+.sidebar-products-img{
+	
+	float: left;
+	overflow: hidden;
+	padding: 5px 0;
+	
+}
+.sidebar-products-img img{
+	display: block;
+	width: 100%;
+}
+
+.sidebar-products-info{
+	padding-top: 15px;
+	margin-left: 105px;
+}
+
+.sidebar-products-info>.rate{
+	margin-top: 9px;
+}
+
+.cat-list{
+	margin: 10px 0 20px 0;
+	padding-left: 15px;
+	list-style: url(../img/cat-list-style.png);
+	list-style-position: inside;
+}
+
+.cat-list li{
+	padding: 10px 0;
+	border-bottom: 1px dotted #d5d5d5;
+}
+
+.cat-list li a{
+	font: bold 13px arial, sans-serif;
+}
+
+.cat-list li a:hover{
+	text-decoration: underline;
+}
+
+.cat-list li span{
+	font-weight: normal;
+	color: #7d7e7e;
+}
+	
+.cat-list li:last-child{
+	border-bottom: none;
+}
+
+.sidebar-search{
+	position: relative;
+	padding-left: 15px;
+}
+
+.sidebar-search input[type="text"]{
+	padding: 0 45px 0 15px;
+	margin-top: 15px;
+	display: block;
+	background: #fff;
+	border: 1px solid #e7e7e7;
+	font-style: italic;
+	color: #1e1e1e;
+	width: 100%; /*width: 246px;*/
+	height: 40px;
+	-webkit-box-shadow: 1px 1px 2px rgba(0,0,0,.06);
+	   -moz-box-shadow: 1px 1px 2px rgba(0,0,0,.06);
+		-ms-box-shadow: 1px 1px 2px rgba(0,0,0,.06);
+		 -o-box-shadow: 1px 1px 2px rgba(0,0,0,.06);
+			box-shadow: 1px 1px 2px rgba(0,0,0,.06);
+}
+
+.sidebar-search input[type="text"]::-webkit-input-placeholder{
+	font-style: italic;
+	color: #c3c2c2;
+}
+
+.sidebar-search input[type="text"]::-moz-placeholder{
+	font-style: italic;
+	color: #c3c2c2;
+}
+
+
+.sidebar-search input[type="submit"]{
+	position: absolute;
+	top: 0;
+	right: 2px;
+	height: 40px;
+	width: 40px;
+	border: none;
+	background: transparent url(../img/s-search-btn.png) no-repeat center;
+	cursor: pointer;
+}
+
+
+
+
+
+/**Сайдбар**/
+
+
+/*Основная продукция (Контент)*/
+.content{margin-right: 305px;}
+
+.sidebar,
+.product-catalog{margin-top: 40px;}
+
+.products{
+	float: left;
+	display: inline-block;
+	margin-right: 12px;
+	margin-bottom: 12px;
+	width: 210px;
+	height: 370px;
+	background: #fff;
+	overflow: hidden;
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+		 -o-border-radius: 5px;
+			border-radius: 5px;
+	-webkit-box-shadow: 0 2px 3px rgba(0,0,0,.15);
+	   -moz-box-shadow: 0 2px 3px rgba(0,0,0,.15);
+	  	-ms-box-shadow: 0 2px 3px rgba(0,0,0,.15);
+		 -o-box-shadow: 0 2px 3px rgba(0,0,0,.15);
+			box-shadow: 0 2px 3px rgba(0,0,0,.15);
+}
+
+.products:nth-child(3n){margin-right: 0;}
+
+.p-img{
+	position: relative;
+	height:210px;
+	width: 210px;
+	overflow: hidden;
+}
+
+.p-img span{
+	display: inline-block;
+	padding: 20px 9px;
+	position: absolute;
+	top: 15px;
+	left: 10px;
+	font: bold 12px/12px arial, sans-serif;
+	color: #fff;
+	text-transform: uppercase;
+	background-color: rgba(204,51,51,.50);
+	-webkit-border-radius: 50%;
+	   -moz-border-radius: 50%;
+		  -o-border-radius: 50%;
+			  border-radius: 50%;
+	
+}
+/*Описание продукта*/
+.p-footer{
+	padding: 0 10px 15px 10px;
+}
+
+.products h6,
+.product{
+	margin: 8px 0;
+	font: bold 14px arial, sans-serif;
+	color: #858585;
+}
+
+.products h6 span{
+	font-weight: normal;
+	font-style: italic;
+}
+
+.p-footer p{
+	font: 13px/20px arial, sans-serif;
+	margin-bottom: 10px;
+}
+
+.p-footer p span{font-weight: bold;}
+/**Описание продукта**/
+
+/*Цена продукции*/
+.price{
+	margin-top: 5px;
+	display: inline-block;
+	text-decoration: line-through;
+	color: #1e1e20;
+	font: bold 13px arial, sans-serif;
+}
+
+.price-new{
+	display: inline-block;
+	background: #cc3333;
+	font: bold 13px/16px arial, sans-serif;
+	color: #fff;
+	padding: 2px;
+	margin-left: 6px;
+	margin-top: 5px;
+}
+.price-lg{
+	display: inline-block;
+	font: bold 16px arial, sans-serif;
+	color: #1e1e20;
+	margin-top: 4px;
+	padding: 2px;
+}
+/**Цена продукции**/
+
+.p-footer-price { vertical-align: middle;}
+.p-footer-price a{
+	padding: 7px 5px;
+	display: inline-block;
+	background: #1e1e20;
+	color: #fff;
+	font-size: 10px;
+	text-transform: uppercase;
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+		 -o-border-radius: 5px;
+			border-radius: 5px;
+}
+
+.p-footer-price a:hover{
+	background: #3e3e41;
+}
+.p-footer-price a:active{
+	background: #000;
+}
+
+/*Рейтинг звездочки*/
+
+.rate{
+	background: url(../img/black-star.png) repeat-x;
+	margin:	15px 0 12px 0;
+	width: 73px;
+	height: 15px;
+}
+
+.rate > div{
+	background: url(../img/star.png) repeat-x;
+	height: 100%;
+}	
+/**Рейтинг звездочки**/
+/**Основная продукция**/
+
+
+/*Пагинация*/
+.pagination{
+	background: #fff;
+	margin: 20px 0;
+	padding: 15px 20px;
+	border: 1px solid #eaeaea;
+	
+}
+.pagination ul li{
+	float: left;
+	margin-right: 14px;
+	
+}
+
+.pagination ul a{
+	font: bold 14px/18px arial, sans-serif;
+	color: #1e1e20; 
+}
+
+.pagination ul a:hover,
+.pagination ul li.active a{
+	color: #cc3333; 
+}
+/**Пагинация**/
+
+
+/*Футер*/
+#footer{
+	position: relative;
+	padding: 25px 0;
+	border-top: 5px solid #000;
+	margin-top: -295px;
+	height: 295px;
+	background: #191919 url(../img/f-bg.jpg) repeat;
+}
+
+#footer p{color: #fff;}
+
+.btn-top{  /* Кнопка наверх */
+	position: absolute;
+	top: -15px;
+	right: 30px;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	background: url(../img/btn-top.png) no-repeat;
+}
+
+/*Первая колонка футера*/
+.f-about{
+	float: left;
+	margin-right: 15px;
+	width: 240px;
+}
+
+.f-about p{
+	display: inline-block;
+	line-height: 18px;
+	margin-bottom: 25px;
+}
+
+.f-about span{
+	font-weight: bold;
+}
+
+.f-title{
+	font: bold 16px arial, sans-serif;
+	color: #fff;
+	margin-bottom: 15px;
+}
+
+.f-social{
+	float: left;
+	padding: 4px 0;
+}
+
+.f-social a{
+	display: inline-block;
+	height: 23px;
+	width: 23px;
+	vertical-align: middle;
+	background: url(../img/f-sprite-social.png) no-repeat center;
+	-webkit-border-radius: 50%;
+	   -moz-border-radius: 50%;
+		 -o-border-radius: 50%;
+			border-radius: 50%;
+}
+
+.f-social a.s-fb{
+	background-position: 0 0;
+}
+.f-social a.s-tw{
+	background-position: -23px 0;
+}
+.f-social a.s-dribble{
+	background-position: -46px 0;
+}
+.f-social a.s-digg{
+	background-position: -69px 0;
+}
+.f-social a.s-mail{
+	background-position: -92px 0;
+}
+
+/*Вторая колонка футера*/
+.f-archives{
+	float: left;
+	width: 200px;
+	margin-right: 50px;
+	
+}
+
+.f-list{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.f-list li{
+	padding: 10px 0;
+	border-bottom: 1px dotted #888785;
+}
+
+.f-list li:last-child{ border: none}
+
+.f-list li a{
+	color: #fff;
+}
+.f-list li a:hover{
+	color: #858585;
+}
+
+/*Третья колонка футера*/
+.f-popular{
+	float: left;
+	width: 212px;
+}
+
+.f-popular .f-products-info h6 a {
+	color: #fff;
+}
+
+.f-popular .f-products-info h6 a:hover{
+	color: #858585;
+}
+
+.f-products-img{
+	float: left;
+	overflow: hidden;
+	padding: 5px 0;
+	
+}
+.f-products-img img{
+	display: block;
+	width: 100%;
+}
+
+.f-products-info{
+	padding-top: 15px;
+	margin-left: 110px;
+}
+
+.f-products-info>h6{
+	display: inline-block;
+	padding-bottom: 10px;
+}
+
+.comments, .comments-white{
+	background: url(../img/comments.png) no-repeat bottom left;
+	font: normal 11px arial, sans-serif;
+	color: #858585;
+	text-transform: uppercase;
+	padding-left: 20px;
+}
+
+.comments-white{
+	background: url(../img/comments-white.png) no-repeat bottom left;
+	color: #fff;
+}
+
+/* Четвертая колонка футера */
+.f-search{
+	float: right;
+	width: 215px;
+}
+
+.f-search-form{
+	margin: 20px 0 27px 0;
+}
+
+.f-search-form input[type="text"]{
+	padding: 0 15px;
+	margin-top: 15px;
+	display: block;
+	background: rgba(0,0,0,0.2);
+	border: 1px solid #787979;
+	font-style: italic;
+	color: #c3c2c2;
+	width: 100%; 
+	height: 40px;
+	-webkit-box-shadow: 1px 1px 2px rgba(0,0,0,.06);
+	   -moz-box-shadow: 1px 1px 2px rgba(0,0,0,.06);
+		-ms-box-shadow: 1px 1px 2px rgba(0,0,0,.06);
+		 -o-box-shadow: 1px 1px 2px rgba(0,0,0,.06);
+			box-shadow: 1px 1px 2px rgba(0,0,0,.06);
+}
+
+.f-search-form input[type="text"]::-webkit-input-placeholder{
+	font-style: italic;
+	color: #858585;
+}
+
+.f-search-form input[type="text"]::-moz-placeholder{
+	font-style: italic;
+	color: #858585;
+}
+
+#footer a.tags{
+	display: inline-block;
+	margin: 0 4px 4px 0;
+	padding: 3px 7px;
+	font-size: 12px;
+	color: #fff;
+	background: #2a2a2a;
+}
+/** Четвертая колонка футера **/
+
+.footer-bottom{
+	position: absolute;
+	bottom:0;
+	left: 0;
+	right:0;
+	background: #1b1b1b;
+	height: 35px;
+	border-top: 2px solid #000;
+}
+
+.f-nav li{
+	float: left;
+}
+
+.f-nav a{
+	display:inline-block;
+	margin-top: 8px;
+	padding-right: 18px;
+	font-size: 11px;
+	color: #858585;
+}
+
+.f-nav a:hover{text-decoration: underline}
+
+.footer-bottom span{
+	display: inline-block;
+	float: right;
+	margin-top: 8px;
+	font-size: 11px;
+	color: #858585;
+}
+/**Футер**/
+
+
+
+
+/* Ползунок -----------------------------
+---------------------------------------*/
+.ui-slider {
+    margin-bottom: 10px;
+    position: relative;
+    text-align: left;
+}
+
+/* Ширина, высота и позиционирование для ползунков
+----------------------------------*/
+.ui-slider .ui-slider-handle {
+    position: absolute;
+    z-index: 2;
+    width: 15px;
+    height: 15px;
+    cursor: default;
+    -ms-touch-action: none;
+    touch-action: none;
+    cursor:pointer;
+}
+.ui-slider .ui-slider-range {
+    position: absolute;
+    z-index: 1;
+    font-size: .7em;
+    display: block;
+    border: 0;
+    background-position: 0 0;
+}
+
+/* support: IE8 - See #6727 */
+.ui-slider.ui-state-disabled .ui-slider-handle,
+.ui-slider.ui-state-disabled .ui-slider-range {
+    filter: inherit;
+}
+
+/* Высота горизонтальной полоски
+----------------------------------*/
+.ui-slider-horizontal {height: 6px;}
+.ui-slider-horizontal .ui-slider-handle {
+    top: -4px;
+    margin-left: -8px;
+}
+.ui-slider-horizontal .ui-slider-range {top: 0;height: 100%;}
+.ui-slider-horizontal .ui-slider-range-min {left: 0;}
+.ui-slider-horizontal .ui-slider-range-max {right: 0;}
+
+/* Ширина вертикальной полоски
+----------------------------------*/
+.ui-slider-vertical {
+    width: .8em;
+    height: 100px;
+}
+.ui-slider-vertical .ui-slider-handle {
+    left: -.3em;
+    margin-left: 0;
+    margin-bottom: -.6em;
+}
+.ui-slider-vertical .ui-slider-range {left: 0;width: 100%;}
+.ui-slider-vertical .ui-slider-range-min {bottom: 0;}
+.ui-slider-vertical .ui-slider-range-max {top: 0;}
+
+/* Указание шрифта и размера текста
+----------------------------------*/
+.ui-widget {
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 1.1em;
+}
+.ui-widget .ui-widget {
+    font-size: 1em;
+}
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 1em;
+}
+
+
+#amount, label[for="amount"] {
+	background: transparent; 
+	font-weight: normal;
+	font-size: 13px;
+	color: #2A2B2C !important;
+}
+#amount {width: 95px;}
+.btn-bl {
+	display: inline-block;
+	margin-left: 15px;
+	padding: 5px 10px;
+	font-size: 10px;
+	color:#fff;
+	text-transform: uppercase;
+	border: none;
+	background: #1e1e20;
+	cursor: pointer;
+}
+.s-slider {padding: 0 20px;}
+.s-slider p {margin-bottom: 20px;}
+/* Стилизация полоски
+----------------------------------*/
+.ui-widget-content {
+	margin: 25px 0;
+	background: #fff;
+	border-bottom: 1px solid #CECECE;
+	color: #222222;
+    
+}
+.ui-widget-content a {color: #222222;}
+
+/* Стилизация промижудка между ползунками
+----------------------------------*/
+.ui-widget-header {
+    background: #666;
+    color: #222222;
+    font-weight: bold;
+}
+.ui-widget-header a {color: #222222;}
+
+/* Стилизация ползунков 
+----------------------------------*/
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+    font-weight: normal;
+    color: #555555;
+    width: 22px;
+    height: 15px;
+    background: #cc3333;
+    -webkit-border-radius: 4px;
+            border-radius: 4px;
+}
+
+.ui-state-default a,
+.ui-state-default a:link,
+.ui-state-default a:visited {
+    color: #555555;
+    text-decoration: none;
+}
+
+/* Стилизация ползунка при наведении и фокусе
+----------------------------------*/
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+    font-weight: normal;
+    color: #212121;
+}
+
+
+
+
+/* ------ STYLE SELECT -----------------
+--------------------------------------*/
+/* Основная часть */
+.cusel {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    height: 25px;
+    font-size: 12px;
+    border: 1px solid #EAEAEA;
+    background: #fff;
+    vertical-align: middle;
+    cursor: pointer;
+}
+/* Стрелочка справа */
+.cuselFrameRight {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 20px;
+    background: url(../img/select-arrow.png) no-repeat center;
+}
+/* Текст в селекте */
+.cuselText { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 25px;
+    padding: 0 25px 0 5px; 
+    font-weight: bold;
+    font-size: 12px; 
+    line-height: 25px;
+    color: #7e7e7f;
+    cursor: pointer;
+    overflow: hidden;
+}
+* html .cuselText {height: 30px;}
+
+/* Оформление пунктов списка */
+.cusel span { 
+    display: block;
+    padding: 5px 15px; 
+    font-weight: bold;
+    font-size: 13px; 
+    zoom: 1;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* Оформление пунктов списка при наведении*/
+.cusel span:hover,
+.cusel .cuselOptHover { background: #eee;}
+
+/* Оформление активного пункта списка  */
+.cusel .cuselActive,
+.cusel .cuselActive:hover { background: #DA0612; color: #fff;}
+
+/* Оформление селекта при наведении и клике */
+.cusel:hover,
+.cusel:focus,
+.cuselFocus {background: transparent;}
+
+/* Оформление стрелки при наведении и клике */
+.cusel:hover .cuselFrameRight,
+.cusel:focus .cuselFrameRight,
+.cuselFocus .cuselFrameRight {
+    background: transparent url(../img/select-arrow.png) no-repeat center;
+}
+
+/* видимость выпадающего списка */
+.cuselOpen {z-index: 999;}
+
+/* Оформление селекта и стрелки disabled */
+.classDisCusel,
+.classDisCusel .cuselFrameRight {
+    background-image: url(../img/select-arrow.png) no-repeat center;
+    cursor: default;
+    color: #ccc;
+}
+/* Оформление текста в селекте когда он disabled */
+.classDisCusel .cuselText {
+    cursor: default;
+    color: #ccc;
+}
+
+/* Оформление выпадающего списка */
+.cusel .cusel-scroll-wrap {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    display: block;
+    min-width: 100%;
+    width: auto;
+    height: auto !important;
+    visibility: hidden;
+    margin-top:5px;
+    padding: 5px 0;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background: #fff;
+    overflow: hidden;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    -ms-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    -o-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+.cusel .jScrollPaneContainer {
+    position: relative;
+    z-index: 5;
+    overflow: hidden;
+    background: #fff;
+}
+/* блок для элементов списка с отступом справа для скролла */
+.cusel-scroll-pane {
+    top: 5px;
+    right: 3px;
+    left: 0;
+    width: auto !important;
+}
+
+/* Линия по которой будет проходить скролл */
+.cusel .jScrollPaneTrack {
+    position: absolute;
+    top: 0;
+    right: 2px;
+    height: 100%;
+    width: 5px !important;
+    background: #EEE;
+}
+
+/* кнопка для скролла */
+.cusel .jScrollPaneDrag {
+    position: absolute;
+    left: 0px;
+    width: 5px !important;
+    height: 27px !important;
+    background: #6E939E;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+/* эти 2 стиля не трогаем */
+.cusel .jScrollPaneDragTop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0 !important;
+    overflow: hidden;
+}
+.cusel .jScrollPaneDragBottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0 !important;
+    overflow: hidden;
+}
+
+/* Стрелка вверху для скролла */
+.cusel .jScrollArrowUp {
+    position: absolute;
+    top: 0;
+    right: 4px;
+    width: 0 !important;
+    height: 0;
+    cursor: pointer;
+    overflow: hidden;   
+}
+
+/* Стрелка внизу для скролла */
+.cusel .jScrollArrowDown {
+    width: 0 !important;
+    height: 0;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    right: 4px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

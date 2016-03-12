@@ -1,0 +1,232 @@
+/*==========  Desktop First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px)
+	/**/
+	.warranty 
+		display: none
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px)
+	.nav
+		display: none
+		position: absolute
+		left: 3px
+		top: 5px
+		z-index: 2
+		margin-top: 65px
+		min-width: 295px
+		background-color: #242424
+		opacity: .97
+		li
+			display: block
+			width: 100%
+			border-bottom: 1px solid #3b3b3b
+			a
+				display: inline-block
+				width: 100%
+
+	.warranty
+		display: block
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px)
+
+	/* Голова сайта */
+	header
+		h1
+			margin-top: 40px
+			font-size: 30px
+		.top_line
+			.top_addr, .top_addr.top_phone
+				margin-top: 10px
+				float: right
+				text-align: right
+				strong, span
+					font-size: 22px !important
+				a
+					margin-top: -5px
+					font-size: 16px !important
+
+			.logo-wrap
+				.logo
+					height: 150px
+
+	.section_1 
+		h2
+			transform: scale(.9)
+
+	/* Третья секция */
+	.section_3
+		h3, .buttons
+			float: none
+		.sect_3-info
+			img
+				margin-top: 30px
+				margin-bottom: 40px
+			p
+				text-align: center
+	
+	/* Вторая секция */
+	.section_2
+		.s2_title
+			h2
+				font-size: 30px
+				
+
+	
+	/*Disable Animation on Mobile Devices*/
+	.animated
+		/*CSS transitions*/
+		-o-transition-property: none !important
+		-moz-transition-property: none !important
+		-ms-transition-property: none !important
+		-webkit-transition-property: none !important
+		transition-property: none !important
+		/*CSS transforms*/
+		-o-transform: none !important
+		-moz-transform: none !important
+		-ms-transform: none !important
+		-webkit-transform: none !important
+		transform: none !important
+		/*CSS animations*/
+		-webkit-animation: none !important
+		-moz-animation: none !important
+		-o-animation: none !important
+		-ms-animation: none !important
+		animation: none !important
+
+@media only screen and (max-width : 640px)
+	.section_2
+		.s2_title
+			h2
+				&::after
+					@extend .after
+					display: none
+				&::before
+					@extend .before
+					display: none
+
+
+@media only screen and (max-width : 520px)
+	.section_1 
+		h2
+			transform: scale(.85)
+
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+	header
+		.head-content
+			margin-top: 50px
+			.button-wrap
+				text-align: center
+				.buttons
+					margin-bottom: 20px
+
+	/* Первая секция */
+	.section_1
+		padding-top: 30px
+		h2
+			transform: scale(.8)
+			margin-bottom: 0
+			&::after, &::before
+				display: none
+
+	.tab_content
+		margin-top: 20px
+		li
+			display: block !important
+			border-bottom: 1px solid #232222
+			&:hover
+				background-color: #111
+			a
+				display: inline-block
+				width: 100%
+				height: 50px
+				padding-top: 8px
+
+	.tab_item
+		transform: scale(.6)
+		margin-left: -40px
+		margin-top: -30px
+		margin-bottom: -15px
+		&::after
+			display: none
+		.tab_link
+			font-size: 20px !important
+
+				
+	.fancybox-skin
+		margin-left: -15px
+		max-width: 290px
+
+	.section_2
+		h2
+			transform: scale(.9)
+			&::after, &::before
+				display: none
+
+	#tabs_s1
+		overflow-x: hidden !important
+
+	/* Футер */
+	.nav-footer
+		display: none
+		li
+			display: block !important
+			margin: 0 !important
+			border-bottom: 1px solid #0e0d0d
+			&:hover
+				background-color: #1d1c1c
+			a
+				display: inline-block
+				padding: 10px
+				width: 100%
+				border: none !important
+
+	.toggle-mnu-f
+		display: inline-block !important
+
+
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px)
+	/**/
+
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px)
+	/**/
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px)
+	/**/
+	.nav-footer
+		display: block !important
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px)
+	/**/
+
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px)
+	.nav
+		display: block !important
+	.toggle-mnu
+		display: none !important
+
+	.nav-footer
+		margin-top: -21px !important
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px)
+	/**/
+

@@ -1,0 +1,101 @@
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px)
+	.wrapper
+		overflow-x: hidden
+
+	.toggle-mnu
+		display: block !important
+	.content
+		margin-left: 0
+	.content
+		width: 100%
+
+	.l-sbar
+		position: fixed
+		margin-left: -265px
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px)
+	.main-cont,
+	.r-sbar
+		width: 100%
+
+	.main-cont
+		padding-right: 0
+	
+	.r-sbar
+		position: static
+		height: auto
+		padding-top: 0
+
+	.notiff-box
+		.full-video
+			float: none
+			width: 100%
+			img
+				width: 100%
+				height: auto
+
+		.notiff-descr
+			width: 100%
+			float: left
+
+		.sort-box
+			width: 100%
+
+
+@media only screen and (max-width : 620px)
+	.notiff-box
+		.full-video
+			min-height: 220px
+			img
+				width: auto
+				height: 220px
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 550px)
+	.head
+		padding-left: 60px
+		padding-right: 25px
+
+	.profil-wrap
+		float: none
+		margin-top: 50px
+		text-align: right
+		.avatar-wrap
+			float: left
+			border-right: none
+			padding-right: 0
+		.collect
+			margin-right: 0
+
+	.notiff-box
+		top: 114px
+		.sort-box
+			padding-left: 25px
+			padding-right: 25px
+			.ic-list,
+			.ic-squares
+				margin-right: 10px
+
+	.search-box
+		width: 100%
+		input
+			&[type="search"]
+				width: 100%
+
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px)
+	.toggle-mnu
+		display: none
+
+
+@media only screen and (min-width : 1440px)
+	.full-video
+		img
+			width: 100%
+	.sort-box
+		bottom: -34px

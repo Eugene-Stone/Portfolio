@@ -1,0 +1,159 @@
+ol, ul
+	list-style: none
+*
+	margin: 0
+	padding: 0
+	outline: none
+	box-sizing: border-box
+
+
+/* Clearfix */
+.clearfix:before,
+.clearfix:after
+	content: " "
+	display: table
+
+.clearfix:after
+	clear: both
+
+.before
+	content:''
+	width: 100%
+	height: 100%
+	position: absolute
+.after
+	content:''
+	position: absolute
+	width: 100%
+	height: 100%
+// Values Unchanged END
+
+
+// The Variables Styles
+$title-color: #3f444e
+$main-color: #d8232a
+$text-color: #3f444e
+
+html,
+body
+	height: 100%
+	min-height: 100%
+
+body
+	position: relative
+	min-width: 320px
+	font-family: "Brandon_bld", $helvetica
+	font-size: 16px
+	line-height: 1.4em
+	font-weight: normal
+	color: $text-color
+	-webkit-font-smoothing: antialiased
+
+.wrapper
+	@extend .clearfix
+	position: relative
+	margin: auto
+	padding: 0
+	width: 100%
+	min-height: 100%
+
+.hidden
+	display: none
+
+
+/* Title */
+h1
+	font-family: "Brandon_bld", sans-serif
+	font-size: 25px
+	line-height: 1em
+	text-transform: uppercase
+	color: #fff
+
+h2
+	display: inline-block
+	font-family: "Brandon_bld", sans-serif
+	font-size: 16px
+	color: #c0cccc
+
+h3
+	font-family: "Brandon_bld", sans-serif
+	font-size: 13px
+	text-transform: uppercase
+	color: #72889a
+
+h4
+	font-family: "Brandon_bld", sans-serif
+	font-size: 13px
+	color: #7a7a7a
+	text-transform: uppercase
+
+
+/* Button Drop Down Menu */
+.toggle-mnu,
+.toggle-mnu-f
+	display: inline-block
+	position: fixed
+	top: 5px
+	left: 5px
+	z-index: 2
+	text-align: center
+	text-decoration: none
+	width: 40px
+	height: 40px
+	cursor: pointer
+	transform: scale(.7)
+	transition: all .5s ease
+
+.toggle-mnu span:after,
+.toggle-mnu span:before,
+.toggle-mnu-f span:after,
+.toggle-mnu-f span:before
+	content: ""
+	position: absolute
+	left: 0
+	top: -12px
+
+.toggle-mnu span:after,
+.toggle-mnu-f span:after
+	top: 12px
+
+.toggle-mnu span,
+.toggle-mnu-f span 
+	position: relative
+	top: 67%
+	display: block
+
+.toggle-mnu span,
+.toggle-mnu span:after,
+.toggle-mnu span:before,
+.toggle-mnu-f span,
+.toggle-mnu-f span:after,
+.toggle-mnu-f span:before 
+	width: 100%
+	height: 2px
+	background-color: #3bb4bc
+	transition: all 0.3s
+	backface-visibility: hidden
+	border-radius: 2px
+
+/* On Activation */
+.toggle-mnu.on
+	transform: translateX(265px)
+
+.toggle-mnu.on span,
+.toggle-mnu-f.on span 
+	background-color: transparent
+
+.toggle-mnu.on span:before,
+.toggle-mnu-f.on span:before 
+	transform: rotate(45deg) translate(8px, 8px)
+
+.toggle-mnu.on span:after,
+.toggle-mnu-f.on span:after 
+	transform: rotate(-45deg) translate(9px, -9px)
+
+.toggle-mnu.on + #menu,
+.toggle-mnu-f.on + #menu 
+	opacity: 1
+	visibility: visible
+/* Button Drop Down Menu END */

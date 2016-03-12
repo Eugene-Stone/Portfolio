@@ -1,0 +1,842 @@
+@import "bourbon/bourbon"
+@import "_var"
+@import "../libs/owl-2/assets/owl.carousel.sass"
+
+
+html.js .loader
+	background: none repeat scroll 0 0 #ffffff
+	bottom: 0
+	height: 100%
+	left: 0
+	position: fixed
+	right: 0
+	top: 0
+	width: 100%
+	z-index: 9999
+	.loader_inner
+		background-image: url("../img/preloader.gif")
+		background-size: cover
+		background-repeat: no-repeat
+		background-position: center center
+		background-color: #fff
+		height: 60px
+		width: 60px
+		margin-top: -30px
+		margin-left: -30px
+		left: 50%
+		top: 50%
+		position: absolute
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+ol, ul
+	list-style: none
+* 
+	margin: 0
+	padding: 0
+	outline: none
+	box-sizing: border-box
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	/* Свойства писать здесь */
+body input:required:valid,
+body textarea:required:valid
+	/* Свойства писать здесь */
+
+.hidden
+	display: none
+
+
+body
+	font-family: "RalewayRegular", $helvetica
+	font-weight: normal
+	font-size: 15px
+	min-width: 320px
+	position: relative
+	line-height: em(22)
+	color: $text-color
+	-webkit-font-smoothing: antialiased
+	overflow-x: hidden
+
+/* Начальные свойства */
+a, a:hover, a:active, a:focus
+	color: $main-color
+	text-decoration: underline
+	transition: all .35s ease
+a:hover
+	text-decoration: none
+
+
+
+.main-head
+	position: relative
+	&::after
+		@extend .after
+		height: 6px
+		background-image: url("../img/bahroma-white.png")
+		background-repeat: repeat-x
+
+	h1
+		font-family: "PFCentroSlabProMedium", $helvetica
+		font-size: em(48px)
+		color: #fff
+		line-height: 65px
+
+h2, h3, h4, h5, h6
+	font-family: "PFCentroSlabProMedium", $helvetica
+	text-transform: uppercase
+	font-weight: normal
+	color: $title-color
+h2
+	font-size: em(30px)
+	line-height: 36px
+h3
+	font-size: em(24px)
+	line-height: 36px
+h4
+	font-size: em(22px)
+	line-height: 24px
+	text-transform: none
+h5
+	font-size: 16px
+
+
+b, strong
+	font-family: "RalewayBold", $helvetica
+	font-weight: normal
+
+	
+
+
+/* Голова сайта */
+.main-head
+	padding-bottom: 70px
+	position: relative
+	min-height: 480px
+	background-position: top center
+	background-size: cover
+	&::before
+		@extend .before
+		background-color: #394b5f
+		opacity: .85
+
+.top-line	
+	padding-top: 45px
+	min-height: 200px
+	background-image: url("../img/header-grad.png")
+	background-repeat:  repeat-x
+	.logo
+		opacity: .95
+		width: 105px
+
+
+.main-mnu
+	text-align: right
+	font-size: em(16)
+	li
+		display: inline-block;
+		line-height: 42px
+		a
+			color: #fff
+			text-decoration: none
+		&.actived, &:hover
+			a
+				color: $main-color
+				text-decoration: underline
+	li+li
+		margin-left: 15px
+
+.phone-wrap
+	position: relative
+	.phone
+		text-align: right
+		font-family: "RobotoBold", $helvetica
+		font-size: em(22px)
+		line-height: 42px
+		color:#fff
+		opacity: .9
+		white-space: nowrap
+
+	
+
+/* Кнопка выпадающего меню */
+.toggle-mnu
+	display: inline-block
+	position: absolute
+	top: 0
+	right: 0
+	text-align: center
+	text-decoration: none
+	width: 28px
+	height: 28px
+	z-index: 2
+
+.toggle-mnu span:after,
+.toggle-mnu span:before 
+	content: "";
+	position: absolute
+	left: 0
+	top: -9px
+
+.toggle-mnu span:after
+	top: 9px
+
+.toggle-mnu span 
+	position: relative
+	top: 67%
+	display: block
+
+
+.toggle-mnu span,
+.toggle-mnu span:after,
+.toggle-mnu span:before 
+	width: 100%
+	height: 2px
+	background-color: #fff
+	transition: all 0.3s
+	backface-visibility: hidden
+	border-radius: 2px
+
+/* on activation */
+.toggle-mnu.on span 
+	background-color: transparent
+
+.toggle-mnu.on span:before 
+	transform: rotate(45deg) translate(5px, 5px)
+
+.toggle-mnu.on span:after 
+	transform: rotate(-45deg) translate(7px, -8px)
+
+.toggle-mnu.on + #menu 
+	opacity: 1
+	visibility: visible
+/** Кнопка выпадающего меню **/
+
+.header-wrap
+	color: #fff
+	opacity: none
+	margin-bottom: 50px
+	h1
+		display: inline-block
+		margin-top: 125px
+		margin-bottom: 40px
+		border-bottom: 8px solid $main-color
+	li
+		position: relative
+		padding-left: 15px
+		font-family: "RalewaySemiBold", $helvetica
+		font-size: 18px
+		margin-bottom: 15px
+		&::before
+			@extend .before
+			width: 7px
+			height: 11px
+			margin-top: 3px
+			@include triangle(12px, $main-color, right)
+
+		a
+			color: #fff
+			text-decoration: none
+		&.actived, &:hover
+			a
+				color: $main-color
+				text-decoration: underline
+.header-left
+	margin-bottom: 40px
+
+/* Стили формы */
+.main-form
+	padding: 35px 30px
+	background-color: transparentize($blue-color, .15)
+	opacity: .8
+	font-size: 14px
+	color: #97a4b2
+	border-bottom: 4px solid #1c242c
+	label
+		display: block
+		span
+			display: inline-block
+			margin-bottom: 5px
+			letter-spacing: 1.5px
+			color: #778390
+	input
+		font-family: "RalewayRegular", $helvetica
+		font-size: 18px
+		margin-bottom: 20px
+		padding: 0 10px
+		width: 100%
+		height: 43px
+		outline: none
+		border: none
+		border-top: 4px solid #1f2a36
+		background-color: #34465a
+		color: #fff
+		&:focus
+			border-color: #141516
+			background-color: #415367
+	h2
+		padding-bottom: 15px
+		text-transform: none
+		color: #fff
+	p
+		padding-bottom: 25px
+	.buttons
+		margin-top: 10px
+
+
+.arrow-bottom
+	display: inline-block
+	width: 46px
+	height: 46px
+	background-image: url("../img/arrow-down.png")
+	position: relative
+	z-index: 3
+	cursor: pointer
+	transition: all .35s ease
+	opacity: .5
+	&:hover
+		opacity: .9
+
+
+/* Общие стили секций */
+.section-content
+	position: relative
+	margin-bottom: 20px
+
+.section-bottom
+	padding: 60px 0 65px
+	background-color: #e5e5e5
+	text-align: center
+	&.blue-sect
+		background-color: $blue-color
+
+
+
+.home_sect
+	position: relative
+	background-color: #f9f9f9
+	&::after
+		@extend .after
+		height: 6px
+		background-image: url("../img/bahroma-white.png")
+		background-repeat: repeat-x
+	
+	&.blue-sect
+		background-color: $dark-blue-color
+		color: #e5e5e5
+		.section-bottom
+			background-color: $blue-color
+		h2
+			color: #f9f9f9
+
+	.section-head
+		margin-bottom: 65px
+		padding-top: 80px
+		text-align: center
+		h2
+			margin-bottom: 70px
+			position: relative
+			&::after
+				@extend .after
+				display: inline-block
+				bottom: -35px
+				height: 4px
+				width: 165px
+				left: 50%
+				transform: translate(-50%, 0)
+				background-color: $main-color
+		p
+			animation-delay: .15s
+		a
+			font-family: "RalewayBold"
+
+.section_2
+	&.home_sect
+		&::after
+			@extend .after
+			height: 6px
+			background-image: url("../img/bahroma-blue.png")
+			background-repeat: repeat-x
+		
+
+/* Блоки с информацией */
+.info-item
+	position: relative
+	margin: 70px 0
+	padding-left: 50px
+	max-width: 320px
+	line-height: 18px
+	&::after
+		@extend .after
+		bottom: -25px
+		left: 50px
+		height: 1px
+		width: 250px
+		background-color: #dee1e5
+	h3
+		margin-bottom: 25px
+		line-height: 24px
+		text-transform: none
+
+.info-item-nth_2
+	margin: 0
+
+.blue-sect .info-item
+	color: #f3f3f3
+.blue-sect .info-item::after
+	background-color: #546476
+
+.item-wrap
+	height: 260px
+	padding-bottom: 65px
+	text-align: center
+	transition: all .5s ease
+	cursor: pointer
+	opacity:0
+	transform: translateY(-30px)
+	&.on
+		opacity: 1
+		transform: translateY(0)
+	&:hover
+		transform: translateY(-20px)
+	.my
+		position: relative
+		margin-bottom: 55px
+		text-decoration: none
+		&::after
+			@extend .after
+			bottom: -35px
+			left: 50%
+			transform: translate(-50%, 0)
+			height: 1px
+			width: 60px
+			background-color: $main-color
+	p
+		font-family: "RalewayBold"
+		font-size: 13px
+		a
+			display: inline-block
+			color: #111
+
+/* Первая секция */
+.section_1
+	.section-bottom
+		background-color: $dark-blue-color
+	.section-content
+		min-height: 520px
+		background-image: url("../img/bg-sect-1.png")
+		background-repeat:  no-repeat
+		background-position:  center top
+
+	
+	.s1-bottom
+		position: relative
+		padding: 15px 0 65px
+		background-color: #394b5f
+		min-height: 260px
+		.info-item
+			margin-top: 20px
+		.info-item-nth_2
+			margin-top: 90px
+			
+
+		/* Блок с фоновым треугольником */
+		.s1-bottom-triangle
+			position: absolute
+			width: 100%
+			height: 100px
+			top: -100px
+			left: 0
+			background-image: url("../img/bg-triangle.svg")
+			background-repeat:  no-repeat
+			background-position: bottom
+			background-size: 100% auto
+			text-align: center
+			.triangle-logo
+				position: relative
+				margin-top: 50px
+				margin-left: -25px
+				width: 117px
+				opacity: .3
+				z-index: 2
+
+		.logo-triangle-top
+			position: absolute
+			top: -200px
+			left: 50%
+			margin-left: -90px
+			width: 160px
+
+
+/* Вторая секция */
+.section_2
+	h3
+		margin-bottom: 80px
+		text-align: center
+
+/* Третья секция */
+.section_3
+	&.home_sect::after
+		background-image: url("../img/bahroma-gray.png")
+
+	.section-content
+		background-image: url("../img/bg-sect-2.png")
+		background-repeat: no-repeat
+		background-position: center center
+		min-height: 850px
+		.my.my_k
+			position: absolute
+			left: 50%
+			top: 50%
+			transform: translate(-50%,-50%)
+			font-size: 135px
+		.info-item
+			margin: 100px 0 50px 0
+			padding-left: 50px
+			max-width: 300px
+			&::after
+				display: none
+
+			&.info-item-nth_2
+				margin: 20px 0 50px
+
+			&.info-item-nth_4
+				padding-left: 0
+				max-width: 265px
+			&.info-item-nth_5
+				max-width: 360px
+				padding-left: 100px
+			&.info-item-nth_7
+				margin-top: 200px
+
+/* Четвертая секция */
+.section_4
+	background-color: $gray-color
+	&.home_sect
+		&::after
+			background-image: url("../img/bahroma-blue.png")
+			
+	.section-bottom
+		background-color: #d6d6d6
+	h3
+		margin-bottom: 80px
+		text-align: center
+
+	.section-content
+		padding-bottom: 50px
+
+
+/* Пятая секция */
+.section_5
+	&.home_sect
+		&::after
+			background-image: url("../img/bahroma-gray.png")
+	.section-head
+		margin-bottom: 30px
+
+	.triangles-container
+		padding-bottom: 75px
+		text-align: center
+		color: #f9f9f9
+		font-family: "PFCentroSlabProMedium", $helvetica
+		font-size: 18px
+		line-height: 22px
+		
+		.tc-item
+			transition: all .5s ease
+			.tc-content
+				display: none
+			.tc-content.tc-content-on
+				display: block
+				
+			position: relative
+			display: inline-block
+			margin-right: -40px
+			width: 290px
+			height: 130px
+			cursor: pointer
+			.my
+				position: absolute
+				top: 50%
+				left: 45px
+				transform: translate(0,-50%)
+
+				&.my_n,&.my_o,&.my_p,&.my_q
+					font-size: 50px
+					color: #f9f9f9
+
+			.descr
+				position: absolute
+				top: 45px
+				left: 100px
+				text-align: left
+
+				strong
+					display: block
+					float: left
+					margin-right: 7px
+					height: 40px
+					font-family: "PFCentroSlabProBold"
+					font-size: 22px
+					line-height: 20px
+
+				a
+					display: block
+					text-decoration: none
+					color: #f9f9f9
+					&:hover
+						text-decoration: underline
+			&:hover
+				transform: scale(1.05)
+				path
+					fill-opacity: 0 !important
+					stroke-opacity: 1 !important
+
+.tc-item:first-child
+	.my
+		left: 30px
+	.descr
+		margin-left: -10px
+
+/* Шестая секция */
+.section_6
+	background-color: $dark-gray-color
+	&.home_sect::after
+		background-image: url("../img/bahroma-gray-2.png")
+	.section-content
+		margin-bottom: 0
+	.cards
+		margin-bottom: 65px
+		.card
+			background-color: $gray-color
+			color: #6e7b8b
+			&:first-child .card-icon
+				background-image: none
+
+			.card-icon
+				background-color: transparent
+				border: 5px solid #d6d6d6
+		
+			img
+				width: 100%
+			h5
+				margin-bottom: 10px
+				color: #333
+				text-transform: none
+			p
+				font-size: 13px
+				margin-bottom: 35px
+			.team-phone
+				font-size: 16px
+				font-family: "RobotoBold"
+				color: #333
+
+/* Седьмая секция */
+.section_7
+	background-color: $gray-color
+	&.home_sect::after
+		background-image: url("../img/bahroma-white.png")
+	.section-content
+		margin-bottom: 0
+		padding-bottom: 90px
+
+/* Слайдер */
+.slider
+
+	.owl-item
+
+		.img-wrap, .slide-descr, h4, p
+			opacity: 0
+			transform: translate3d(200px, 0, 0)
+			transition: all .7s ease
+			transition-delay: .1s
+		h4
+			transition-delay: .2s
+		.slide-descr
+			transition-delay: .3s
+		p
+			transition-delay: .4s
+		&.active
+			.img-wrap, .slide-descr, h4, p
+				opacity: 1
+				transform: translate3d(0, 0, 0)
+
+
+	.owl-controls
+		margin-top: 25px
+		text-align: center
+		.owl-dot
+			display: inline-block
+			margin: 0 2px
+			width: 15px
+			height: 15px
+			border-radius: 50%
+			background-color: #d6d6d6
+			&.active
+				background-color: $main-color
+
+		.owl-nav
+			position: absolute
+			top: 12%
+			width: 100%
+			> div
+				position: absolute
+				left: 40px
+				width: 16px
+				height: 29px
+				background-image: url("../img/slider-arrow.png")
+				opacity: .4
+				transition: all .5s ease
+				&:hover
+					opacity: 1
+					transform: scale(1.25)
+			.owl-next
+				right: 40px
+				left: auto
+				background-position: 16px 0
+
+
+	.slide
+		position: relative
+		text-align: center
+
+		.img-wrap
+			display: inline-block
+			margin-bottom: 30px
+			width: 130px
+			height: 130px
+			border-radius: 50%
+			overflow: hidden
+			border: 7px solid $main-color
+			img
+				width: 100%
+				border-radius: 50%
+
+		h4
+			font-family: "RalewayBold"
+			font-size: 18px
+			color: #333
+			margin-bottom: 15px
+		.slide-descr
+			display: inline-block
+			margin-bottom: 20px
+			font-size: 13px
+			color: #6e7b8b
+		p
+			font-size: 14px
+			color: #333
+
+/* Восьмая секция */
+.section_8
+	margin-bottom: 60px
+	.section-head.left_sect
+		margin-bottom: 10px
+		text-align: left
+		p
+			margin-bottom: 50px
+		h2::after
+			left: 0
+			transform: none
+		.item-wrap
+			p
+				font-size: 12px
+			.my
+				margin-bottom: 30px
+				font-family: "myfont"
+				font-size: 75px
+				&::after
+					display: none
+
+	.section-content.right_sect
+		.main-form
+			opacity: 1
+			background-color: #ddd
+			color: #5e6267
+			border-color: #828282
+			h2
+				color: $dark-blue-color
+			input
+				border-top: 4px solid #737373
+				background-color: #c0c0c0
+				color: #000
+				&:focus
+					border-color: #141516
+					background-color: #c0c0c0
+
+/* Футер */
+footer.bottom-line
+	position: relative
+	&::before
+		@extend .before
+		height: 6px
+		top: -6px
+		background-image: url("../img/bahroma-blue.png")
+		background-repeat: repeat-x
+	@extend .top-line
+	padding-top: 85px
+	background-image: none
+	background-color: $dark-blue-color
+	opacity: none !important
+	.logo
+		opacity: .35
+	.main-mnu
+		opacity: .65
+	.phone
+		opacity: .45
+
+/* Кнопка наверх */
+.btn-top
+	height: 37px
+	background-color: #1f2b3a
+	background-image: url("../img/btn-top.png")
+	background-repeat: no-repeat
+	background-position: center
+	cursor: pointer
+	transition: all .3s ease
+	&:hover
+		background-color: #18273a
+
+/* Скрытая форма */
+.mfp-forms
+	#callback.main-form
+		position: relative
+		margin: auto
+		max-width: 360px
+		opacity: 1
+		background-color: rgba(57, 75, 95, 1)
+		h2
+			line-height: 30px
+			margin-bottom: 17px
+	.mfp-close
+		color: #fff
+
+	&.mfp-bg
+		opacity: 0
+		transition: all 0.15s ease-out
+		&.mfp-ready
+			opacity: 0.8
+		&.mfp-removing
+			opacity: 0
+	&.mfp-wrap
+		.mfp-content
+			opacity: 0
+			transition: all 0.15s ease-out
+		&.mfp-ready .mfp-content
+			opacity: 1
+		&.mfp-removing .mfp-content
+			opacity: 0

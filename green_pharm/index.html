@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="ru"> <!--<![endif]-->
+
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Green Pharm</title>
+	<meta name="description" content="">
+
+	<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="author" content="Eugene_Stone">
+
+	<link rel="stylesheet" href="libs/bootstrap/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="libs/owl.carousel.2.0.0-beta.2.4/assets/owl.carousel.css">
+	<link rel="stylesheet" href="libs/fancybox/jquery.fancybox.css">
+
+	<link rel="stylesheet" href="css/fonts.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/media.css">
+
+</head>
+
+<body>
+	
+	<!-- Рекламный баннер -->
+	<div class="top-banner">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-8 col-md-5 col-md-offset-4">
+					<div class="action-top">
+						<h3><span>Акция!</span><br class="hidden"> Новогодние скидки до <span>- 50%</span></h3>
+					</div>
+				</div>
+
+				<div class="col-sm-4 col-md-3">
+					<div class="read-more">
+						<a href="#" class="buttons fancybox">Подробнее</a>
+						<span class="close-banner">+</span>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Голова сайта -->
+	<header class="header">
+
+		<div class="top_line">
+			<div class="container">
+				<div class="row">
+
+					<!-- Логотип -->
+					<div class="col-sm-2 col-sm-push-5">
+						<div class="logo-wrap">
+							<a href="/">
+								<img src="img/logo.png" alt="logo" class="img-responsive">
+							</a>
+						</div>
+					</div>
+
+					<!-- Поле Авторизации и Поиска -->
+					<div class="col-sm-5 col-sm-pull-2">
+
+						<div class="box-wrap">
+							<div class="search-field">
+								<form class="subscr"> 
+									<input type="text">
+									<input type="submit" value="&nbsp;">
+								</form>
+							</div>
+							
+							<div class="authorization">
+								<h3><a href="#" class="fancybox">Войти на сайт</a></h3>
+							</div>
+						</div>
+
+					</div>
+
+					<!-- Телефоны -->
+					<div class="col-sm-5">
+						
+						<div class="phone-wrap">
+							<span class="phone">(057)75-87-500</span>
+							<a href="#" class="buttons fancybox">Заказать звонок</a>
+						</div>
+
+						<div class="language">
+							<span class="active">рус</span>
+							<span class="divide"></span>
+							<span>укр</span>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Главное меню -->
+		<div class="top_mnu">
+			<div class="container">
+				<div class="row">
+					
+					<!-- Кнопка домой -->
+					<div class="col-xs-4 col-sm-1 col-sm-push-3">
+						<a href="/" class="home-btn">&nbsp;</a>
+					</div>
+
+					<!-- Корзина -->
+					<div class="col-xs-4 col-sm-1 col-sm-push-10">
+						<a href="#" class="basket fancybox">3</a>
+					</div>
+
+					<!-- Кнопка выпадающего меню -->
+					<div class="col-xs-4 hidden-sm hidden-md hidden-lg">
+						<div class="toggle_btn_wrap">
+							<span class="toggle-mnu"><span></span></span>
+						</div>
+					</div>
+
+					<!-- Главная навигация -->
+					<div class="col-xs-12 col-sm-7 col-sm-push-2">
+						<nav class="top_nav">
+							<ul>
+								<li class="n-active"><a href="#">О нас</a></li>
+								<li><a href="#">Каталог</a></li>
+								<li><a href="#">Сертификаты</a></li>
+								<li><a href="#">Отзывы</a></li>
+								<li><a href="#">Контакты</a></li>
+							</ul>
+						</nav>
+					</div>
+					
+					<!-- Выпадающее меню -->
+					<div class="col-sm-3 col-sm-pull-9">
+						<div class="tools">
+							<span class="dropdown">Подобрать средство</span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- Содержимое выпадающего меню ТАБЫ-->
+		<div id="tabs" class="top-tabs">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-sm-3">
+						<ul class="products">
+							<li class="title">Вся продукция</li>
+
+							<li><a href="#tabs-1" class="tab-1">Уход за лицом</a></li>
+							<li><a href="#tabs-2" class="tab-2">Уход за телом</a></li>
+							<li><a href="#tabs-3" class="tab-3">Для детей</a></li>
+							<li><a href="#tabs-4" class="tab-4">Лечебные бальзамы</a></li>
+							<li><a href="#tabs-5" class="tab-5">Уход за руками</a></li>
+							<li><a href="#tabs-6" class="tab-6">Уход за ногами</a></li>
+							<li><a href="#tabs-7" class="tab-7">Диетические добавки</a></li>
+							<li><a href="#tabs-8" class="tab-8">Средства для очищения кожи</a></li>
+						</ul>
+					</div>
+					
+					<!-- Содержимое табов -->
+					<div class="col-sm-9 hidden-480">
+						<div id="tabs-1" class="tab-item">
+							<img src="img/banner-pr.jpg" alt="product">
+						</div>
+						
+						<div id="tabs-2" class="tab-item">
+							<img src="img/banner-pr-2.jpg" alt="product">
+						</div>
+						
+						<div id="tabs-3" class="tab-item">
+							<img src="img/banner-pr.jpg" alt="product">
+						</div>
+						
+						<div id="tabs-4" class="tab-item">
+							<img src="img/banner-pr-2.jpg" alt="product">
+						</div>
+						
+						<div id="tabs-5" class="tab-item">
+							<img src="img/banner-pr.jpg" alt="product">
+						</div>
+						
+						<div id="tabs-6" class="tab-item">
+							<img src="img/banner-pr-2.jpg" alt="product">
+						</div>
+						
+						<div id="tabs-7" class="tab-item">
+							<img src="img/banner-pr.jpg" alt="product">
+						</div>
+						
+						<div id="tabs-8" class="tab-item">
+							<img src="img/banner-pr-2.jpg" alt="product">
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- Содержимое выпадающего меню ТАБЫ END-->
+	</header>
+
+	<!-- Первая секция -->
+	<section class="sect_1">
+		<div class="container">
+			<div class="row">
+
+				<!-- Первый Итем -->
+				<div class="col-xs-6 col-sm-3">
+					<div class="item-info">
+						<div class="img-wrap">
+							<img src="img/quality-ic.png" alt="quality">
+						</div>
+						<h3>Европейское<br><span>качество</span></h3>
+					</div>
+				</div>
+
+				<!-- Второй Итем -->
+				<div class="col-xs-6 col-sm-3">
+					<div class="item-info">
+						<div class="img-wrap">
+							<img src="img/shipping-ic.png" alt="shipping">
+						</div>
+						<h3>Быстрая<br><span>доставка</span></h3>
+					</div>
+				</div>
+
+				<!-- Третий Итем -->
+				<div class="col-xs-6 col-sm-3">
+					<div class="item-info">
+						<div class="img-wrap">
+							<img src="img/consultation-ic.png" alt="consultation">
+						</div>
+						<h3>Консультация<br><span>профессионала</span></h3>
+					</div>
+				</div>
+
+				<!-- Четвертый Итем -->
+				<div class="col-xs-6 col-sm-3">
+					<div class="item-info">
+						<div class="img-wrap">
+							<img src="img/discounts-ic.png" alt="discounts">
+						</div>
+						<h3>Система<br><span>скидок</span></h3>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- Вторая секция -->
+	<section class="sect_2">
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2><span>популярные</span><br> товары</h2>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				
+				<div class="col-md-5">
+					<div class="row">
+
+						<!-- Первый продукт -->
+						<div class="col-md-12">
+							<div class="product-item clearfix">
+								<div class="img-wrap">
+									<img src="img/product-1.jpg" class="img-responsive" alt="product-1">
+								</div>
+
+								<div class="product-info">
+									<span class="price">250,00 грн</span>
+									<h4>Гель-Дезинкрустант для раскрытия пор (ph 9), 250 мл</h4>
+									<div class="button-wrap">
+										<a href="#" class="buttons fancybox">купить</a>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						
+						<!-- Второй продукт -->
+						<div class="col-md-12">
+							<div class="product-item clearfix">
+								<div class="img-wrap">
+									<img src="img/product-2.jpg" class="img-responsive" alt="product-2">
+								</div>
+
+								<div class="product-info">
+									<span class="price">50,00 грн</span>
+									<h4>Маска с anti-age эффектом Томат + глюкоза, 25 г</h4>
+									<div class="button-wrap">
+										<a href="#" class="buttons fancybox">купить</a>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+				
+				<!-- Третий продукт -->
+				<div class="col-md-7">
+					<div class="product-item big-pr clearfix">
+						<div class="img-wrap">
+							<img src="img/product-3.jpg" class="img-responsive" alt="product-3">
+						</div>
+
+						<div class="product-info">
+							<span class="price">150,00 грн</span><br>
+							<span class="old-price"><s>175,00 грн</s></span>
+							<h4>Фитогель 911 от Акне и Комедонов<br>(ph 5,5), 150 мл</h4>
+							<div class="button-wrap">
+								<a href="#" class="buttons fancybox">купить</a>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="all-prod">
+						<a href="#">Вся продукция</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+	
+	<!-- Третья секция -->
+	<section class="sect_3">
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2><span>cтатьи</span></h2>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Карусель со статьями -->
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="slider article">
+
+						<div class="slide">
+							<h3>Влияние солнца на кожу в зимний период.</h3>
+							<div class="img-wrap">
+								<img src="img/slide-item.jpg" class="img-responsive" alt="slide-img">
+							</div>
+							<span class="date">20/12/2015</span>
+							<p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях.</p>
+							<div class="read">
+								<a href="#">Читать</a>
+							</div>
+						</div>
+
+						<div class="slide">
+							<h3>Влияние солнца на кожу в зимний период.</h3>
+							<div class="img-wrap">
+								<img src="img/slide-item.jpg" class="img-responsive" alt="slide-img">
+							</div>
+							<span class="date">20/12/2015</span>
+							<p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях.</p>
+							<div class="read">
+								<a href="#">Читать</a>
+							</div>
+						</div>
+
+						<div class="slide">
+							<h3>Влияние солнца на кожу в зимний период.</h3>
+							<div class="img-wrap">
+								<img src="img/slide-item.jpg" class="img-responsive" alt="slide-img">
+							</div>
+							<span class="date">20/12/2015</span>
+							<p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях.</p>
+							<div class="read">
+								<a href="#">Читать</a>
+							</div>
+						</div>
+
+						<div class="slide">
+							<h3>Влияние солнца на кожу в зимний период.</h3>
+							<div class="img-wrap">
+								<img src="img/slide-item.jpg" class="img-responsive" alt="slide-img">
+							</div>
+							<span class="date">20/12/2015</span>
+							<p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях.</p>
+							<div class="read">
+								<a href="#">Читать</a>
+							</div>
+						</div>
+
+						<div class="slide">
+							<h3>Влияние солнца на кожу в зимний период.</h3>
+							<div class="img-wrap">
+								<img src="img/slide-item.jpg" class="img-responsive" alt="slide-img">
+							</div>
+							<span class="date">20/12/2015</span>
+							<p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях.</p>
+							<div class="read">
+								<a href="#">Читать</a>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+	<!-- Четвертая секция -->
+	<section class="sect_4">
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2><span>отзывы</span></h2>
+				</div>
+			</div>
+		</div>
+
+		<!-- Слайдер - Отзывы -->
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="slider reviews">
+
+						<div class="slide clearfix">
+							<div class="img-wrap">
+								<img src="img/review.jpg" class="img-responsive" alt="review">
+							</div>
+
+							<div class="review-text">
+								<h3>Катрин Соколова</h3>
+								<p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезызвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.</p>
+								
+								<div class="read">
+									<a href="#">Читать полностью</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="slide clearfix">
+							<div class="img-wrap">
+								<img src="img/review.jpg" class="img-responsive" alt="review">
+							</div>
+
+							<div class="review-text">
+								<h3>Катрин Соколова</h3>
+								<p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезызвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.</p>
+								
+								<div class="all-prod">
+									<a href="#">Читать полностью</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="slide clearfix">
+							<div class="img-wrap">
+								<img src="img/review.jpg" class="img-responsive" alt="review">
+							</div>
+
+							<div class="review-text">
+								<h3>Катрин Соколова</h3>
+								<p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезызвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.</p>
+								
+								<div class="all-prod">
+									<a href="#">Читать полностью</a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+	<!-- Пятая секция -->
+	<section class="sect_5">
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<div class="loyalty">
+						<h1>Программа лояльности</h1>
+						<h3>Покупай больше — плати меньше!</h3>
+						<span class="discount">Скидки до — 15%</span>
+						<div class="button-wrap">
+							<a href="#" class="buttons fancybox">Мне интересно</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+	<!-- Шестая секция -->
+	<section class="sect_6">
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2><span><strong>Seo ЗагаловоК</strong></span><br>для главной страницы</h2>
+
+					<p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезызвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия. о своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых клиентов недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповторимый колорит советских времен.</p>
+
+					<div class="all-prod">
+						<a href="#">Еще</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Седьмая секция -->
+	<section class="sect_7 contacts">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-xs-12 col-lg-5">
+					<a href="#" class="mail">Green@GreenPharmCosmetic.com</a>
+				</div>
+
+				<div class="col-xs-12 col-lg-4 col-lg-push-3">
+					<div class="button-wrap">
+						<a href="#" class="buttons fancybox">Перезвоните мне</a>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-lg-3 col-lg-pull-4">
+					<span class="phone">(057)75-87-500</span>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- Футер -->
+	<footer class="footer">
+		<div class="top-f">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-sm-4 col-md-5">
+						<div class="f-info">
+							<h3>Информация</h3>
+							<ul>
+								<li><a href="#">О компании</a></li>
+								<li><a href="#">Оплата и доставка</a></li>
+								<li><a href="#">Контрактное производство</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-sm-4 col-md-4">
+						<div class="f-clients">
+							<h3>Для клиента</h3>
+							<ul>
+								<li><a href="#">Контакты</a></li>
+								<li><a href="#">Карта сайта</a></li>
+								<li><a href="#">Статьи</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-sm-4 col-md-3">
+						<div class="f-soc">
+							<h3>Ищите нас в</h3>
+							<ul class="soc-ic">
+								<li><a class="fb" href="#">&nbsp;</a></li>
+								<li><a class="vk" href="#">&nbsp;</a></li>
+								<li><a class="gp" href="#">&nbsp;</a></li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="f-bottom_line">
+			<p>Разработка сайта в харькове — <span>ClickRoom</span></p>
+		</div>
+
+	</footer>
+
+	<!--[if lt IE 9]>
+	<script src="libs/html5shiv/es5-shim.min.js"></script>
+	<script src="libs/html5shiv/html5shiv.min.js"></script>
+	<script src="libs/html5shiv/html5shiv-printshiv.min.js"></script>
+	<script src="libs/respond/respond.min.js"></script>
+	<![endif]-->
+	
+	<script src="libs/jquery/jquery-1.11.2.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="libs/owl.carousel.2.0.0-beta.2.4/owl.carousel.min.js"></script>
+	<script src="libs/plugins-scroll/plugins-scroll.js"></script>
+	<script src="libs/fancybox/jquery.fancybox.pack.js"></script>
+	
+	<script>
+		// Ссылки в табах
+		$(".tab-1").click(function() {
+			window.open('#', '_self');
+		});
+		$(".tab-2").click(function() {
+			window.open('#', '_self');
+		});
+		$(".tab-3").click(function() {
+			window.open('#', '_self');
+		});
+		$(".tab-4").click(function() {
+			window.open('#', '_self');
+		});
+		$(".tab-5").click(function() {
+			window.open('#', '_self');
+		});
+		$(".tab-6").click(function() {
+			window.open('#', '_self');
+		});
+		$(".tab-7").click(function() {
+			window.open('#', '_self');
+		});
+		$(".tab-8").click(function() {
+			window.open('#', '_self');
+		});		
+
+	</script>
+
+	<script src="js/common.js"></script>
+
+</body>
+</html>

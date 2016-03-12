@@ -1,0 +1,97 @@
+ol, ul
+	list-style: none
+* 
+	margin: 0
+	padding: 0
+	outline: none
+	box-sizing: border-box
+
+
+/* ПЕРЕМЕННЫЕ СТИЛИ */
+.before
+	content:''
+	width: 100%
+	height: 100%
+	position: absolute
+.after
+	content:''
+	position: absolute
+	width: 100%
+	height: 100%
+
+// Переменные, Цвета
+$title-color: #2d3033
+$main-color: #e84545
+$text-color: #6c7279
+
+
+/* Заголовки */
+h1
+	margin: 0
+	font-family: "OpenSansBold", $helvetica
+	text-transform: uppercase
+	font-size: 65px
+	line-height: 71px
+	color: #fff
+
+h2
+	font-family: "RalewayBold", $helvetica
+	font-size: 22px
+	color: $title-color
+
+h3
+	font-family: "RalewayBold", $helvetica
+	font-size: 14px
+	text-transform: uppercase
+	color: $title-color
+
+h4
+	font-family: "RalewayLight", $helvetica
+	font-size: 13px
+	text-transform: uppercase
+	color: #e84545
+
+
+body
+	position: relative
+	min-width: 320px
+	font-family: "RalewayRegular", sans-serif
+	font-size: 14px
+	line-height: 1.5
+	font-weight: normal
+	color: $text-color
+	-webkit-font-smoothing: antialiased
+
+.hidden
+	display: none
+
+
+/* Свойства Кнопки */
+.button-wrap
+	text-align: center
+.buttons
+	display: inline-block
+	padding: 12px 55px
+	height: 45px
+	border: none
+	background-color: $main-color
+	font-family: "RalewaySemiBold", $helvetica
+	font-size: 13px
+	line-height: 21px
+	text-transform: uppercase
+	color: #fff
+	transition: all .25s ease
+	text-decoration: none
+	box-shadow: 1px 1px 1px rgba(0,0,0, .25)
+	text-shadow: 0 1px 0 rgba(0,0,0, .5)
+	&:hover
+		background-color: #ea6c6c
+		color: #fff
+		text-decoration: none
+	&:active
+		color: #fff
+		text-decoration: none
+		background-color: #983636
+	&:focus
+		color: #fff
+		text-decoration: none

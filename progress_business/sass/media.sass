@@ -1,0 +1,220 @@
+/*==========  Desktop First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px)
+	/**/
+
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px)
+	.top_line
+		padding-bottom: 0
+	.top-mnu
+		text-align: center
+		display: none
+		li
+			display: block
+			margin-left: 0
+			margin-bottom: 20px
+			border-bottom: 1px solid #181717
+			width: 48%
+			float: left
+			&:nth-child(2n)
+				margin-left: 4%
+
+			a
+				padding-bottom: 0
+				padding-left: 60px
+				text-align: left
+				background-position: 8px 4px
+			&:nth-child(2)
+				a
+					background-position: 8px -173px
+			&:nth-child(3)
+				a
+					background-position: 8px -313px
+			&:nth-child(4)
+				a
+					background-position: 8px -444px
+			&:nth-child(5)
+				margin-bottom: 0
+				a
+					background-position: 8px -604px
+
+	.logo-wrap
+		margin-bottom: 0
+		text-align: center
+		h1
+			line-height: 50px
+		span
+			line-height: 90px
+
+	.slider-wrap
+		.owl-dots
+			bottom: 10px
+
+	.business-info
+		padding-bottom: 10px
+	.item-wrap
+		margin-bottom: 30px
+		h3
+			line-height: 57px
+
+	.f-search 
+		input[type="text"]
+			padding-left: 5px
+
+	.news-item
+		h3
+			font-size: 28px
+		&:nth-child(3)
+			h3
+				line-height: 28px
+
+	.cont-form
+		padding-right: 0
+		
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px)
+	
+	/*Disable Animation on Mobile Devices*/
+	.animated
+		/*CSS transitions*/
+		-o-transition-property: none !important
+		-moz-transition-property: none !important
+		-ms-transition-property: none !important
+		-webkit-transition-property: none !important
+		transition-property: none !important
+		/*CSS transforms*/
+		-o-transform: none !important
+		-moz-transform: none !important
+		-ms-transform: none !important
+		-webkit-transform: none !important
+		transform: none !important
+		/*CSS animations*/
+		-webkit-animation: none !important
+		-moz-animation: none !important
+		-o-animation: none !important
+		-ms-animation: none !important
+		animation: none !important
+
+
+	.slider-wrap
+		.owl-dots
+			height: 10px
+			.owl-dot
+				height: 10px
+				width: 10px
+
+	.f-item
+		margin-left: 50px
+		margin-right: 50px
+		margin-bottom: 40px
+		li
+			width: 100% !important
+			max-width: 100% !important
+	.f-search
+		margin-bottom: 0
+
+	.f-top
+		display: none
+		padding-top: 20px
+		padding-bottom: 0
+
+	.f-bottom
+		padding-top: 60px
+
+	.news-item
+		h3
+			line-height: 28px
+			height: auto
+			a
+				min-height: 55px
+
+	.services
+		padding-bottom: 0
+		h2
+			font-size: 32px
+			padding-bottom: 10px
+		.service-item
+			margin-bottom: 50px
+
+	.products
+		padding-top: 25px
+
+	.text-mess
+		textarea
+			width: 100%
+			min-height: 175px	
+
+	.contacts
+		.f-item
+			margin-left: 0
+	.main-form
+		label
+			margin-bottom: 20px
+			input
+				width: 71.66%
+	.cont-form
+		margin-bottom: 40px
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+	.item-wrap
+		h3
+			line-height: 1em
+	.f-item
+		margin-left: 20px
+		margin-right: 20px
+
+	.news
+		padding-top: 30px
+		.img-wrap
+			max-width: 100%
+			float: none
+			margin-right: 20px
+
+	.main-form
+		label
+			input
+				width: 100%
+
+	.text-mess
+		textarea
+			margin-bottom: 0
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px)
+	/**/
+
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px)
+	/**/
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px)
+	/**/
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px)
+	.f-top
+		display: block !important
+
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px)
+	.top-mnu
+		display: block !important
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px)
+	/**/
+

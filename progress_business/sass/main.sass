@@ -1,0 +1,514 @@
+@import "bourbon/bourbon"
+@import "_var"
+
+/* Голова сайта */
+.top_line
+	padding-top: 20px
+	padding-bottom: 20px
+	min-height: 160px
+	background-image: url("../img/bg.jpg")
+
+.logo-wrap
+	a
+		color: inherit
+		text-decoration: none
+	span
+		display: inline-block
+		font-size: 35px
+		color: #666
+		text-transform: uppercase
+		font-family: "OpenSansCondensedLight", sans-serif
+		font-weight: bold
+		margin-top: -14px
+
+.top-mnu
+	text-align: right
+	padding-top: 15px
+	li
+		text-align: center
+		display: inline-block
+		margin-left: 45px
+		&:first-child
+			margin-left: 0
+		a
+			text-decoration: none
+			display: inline-block
+			padding-bottom: 45px
+			width: 100%
+			height: 100%
+			background-image: url("../img/bg-mnu.png")
+			background-repeat: no-repeat
+			background-position: center 58px
+			opacity: .5
+			transition: all .25s ease
+			&:hover
+				opacity: 1
+				h3
+					color: $main-color
+				span
+					color: #bbb
+		&.actived
+			a
+				opacity: 1
+				h3
+					color: $main-color
+				span
+					color: #bbb
+		&:nth-child(2)
+			a
+				background-position: center -118px
+		&:nth-child(3)
+			a
+				background-position: center -259px
+		&:nth-child(4)
+			a
+				background-position: center -390px
+		&:nth-child(5)
+			a
+				background-position: center -546px
+
+		h3
+			font-size: 21px
+			text-transform: uppercase
+			color: #fff
+			font-family: "OpenSansCondensedLight", sans-serif
+			font-weight: bold
+		span
+			font-size: 14px
+			text-transform: uppercase
+			color: #666
+			font-family: "OpenSansCondensedLight", sans-serif
+			font-weight: bold
+
+
+.slider-wrap
+	background-image: url("../img/bg-slider.jpg")
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: center
+	.owl-dots
+		position: absolute
+		left: 0
+		bottom: 50px
+		height: 16px
+		width: 100%
+		text-align: center
+		.owl-dot
+			display: inline-block
+			height: 16px
+			width: 16px
+			background-color: #fff
+			border-radius: 50%
+			margin-right: 4px
+			box-shadow: inset 1px 1px 1px #c7cbc2
+			&.active
+				background-color: #000
+				box-shadow: none
+
+/* Основной контент */
+.business-info
+	padding-top: 50px
+	padding-bottom: 40px
+.item-wrap
+	h3
+		margin-bottom: 20px
+		font-style: normal
+		height: 57px
+		a
+			display: inline-block
+			height: 100%
+			padding-left: 70px
+			color: inherit
+			text-decoration: none
+			background-image: url("../img/busines-bg.png")
+			background-repeat: no-repeat
+		.bsn-pl
+			background-position: left top
+		.bsn-str
+			background-position: left -240px
+		.pow-an
+			background-position: left -480px
+		.world-sol
+			background-position: left -720px
+
+	p
+		margin-bottom: 17px
+		letter-spacing: 1px
+		a
+			color: inherit
+			text-decoration: underline
+			&:hover
+				text-decoration: none
+.read-more
+	text-decoration: underline
+	color: $main-color !important
+	font-style: normal
+	&:hover
+		text-decoration: none
+
+.visitors
+	padding-bottom: 45px
+	h2
+		width: 97%
+		margin-bottom: 25px
+		padding-bottom: 15px
+		border-bottom: 1px solid #e5e5e5
+		letter-spacing: -2px
+	p
+		letter-spacing: .5px
+		margin-bottom: 15px
+
+
+.img-wrap
+	width: 100%
+	height: auto
+	img
+		display: inline-block
+		width: 100%
+		height: auto
+
+.flexslider
+	position: relative
+
+.testimonials
+	h2
+		margin: 0
+		
+		border-bottom: none
+
+	.flex-control-thumbs
+		display: none
+	.flex-viewport
+		position: relative
+		p
+			position: relative
+			padding: 28px 18px 30px 30px 
+			color: #000
+			font-weight: 100
+			background-color: #f5f5f5
+			margin-bottom: 25px
+			&::after
+				@extend .after
+				left: 30px
+				bottom: -21px
+				width: 21px
+				height: 21px
+				background-image: url("../img/flexslider-p-after.png")
+		.resp-info
+			font-weight: normal
+		.respondent
+			margin-bottom: 8px
+		
+	.flex-direction-nav
+		text-align: right
+		position: absolute
+		bottom: 0
+		right: 0
+		.flex-nav-prev, .flex-nav-next 
+			display: inline-block
+			.flex-prev, .flex-next
+				display: inline-block
+				height: 32px
+				width: 32px
+				background-image: url("../img/flexslider-nav.png")
+				opacity: .6
+				transition: all .5s ease
+				&:hover
+					opacity: 1
+			.flex-next
+				margin-left: 1px
+				background-position: 33px 0
+
+/* Футер */
+footer
+	position: relative
+
+.toggle-mnu-f
+	position: absolute
+	top: 5px
+	right: 15px
+
+
+
+.f-bottom
+	text-align: center
+	background-color: #000
+	min-height: 115px
+	padding-top: 38px
+	p
+		font-style: normal
+		a
+			text-decoration: underline
+			color: #fff
+			&:hover
+				text-decoration: none
+
+
+.f-top
+	position: relative
+	background-image: url("../img/bg.jpg")
+	padding: 45px 0
+
+.f-item
+	h3
+		color: #fff
+		margin-bottom: 20px
+	li
+		letter-spacing: -.1px
+		list-style-image: url("../img/f-list-style.png")
+		height: 30px
+		max-width: 185px
+		border-bottom: 1px solid #252525
+		&:first-child
+			border-top: 1px solid #252525
+		a
+			display: inline-block
+			padding-top: 4px
+			padding-left: 5px
+			height: 100%
+			width: 100%
+			color: inherit
+
+.addr
+	li
+		padding-top: 4px
+		max-width: 200px
+		list-style-image: none
+		.title-inf
+			display: inline-block
+			width: 30%
+		.descr
+			display: inline-block
+			width: 70%
+			a
+				padding: 0
+				color: #fff
+
+.f-social
+	li
+		border: none !important
+		max-width: 200px
+		padding-left: 25px
+		list-style-image: none
+		background-image: url("../img/f-soc-set.png")
+		background-repeat: no-repeat
+		background-position: left 6px
+		&:nth-child(2)
+			background-position: left -52px
+		&:nth-child(3)
+			background-position: left -124px
+		&:nth-child(4)
+			background-position: left -185px
+
+		a
+			border-bottom: 1px solid #252525
+			&:first-child
+				border-top: 1px solid #252525
+
+/* Поиск */
+.f-search
+	position: relative
+	input
+		&[type="text"]
+			padding: 2px 0 0 20px
+			display: block
+			background: #fff	
+			height: 30px
+			width: 100%
+			margin-bottom: 10px
+			&::-webkit-input-placeholder
+				font-family: "Trebuchet-MS", sans-serif
+				font-style: italic
+				color: $text-color
+			&::-moz-placeholder
+				font-family: "Trebuchet-MS", sans-serif
+				font-style: italic
+				color: $text-color
+		&[type="submit"]
+			padding: 10px 15px
+			height: 32px
+			line-height: 1em
+			border: none
+			color: #000
+			font-weight: bold
+			background: #fff
+			cursor: pointer
+
+.btn-wrap
+	text-align: right
+/** Поиск **/
+
+
+/*=============================== Страница NEWS ===============================*/
+.h-divider
+	height: 20px
+	background-image: url("../img/bg-top-divide.jpg")
+	background-position: center
+	background-size: cover
+
+.news
+	padding-top: 40px
+	padding-bottom: 60px
+	.img-wrap
+		max-width: 180px
+		float: left
+		margin-right: 20px
+
+.news-item
+	margin-bottom: 40px
+	h3
+		font-size: 32px
+		line-height: 56px
+		letter-spacing: -2.5px
+		a
+			background-image: url("../img/news-bg.png")
+	&:nth-child(2)
+		h3
+			a
+				background-position: left -182px
+	&:nth-child(3)
+		h3
+			a
+				background-position: left -413px
+	p
+		margin-bottom: 12px
+		letter-spacing: .1px
+
+.pagination
+	text-align: center
+	li
+		display: inline-block
+		margin-right: -4px
+		width: 32px
+		height: 32px
+		background-color: #60b000
+		transition: all .25s ease
+		a
+			display: inline-block
+			width: 100%
+			height: 100%
+			line-height: 34px
+			font-family: "OpenSansSemiBold", $helvetica
+			font-size: 20px
+			color: #fff
+			text-decoration: none
+		&:hover,
+		&.actived
+			background-color: #696969
+
+/*=============================== Страница SERVICES ===============================*/
+.services
+	padding-top: 50px
+	padding-bottom: 20px
+	h2
+		margin-bottom: 30px
+		padding-bottom: 15px
+		border-bottom: 1px solid #e5e5e5
+
+.service-item
+	margin-bottom: 35px
+	h3
+		font-size: 21px
+		margin-bottom: 10px
+	p
+		padding-right: 30px
+		letter-spacing: .1px
+		margin-left: 80px
+	.img-wrap
+		max-width: 60px
+		float: left
+		margin-right: 20px
+
+/*=============================== Страница PRODUCTS ===============================*/
+.products
+	padding-top: 50px
+
+.product-item
+	margin-bottom: 50px
+	padding-right: 30px
+	h3
+		height: auto
+		span
+			display: inline-block
+			margin-right: 10px
+			text-align: center
+			vertical-align: middle
+			background-color: #60b000
+			height: 55px
+			width: 55px
+			border-radius: 50%
+			font-size: 40px
+			font-family: "OpenSansRegular", $helvetica
+			line-height: 54px
+			color: #fff
+	p
+		margin-bottom: 10px
+		letter-spacing: .1px
+
+/*=============================== Страница CONTACTS ===============================*/
+.contacts
+	padding-top: 45px
+	padding-bottom: 55px
+	h2
+		padding-bottom: 15px
+		margin-bottom: 20px
+		border-bottom: 1px solid #e5e5e5
+	p
+		letter-spacing: .2px
+	.f-item
+		margin-bottom: 45px
+		li
+			padding: 0
+			border: none
+			max-width: 100%
+			height: auto
+			font-style: italic
+			font-weight: 100
+			line-height: 25px
+			.title-inf
+				width: 35%
+				color: #000
+			.descr
+				width: 65%
+				color: #696969
+			a
+				color: #60b000
+				text-decoration: underline
+				&:hover
+					text-decoration: none
+
+.cont-form
+	padding-right: 30px
+
+.main-form
+	font-style: italic
+	color: #696969
+	label
+		display: block
+		margin-bottom: 5px
+		span
+			display: inline-block
+			min-width: 110px
+			width: 17%
+			letter-spacing: .5px
+		input
+			width: 40%
+			height: 27px
+			border: 1px solid #e5e5e5
+
+	.button-wrap
+		text-align: right
+		font-style: normal
+	.buttons
+		margin-left: 10px
+
+.text-mess
+	span
+		vertical-align: top
+	textarea
+		margin-bottom: 10px
+		width: 82%
+		resize: none
+		min-height: 275px	
+		border: 1px solid #e5e5e5
+

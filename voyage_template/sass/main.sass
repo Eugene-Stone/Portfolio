@@ -1,0 +1,672 @@
+@import "bourbon/bourbon"
+@import "fonts"
+@import "_var"
+
+/* Header */
+.top_line
+	background-color: #2c3e50
+	min-height: 40px
+	color: #fff
+	a
+		font-family: "RobotoLight", sans-serif
+		color: inherit
+		font-size: 15px
+		text-decoration: none
+		line-height: 0
+		i
+			font-size: 16px
+	li
+		float: left
+		padding: 11px 15px
+		border-right: 1px solid #17202a
+		border-left: 1px solid #374d63
+
+.top_links
+	float: left
+	span
+		color: $main-color
+	li:first-child
+		border-left: none
+
+.top_social
+	float: right
+	li
+		padding: 0
+		a
+			display: inline-block
+			width: 100%
+			height: 100%
+			padding: 12px 15px 10px
+		&:first-child
+			border-left: 1px solid #17202a
+
+.midline
+	padding: 17px 0 13px
+	.logo_wrap
+		float: left
+		padding: 15px 0
+
+.top_nav
+	float: right
+	li
+		float: left
+		margin-right: 37px
+		padding: 20px 0
+		a
+			font-family: "RobotoMedium", sans-serif
+			text-decoration: none
+			text-transform: uppercase
+			color: #5d6e80
+			transition: all .3s ease
+		&.actived
+			a
+				color: $main-color
+		&:hover
+			a
+				color: $main-color
+
+.search_box
+	position: relative
+	margin: 0 !important
+	margin-top: 8px !important
+	padding: 6px !important
+	padding-left: 8px !important
+	font-size: 20px
+	line-height: 20px
+	color: $title-color
+	height: 40px
+	width: 40px
+	border-radius: 50%
+	border: 3px solid $title-color
+	cursor: pointer
+	transition: all .5s ease
+	&:hover
+		border-color: #3f6891
+		color: #3f6891
+	> i
+		position: relative
+		z-index: 1
+
+.top_search
+	position: absolute
+	top: -3px
+	right: -4px
+	input
+		&[type="submit"]
+			position: absolute
+			top: 0
+			right: 0
+			height: 40px
+			width: 40px
+			border-radius: 50%
+			border: 3px solid $title-color
+			cursor: pointer
+			transition: all .5s ease
+			background-color: transparent
+			&:hover
+				border-color: #3f6891
+
+		&[type="search"]
+			width: 40px
+			height: 40px
+			border: 3px solid $title-color
+			border-radius: 10em
+			outline: none
+			padding-left: 15px
+			padding-right: 50px
+			padding-top: 0
+			transition: all .7s ease
+			font-size: 20px
+			line-height: 20px
+			color: #8a8a8a
+			opacity: 0
+	&.visible
+		input
+			&[type="search"]
+				opacity: 1
+				width: 300px
+			&[type="submit"]
+				z-index: 2
+
+
+/* Top Banner */
+.main_head
+	.slide
+		&::after
+			@extend .after
+			top: 0
+			left: 0
+			background-color: rgba(44,62,80,.80)
+	.title-wrap
+		position: absolute
+		width: 100%
+		z-index: 2
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+		text-align: center
+		.btn-transparent
+			margin-left: 30px
+		h1
+			margin-bottom: 25px
+		h2
+			margin-bottom: 50px
+			text-transform: none
+			color: #fff
+	.owl-nav
+		position: absolute
+		top: 50%
+		left: 0
+		width: 100%
+		height: 80px
+		transform: translateY(-50%)
+				
+		.owl-prev,
+		.owl-next
+			position: absolute
+			left: 0
+			top: 0
+			width: 80px
+			height: 100%
+			background-color: rgba(255,255,255,.2)
+			background-image: url("../img/top_banner_arr.png")
+			background-repeat: no-repeat
+			background-position: 15px center
+			transition:  background-color .25s ease
+			&:hover
+				background-color: $main-color
+		.owl-next
+			left: auto
+			right: 0
+			background-position: -274px center
+
+/* Bottom_Head */
+.bottom_head
+	min-height: 100px
+	background-color: $title-color
+	border-top: 1px solid #374a5d
+
+.title_form
+	position: relative
+	display: inline-block
+	padding: 30px 0
+	margin-right: 40px
+	padding-right: 35px
+	height: 100%
+	// border-right: 1px solid #374a5d
+	&::after
+		@extend .after
+		right: -7px
+		top: 0
+		width: 8px
+		background-image: url("../img/title_form-after.png")
+		background-repeat: no-repeat
+		background-size: auto 100%
+	h3
+		text-transform: uppercase
+		color: #fff
+	h4
+		margin-bottom: 10px
+		text-transform: uppercase
+	
+.holidays
+	// white-space: nowrap
+	label
+		position: relative
+		display: inline-block
+		vertical-align: top
+		//padding: 30px 0
+		margin-top: 30px
+		margin-right: 29px
+		&:last-child
+			margin-right: 0
+		span
+			display: inline-block
+			margin-right: 24px
+			font-family: "RobotoLight", sans-serif
+			font-size: 22px
+			color: #9fb0c0
+		input
+			&[type="text"]
+				padding-left: 10px
+				padding-right: 55px
+				border: none
+				box-shadow: inset 0 0 0 1px  #19242e
+				//width: 100%
+				max-width: 320px
+				height: 47px
+				font-size: 20px
+				color: #8a8a8a
+	.search_btn
+		.buttons
+			height: 47px
+			padding-top: 20px
+			padding-bottom: 21px
+			font-family: "RobotoRegular", $helvetica
+			text-transform: none
+			font-weight: normal
+			border-radius: 0
+
+/* Datepicker */
+.when
+	.ui-datepicker-trigger
+		position: absolute
+		right: 15px
+		top: 12px
+		cursor: pointer
+
+.where
+	input
+		background-image: url("../img/destination.png")
+		background-repeat: no-repeat
+		background-position: right 15px center
+
+/* Special Offers */
+.sect_1
+	padding-top: 85px
+
+.title_wrap
+	margin-bottom: 60px
+	text-align: center
+	h2
+		margin-bottom: 15px
+	p
+		font-size: 16px
+		color: #626262
+
+.sky-carousel
+	background-color: transparent
+	border: none
+	height: 465px
+	.sc-nav-button
+		display: none
+	.spec-item
+		position: relative
+		border: 5px solid #eee
+		border-radius: 5px
+		background-color: #eee
+		background-image: url("../img/spec-item-bg-arr.png")
+		background-repeat: no-repeat
+		background-position: right 20px bottom -165px
+		transition: all .7s ease
+		cursor: pointer
+		.img-wrap
+			margin-bottom: 10px
+			width: 100%
+			max-width: 265px
+			height: auto
+			max-height: 195px
+			overflow: hidden
+			transition: all .7s ease
+	.descr
+		padding-left: 20px
+		padding-bottom: 15px
+		transition: all .7s ease
+		h5
+			margin-bottom: 5px
+		span
+			font-size: 14px
+			color: #626262
+
+.ext_descr
+	display: none
+
+.sc-selected
+	.spec-item
+		top: -30px
+		vertical-align: middle
+		background-color: #2c3e50
+		border-color: $main-color
+		background-position: right 20px bottom -63px
+		&:hover
+			border-color: transparent
+			background-color: #eee
+			border-radius: 0
+			background-image: none
+			transition: all .7s ease
+			.img-wrap
+				transform: scale(1.04)
+			.descr
+				h5
+					color: $title-color
+				span
+					color: #000
+			.ext_descr
+				display: block
+				background-image: url("../img/spec-item-active-bg-arr.png")
+				background-repeat: no-repeat
+				background-position: right 13px bottom 13px
+				transition: all .7s ease
+				li
+					position: static !important
+					display: block
+					margin-bottom: 7px
+					padding-left: 45px
+					height: 30px
+					background-image: url("../img/ext_descr-ic.png")
+					background-repeat: no-repeat
+					background-position: left 10px top 2px
+					&:nth-child(2)
+						background-position: left 10px center
+					&:nth-child(3)
+						background-position: left 10px bottom 4px
+					&:last-child
+						display: inline-block
+						padding-right: 25px
+						padding-left: 0
+						padding-top: 4px
+						margin-left: 10px
+						border-top: 1px dashed #a4a4a4
+						background-image: none
+					a
+						font-size: 16px
+						line-height: 30px
+						text-decoration: none
+						color: $title-color
+
+
+		.img-wrap
+			margin-bottom: 23px
+			min-height: 225px
+			max-height: 225px
+			img
+				min-height: 225px
+				width: auto
+		.descr
+			padding-bottom: 20px
+			h5
+				color: #fff
+			span
+				color: #8899a8
+
+/* Holidays Type */
+.sect_2
+	position: relative
+	padding: 75px 0
+	background-image: url("../img/bg-sect_2.jpg")
+	background-repeat: no-repeat
+	background-position: center
+	background-size: cover
+	&::after
+		@extend .after
+		top: 0
+		left: 0
+		background-color: rgba(44,62,80,.88)
+	.container
+		z-index: 1
+	.title_wrap
+		margin-bottom: 75px
+		h2
+			color: #fff
+		p
+			color: #9eafc0
+.holidays_wrap
+	text-align: center
+.holiday_item
+	margin-bottom: 50px
+	display: inline-block
+	width: 158px
+	text-align: center
+	&+&
+		margin-left: 3%
+	&:nth-child(2)
+		.hol-ic
+			background-position:  -195px 0
+	&:nth-child(3)
+		.hol-ic
+			background-position: 745px 0
+	&:nth-child(4)
+		.hol-ic
+			background-position: 550px 0
+	&:nth-child(5)
+		.hol-ic
+			background-position: 354px 0
+	&:nth-child(6)
+		.hol-ic
+			background-position: 159px 0
+	h4
+		transition: all .5s ease
+	&:hover,
+	&.actived
+		.hol-ic
+			background-image: url("../img/holideys-icon-set-active.png")
+		h4
+			color: $main-color
+.hol-ic
+	margin-bottom: 15px
+	display: inline-block
+	height: 158px
+	width: 158px
+	background-image: url("../img/holideys-icon-set.png")
+	transition: all .5s ease
+	a
+		display: inline-block
+		width: 100%
+		height: 100%
+		border-radius: 10em
+		text-decoration: none
+
+/* Happy Clients */
+.sect_3
+	padding-top: 65px
+	padding-bottom: 120px
+	.title_wrap
+		margin-bottom: 54px
+.customers
+	.slide
+		padding-bottom: 30px
+.rev_box
+	position: relative
+	padding: 20px 27px
+	border: 1px solid #dedede
+	max-width: 380px
+	opacity: .5
+	&::after
+		@extend .after
+		bottom: -24px
+		right: 15px
+		background-image: url("../img/preview-after.png")
+		background-repeat: no-repeat
+		width: 55px
+		height: 25px
+		//z-index: 9999
+	p
+		margin-bottom: 8px
+	h4
+		font-size: 18px
+		color: $main-color
+		a
+			color: inherit
+			text-decoration: none
+	.whence
+		font-size: 13px
+		color: #b2b2b2
+
+.owl-item.active.center
+	.rev_box
+		opacity: 1
+		box-shadow: inset 0 5px 0 0 $main-color
+
+/* Footer */
+.footer
+	background-color: $title-color
+
+.top_footer
+	padding: 60px 0
+	border-bottom: 1px solid #394c5f
+
+.f_item
+	@extend .box_25, .box_left
+	h3
+		margin-bottom: 15px
+	.descr_box
+		max-width: 225px
+		p
+			margin-bottom: 20px
+			color: #fff
+			font-size: 13px
+			font-weight: normal
+
+.f-search
+	position: relative
+	display: inline-block
+
+	::-webkit-input-placeholder
+		font-size: 13px !important
+		color: #8a8a8a
+		opacity: 1
+
+	:-moz-placeholder
+		font-size: 13px !important
+		color: #8a8a8a
+		opacity: 1
+
+	::-moz-placeholder
+		font-size: 13px !important
+		color: #8a8a8a
+		opacity: 1
+
+	:-ms-input-placeholder
+		font-size: 13px !important
+		color: #8a8a8a
+		opacity: 1
+
+	input
+		&[type="search"]
+			width: 100%
+			max-width: 150px
+			height: 33px
+			border: 1px solid #19242e
+			outline: none
+			border-radius: 2px
+			padding-left: 10px
+			font-size: 13px
+
+		&[type="submit"]
+			position: absolute
+			border: none
+			outline: none
+			top: 0
+			right: -55px
+			width: 49px
+			height: 33px
+			cursor: pointer
+			transition: all .5s ease
+			background-color: transparent
+			background-image: url("../img/f-btn-search.png")
+
+.news_item
+	margin-bottom: 22px
+	&:last-child
+		margin-bottom: 0
+	.img_wrap
+		position: relative
+		top: 5px
+		width: 35px
+		height: 35px
+		float: left
+		border: 5px solid transparent
+		outline: 1px solid #fff
+		img
+			width: 100%
+			height: auto
+	.news_info
+		margin-left: 50px
+		p
+			line-height: 22px
+			margin-bottom: 4px
+		a
+			color: #fff
+			text-decoration: none
+			font-size: 13px
+		span
+			a
+				color: $main-color
+				font-size: 12px
+
+.tags
+	padding-right: 40px
+	li
+		display: inline-block
+		border: 1px solid #fff
+		padding: 0 5px
+		margin-bottom: 5px
+		a
+			display: inline-block
+			line-height: 25px
+			text-decoration: none
+			font-size: 13px
+			color: #fff
+
+.address
+	.descr_box
+		p
+			font-size: 13px
+			line-height: 22px
+			margin-bottom: 5px
+		span
+			color: $main-color
+		a
+			font-size: 13px
+			color: #fff
+			text-decoration: none
+			&:hover
+				text-decoration: underline
+
+.f_social
+	margin-top: 20px
+	li
+		display: inline-block
+		margin-right: 30px
+		&:last-child
+			margin-right: 0
+		i
+			font-size: 25px
+
+
+.bottom_footer
+	position: relative
+	padding-top: 25px
+	padding-bottom: 80px
+	text-align: center
+
+.bottom_nav
+	margin-bottom: 15px
+	color: #fff
+	li
+		display: inline-block
+		margin-right: 5px
+		a
+			color: #fff
+			font-size: 15px
+			text-decoration: none
+			transition: all .25s ease
+		&:hover,
+		&.actived
+			a
+				color: $main-color
+.copy
+	font-size: 15px
+	color: #9dafc0
+
+.btn-top
+	position: absolute
+	bottom: 0
+	left: 50%
+	transform: translateX(-50%)
+	display: inline-block
+	height: 39px
+	width: 79px
+	background-image: url("../img/btn-top.png")
+	cursor: pointer
+	transition: all .5s ease
+	opacity: .8
+	&:hover
+		opacity: 1
+
+
+
+
+/* ============================================= Media Quaries ============================================= */
+
+@import "media"

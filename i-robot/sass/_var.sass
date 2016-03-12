@@ -1,0 +1,153 @@
+// Колесо загрузки страницы
+//html.js .loader
+//	background: none repeat scroll 0 0 #ffffff
+//	bottom: 0
+//	height: 100%
+//	left: 0
+//	position: fixed
+//	right: 0
+//	top: 0
+//	width: 100%
+//	z-index: 9999
+//	.loader_inner
+//		background-image: url("../img/preloader.gif")
+//		background-size: cover
+//		background-repeat: no-repeat
+//		background-position: center center
+//		background-color: #fff
+//		height: 60px
+//		width: 60px
+//		margin-top: -30px
+//		margin-left: -30px
+//		left: 50%
+//		top: 50%
+//		position: absolute
+// Колесо загрузки страницы END
+
+/* Плейсхолдер */
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+/* Плейсхолдер END*/
+
+
+/* ПЕРЕМЕННЫЕ СТИЛИ */
+.before
+	content:''
+	width: 100%
+	height: 100%
+	position: absolute
+	top: 0
+	left: 0
+.after
+	content:''
+	position: absolute
+	width: 100%
+	height: 100%
+	bottom: 0
+	left: 0
+
+// Переменные, Цвета
+$title-color: #262626 //Цвет заголовков
+$main-color: #4c9a22
+$text-color: #262626
+
+
+/* Заголовки */
+h1,h2,h3,h4,h5
+	text-align: center
+
+h1
+	font-family: "RalewayBlack", $helvetica
+	font-style: italic
+	font-size: 52px
+	line-height: 52px
+	color: $title-color
+
+h2
+	font-family: "RalewayBold", $helvetica
+	font-size: 26px
+	text-transform: uppercase
+	color: $title-color
+
+h3, h5
+	font-family: "RalewayBold", $helvetica
+	font-size: 24px
+	color: $title-color
+	text-transform: uppercase
+
+h4
+	font-family: "RalewayBold", $helvetica
+	font-size: 16px
+	text-transform: uppercase
+	color: $title-color
+
+h5
+	font-size: 21px
+
+
+
+body
+	position: relative
+	min-width: 320px
+	font-family: "RalewayRegular", sans-serif
+	font-size: 16px
+	line-height: 1.5
+	font-weight: normal
+	color: $text-color
+	-webkit-font-smoothing: antialiased
+	// overflow-x: hidden
+.hidden
+	display: none
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	/* Свойства писать здесь */
+	color: red
+body input:required:valid,
+body textarea:required:valid
+	/* Свойства писать здесь */
+	color: green
+
+
+
+/* Свойства Кнопки */
+.button-wrap
+	text-align: center
+.buttons
+	display: inline-block
+	padding: 11px 28px
+	height: 45px
+	border: none
+	background-color: $main-color
+	font-family: "RalewaySemiBold", $helvetica
+	font-size: 19px
+	line-height: 19px
+	color: #fff
+	transition: all .5s ease
+	text-decoration: none
+	box-shadow: 1px 1px 1px rgba(0,0,0, .25)
+	text-shadow: 0 1px 0 rgba(0,0,0, .5)
+	&:hover
+		background-color: #71b84a
+		color: #fff
+		text-decoration: none
+	&:active
+		color: #fff
+		text-decoration: none
+		background-color: #528735
+	&:focus
+		color: #fff
+		text-decoration: none

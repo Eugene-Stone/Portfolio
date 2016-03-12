@@ -1,0 +1,692 @@
+@import "bourbon/bourbon"
+@import "_var"
+
+/* КАСТОМНЫЕ СТИЛИ */
+
+/* Голова сайта */
+.header
+	margin-top: 10px
+	padding-bottom: 35px
+	background-image: url("../img/bg-head.jpg")
+	background-repeat: no-repeat
+	background-position: top center
+	background-size: cover
+//min-height: 600px
+.top-banner
+	margin-top: 40px
+	padding: 5px 0
+	background-color: $main-color
+	h3
+		color: #fff
+		span
+			display: inline-block
+			color: #d85129
+
+.action-top
+	white-space: nowrap
+
+.read-more
+	padding-top: 2px
+	position: relative
+	text-align: right
+	padding-right: 50px
+	.buttons
+		padding: 4px 15px
+		height: 26px
+		font-size: 14px
+		line-height: 14px
+		color: #fff
+		border-color: #fff
+	.close-banner
+		font-family: arial, sans-serif
+		font-weight: normal
+		font-size: 40px
+		line-height: 5px
+		top: 0
+		display: inline-block
+		position: absolute
+		right: 0
+		color: #c8d49e
+		cursor: pointer
+		transform: rotate(-45deg)
+		overflow: hidden
+		margin: 0
+		height: 25px
+		width: 25px
+		padding-top: 7px
+
+/* Верхняя панель */
+.top_line
+	min-height: 120px
+	overflow: hidden
+
+.box-wrap
+	padding-top: 40px
+
+.search-field
+	margin-bottom: 18px
+
+/* Поле поиска */
+.subscr
+	display: inline-block
+	position: relative
+	max-width: 180px
+	input
+		&[type="text"]
+			padding: 5px 5px 5px 25px
+			height: 27px
+			width: 100%
+			border: none
+			border-bottom: 1px solid #ffeeef      
+			background-color: transparent
+			font-family: "PoiretOneNormal", sans-serif
+			font-size: 16px
+			color: $text-color
+			font-weight: bold
+		&[type="submit"]
+			position: absolute
+			top: 5px
+			left: 0
+			height: 17px
+			width: 17px
+			border: none
+			cursor: pointer
+			background-color: transparent
+			background-image: url("../img/search-ic.png")
+			background-repeat: no-repeat
+			background-size: cover
+			background-position: center
+			transition: all .15s ease
+			&:active
+				transform: scale(1.03)
+
+.authorization
+	h3
+		a
+			text-decoration: none
+			color: #fff
+.logo-wrap
+	margin: auto
+	text-align: center
+	max-width: 105px
+	background-color: #fff
+	a
+		display: inline-block
+		position: relative
+		top: -5px
+
+/* Блок с телефоном */
+.phone-wrap
+	margin-bottom: 15px
+	padding-top: 40px
+	text-align: right
+	white-space: nowrap
+	.phone
+		display: inline-block
+		vertical-align: middle
+		font-size: 24px 
+		color: #040404
+		transform: translateX(-20px)
+
+	.buttons
+		vertical-align: middle
+		padding-left: 10px
+		padding-right: 10px
+		padding-top: 4px
+		height: 31px
+		border: 3px solid #f3efeb
+		color: #5a5a5a
+		&:active
+			transform: scale(1.03)
+
+/* Выбор языка */
+.language
+	text-align: right
+	span
+		text-transform: uppercase
+		padding: 5px
+		font-size: 14px
+		line-height: 14px
+		background-color: #eae0d8
+		color: #595959
+		cursor: pointer
+		&.active
+			background-color: transparent
+		&.divide
+			padding: 0
+			display: inline-block
+			vertical-align: middle
+			height: 30px
+			width: 1px
+			background-color: #fbfbfb
+
+/* Главное меню */
+.top_mnu
+	padding-top: 20px
+	min-height: 60px
+	background-color: rgba(235,211,207,.5)
+
+.tools
+	position: relative
+	text-align: center
+	color: #030303
+	.dropdown
+		cursor: pointer
+		display: inline-block
+		position: relative
+		transition: all 2s ease
+		&.on::after
+			@extend .after
+			left: 50%
+			transform: translateX(-50%)
+			bottom: -33px
+			width: 15px
+			height: 21px
+			background-image: url("../img/dropdown-arr.png")
+			background-repeat: no-repeat
+			z-index: 2
+
+/* Выпадающее меню */
+.products
+	min-height: 372px
+	display: none
+	width: 100%
+	padding: 20px 10px
+	text-align: left
+	background-color: #fff
+	border: 2px solid #a2a2a2
+	li
+		margin-bottom: 0
+		padding-bottom: 5px
+		a
+			display: inline-block
+			width: 100%
+			text-decoration: none
+			color: $text-color
+		&:hover
+			a
+				color: #676262
+	.title
+		position: relative
+		margin-bottom: 20px
+		color: #000
+		&::after
+			@extend .after
+			left: 0
+			bottom: -9px
+			height: 1px
+			width: 105px
+			background-color: $main-color
+
+/* Клавиша домой */
+.home-btn
+	display: inline-block
+	margin-top: -3px
+	width: 32px
+	height: 32px
+	background-image: url("../img/home-ic.png")
+	background-repeat: no-repeat
+	background-position: center
+	background-size: cover
+	text-decoration: none
+	&:hover
+		text-decoration: none
+
+/* Корзина покупок */
+.basket
+	position: relative
+	top: -11px
+	display: inline-block
+	padding-left: 7px
+	text-align: center
+	color: #365a0c
+	text-decoration: none
+	height: 45px
+	width: 30px
+	background-image: url("../img/basket-ic.png")
+	background-repeat: no-repeat
+	background-position: bottom center
+
+/* Навигация */
+.top_nav
+	padding-left: 10px
+	li
+		position: relative
+		padding-top: 3px
+		display: inline-block
+		margin-right: 60px
+		&:last-child
+			margin-right: 0
+		&:after
+			@extend .after
+			left: 0
+			bottom: -8px
+			height: 1px
+			width: 100%
+			background-color: $main-color
+			transition: all .25s ease
+			opacity: 0
+		&.n-active::after
+			opacity: 1
+		&:hover::after
+			opacity: 1
+		a
+			color: #030303
+			text-decoration: none
+
+.top-tabs
+	max-height: 380px
+	.tab-item
+		opacity: 0
+		margin-left: -25px
+		transition: all .5s ease
+		position: relative
+		z-index: 2 !important
+		img
+			width: 100%
+			height: auto
+		&.on
+			opacity: 1
+			z-index: 22 !important
+
+
+/* Кнопка выпадающего меню */
+.toggle-mnu
+	display: inline-block
+	position: relative
+	top: -10px
+	text-align: center
+	text-decoration: none
+	width: 40px
+	height: 40px
+	z-index: 2
+	cursor: pointer
+
+
+.toggle-mnu span:after,
+.toggle-mnu span:before 
+	content: ""
+	position: absolute
+	left: 0
+	top: -12px
+
+.toggle-mnu span:after
+	top: 12px
+
+.toggle-mnu span 
+	position: relative
+	top: 67%
+	display: block
+
+
+.toggle-mnu span,
+.toggle-mnu span:after,
+.toggle-mnu span:before 
+	width: 100%
+	height: 2px
+	background-color: #5a5a5a
+	transition: all 0.3s
+	backface-visibility: hidden
+	border-radius: 2px
+
+/* on activation */
+.toggle-mnu.on span 
+	background-color: transparent
+
+.toggle-mnu.on span:before 
+	transform: rotate(45deg) translate(8px, 8px)
+
+.toggle-mnu.on span:after 
+	transform: rotate(-45deg) translate(9px, -9px)
+
+.toggle-mnu.on + #menu 
+	opacity: 1
+	visibility: visible
+/** Кнопка выпадающего меню **/
+
+/* Первая секция */
+.sect_1
+	position: relative
+	margin-bottom: 30px	
+	padding-top: 25px
+	text-align: center
+
+.item-info
+	display: inline-block
+	margin-bottom: 30px
+	h3
+		font-weight: normal
+		span
+			text-transform: uppercase
+
+/* Вторая секция */
+.sect_2
+	position: relative
+
+.product-item
+	position: relative
+	border: 2px solid #dddadb
+	margin-bottom: 15px	
+	.img-wrap
+		width: 45%
+		float: left
+		border-right: 2px solid #c2c0c1
+	.product-info
+		padding-top: 60px
+		padding-right: 10px
+		padding-left: 10px
+		text-align: center
+		width: 55%
+		float: right
+		.price
+			display: inline-block
+			padding-bottom: 7px
+			color: #0b0a0a
+			font-size: 16px
+		h4
+			display: inline-block
+			padding-bottom: 5px
+		.button-wrap
+			position: absolute
+			bottom: 60px
+			left: 45%
+			width: 55%
+			.buttons
+				height: 32px
+				padding: 4px 38px 0
+
+.big-pr
+	.product-info
+		padding-top: 140px
+		padding-left: 15px
+		padding-right: 15px
+		h4
+			font-size: 30px
+			line-height: 38px
+		.price
+			font-size: 24px
+			color: #ff0000
+		.old-price
+			display: inline-block
+			margin-bottom: 7px
+			font-size: 16px
+			color: #666
+
+.all-prod
+	text-align: right
+	a
+		font-size: 18px
+		color: #080808
+		text-decoration: none
+		padding-bottom: 7px
+		border-bottom: 1px solid $main-color
+		transition: all .3s ease
+		&:hover
+			border-color: transparent
+
+/* Третья секция */
+.sect_3
+	padding-bottom: 70px
+	h2::after
+		display: none
+
+/* Карусель */
+.article
+	margin: auto
+	width: 100%
+	.slide
+		padding-bottom: 50px
+		
+	h3
+		margin-bottom: 12px
+		padding-right: 25px
+		font-size: 36px
+		font-weight: normal
+	.img-wrap
+		margin-bottom: 25px
+	.date
+		margin-bottom: 18px
+		display: inline-block
+		width: 100%
+		padding-bottom: 10px
+		font-size: 14px
+		border-bottom: 2px solid #5a5a5a
+	p
+		margin-bottom: 30px
+
+	.owl-nav
+		display: block
+		position: absolute
+		top: 230px
+		left: 0
+		width: 100%
+		height: 69px
+		.owl-prev, .owl-next
+			position: absolute
+			display: inline-block
+			height: 69px
+			width: 69px
+			background-image: url("../img/carousel-arr.png")
+			background-size: cover
+			transition: all .3s ease
+			&:hover
+				background-image: url("../img/carousel-arr-hover.png")
+		.owl-prev
+			left: -100px
+		.owl-next
+			right: -100px
+			background-position: 0 68px
+
+.read
+	text-align: right
+	a
+		font-size: 24px
+		color: $text-color
+		text-decoration: underline
+		&:hover
+			text-decoration: none
+
+/* Четвертая секция */
+.sect_4
+	padding-bottom: 20px
+	background-color: #d9efcf
+	h2
+		position: relative
+		top: -33px
+		margin-bottom: -20px
+		&::after
+			display: none
+		span::after
+			min-width: 325px !important
+.reviews
+	margin-top: 10px
+	position: relative
+	.img-wrap
+		margin-right: 28px
+		max-width: 325px
+		width: 100%
+		float: left
+
+	.review-text
+		margin-left: 353px
+		h3
+			font-size: 48px
+			font-weight: normal
+			margin-bottom: 5px
+		p
+			font-size: 20px
+			padding-right: 60px
+			padding-bottom: 60px
+	.read
+		a
+			display: inline-block
+			font-size: 18px
+			color: $text-color
+			text-decoration: none
+			padding-bottom: 7px
+			border-bottom: 1px solid $main-color
+			transition: all .3s ease
+			&:hover
+				border-color: transparent
+
+	.owl-dots
+		display: block !important
+		position: absolute
+		bottom: 20px
+		left: 0
+		height: 12px
+		width: 100%
+		text-align: center
+		.owl-dot
+			margin: 0 5px
+			display: inline-block
+			width: 13px
+			height: 13px
+			border-radius: 50%
+			border: 2px solid $main-color
+			&.active
+				background-color: $main-color
+
+/* Пятая секция */
+.sect_5
+	margin-bottom: 70px
+	padding-top: 70px
+	padding-bottom: 63px
+	text-align: center
+	background-image: url("../img/bg-sect_5.jpg")
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: center
+
+.loyalty
+	padding-top: 40px
+	padding-bottom: 20px
+	background-color: #fffcfc
+	h1, h3
+		font-weight: normal
+	h1
+		margin-bottom: 5px
+	h3
+		margin-bottom: 5px
+		font-size: 42px
+		color: #070707
+.discount
+	display: inline-block
+	margin-bottom: 30px
+	font-size: 60px
+	color: #7f921c
+
+/* Шестая секция */
+.sect_6
+	padding-bottom: 20px
+	background-color: #f6f6f9
+	h2
+		position: relative
+		top: -33px
+		margin-bottom: -20px
+		padding-right: 75px
+		&::after
+			max-width: 515px
+		strong
+			font-weight: normal
+	p
+		margin-top: 12px
+		font-size: 22px
+
+/* Седьмая секция */
+.sect_7
+	padding: 25px 0
+
+	a.mail, .phone
+		display: inline-block
+		padding-left: 80px
+		padding-top: 10px
+		height: 50px
+		background-image: url("../img/contacts-icon.png")
+		background-repeat: no-repeat
+		background-position: left -50px
+		font-size: 24px
+		text-decoration: none
+		color: #666
+
+	.phone
+		padding-left: 70px
+		background-position: left top
+		white-space: nowrap
+	.button-wrap
+		text-align: left
+	.buttons
+		padding-top: 9px
+		height: 40px
+		border-color: #383838
+		font-size: 18px
+		color: #070606
+
+/* Дополнение */
+.img-responsive
+	width: 100%
+
+/* Футер */
+.footer
+	background-color: #585555
+	h3
+		letter-spacing: 1.2px
+		font-size: 30px
+		font-weight: normal
+		margin-bottom: 25px
+		color: #f8f9f6
+	.top-f
+		padding: 20px 0
+
+.f-bottom_line
+	padding: 18px 0
+	text-align: center
+	background-color: #383838
+	p
+		font-size: 16px
+		text-transform: uppercase
+		color: #fff
+		span
+			text-transform: none
+			font-size: 20px
+
+.f-info, .f-clients
+	margin-bottom: 25px
+	li
+		margin-bottom: 12px
+		a
+			display: inline-block
+			padding-bottom: 3px
+			font-size: 18px
+			text-decoration: none
+			color: #f8f9f6
+			border-bottom: 1px solid transparent
+			transition: all .3s ease
+			&:hover
+				border-color: $main-color
+
+/* Соц-сети */
+.soc-ic
+	li
+		margin-right: 23px
+		display: inline-block
+		width: 38px
+		height: 38px
+		&:last-child
+			margin-right: 0
+		a
+			display: inline-block
+			width: 100%
+			height: 100%
+			text-decoration: none
+			background-image: url("../img/soc-set.png")
+			background-repeat: no-repeat
+			transition: all .3s ease
+			&:hover
+				transform: scale(1.05)
+			&.fb
+				background-position: 0 0
+			&.vk
+				background-position: -62px 0
+			&.gp
+				background-position: -124px 0

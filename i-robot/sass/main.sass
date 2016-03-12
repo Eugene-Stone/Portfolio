@@ -1,0 +1,444 @@
+@import "bourbon/bourbon"
+@import "_var"
+
+
+ol, ul
+	list-style: none
+	
+* 
+	margin: 0
+	padding: 0
+	outline: none
+	box-sizing: border-box
+
+/* КАСТОМНЫЕ СТИЛИ */
+
+/* Header */
+.header
+	padding-top: 60px
+	background-image: url("../img/bg-header.jpg")
+	background-repeat: no-repeat
+	background-position: top center
+	height: 690px
+	background-size: cover
+
+.top_line
+	margin-bottom: 165px
+
+	.contacts
+		text-align: right
+
+		.phone
+			color: #fff
+			display: inline-block
+			padding-left: 35px
+			background-image: url("../img/phone-ic.png")
+			background-repeat: no-repeat
+			background-position: left 6px
+			font-family: "Arial", $helvetica
+			font-size: 28px
+			line-height: 28px
+			font-weight: bold
+			padding-top: 2px
+			span
+				display: inline-block
+				vertical-align: middle
+			strong
+				display: inline-block
+				font-size: 22px
+			small
+				display: inline-block
+				font-family: "RalewayRegular", $helvetica
+				font-size: 16px
+
+.head-descr
+	h2
+		margin-bottom: 5px
+		text-align: left
+	h1
+		margin: 0	
+		text-align: left
+		animation-delay: .2s
+		span
+			font-family: "RalewayBold", $helvetica
+
+	small.small
+		font-family: "RalewayBold", $helvetica
+		font-size: 30px
+		color: #6f472a
+		text-transform: uppercase
+		
+	
+	.button-wrap
+		margin-bottom: 23px
+		margin-top: 40px
+		text-align: left
+	.buttons.head-btn
+		padding-right: 95px
+		height: 46px
+		background-image: url("../img/head-btn-bg.png")
+		background-repeat: no-repeat
+		background-position: right -3px
+		background-color: #323232
+		border: 3px solid #444
+		border-radius: 3px
+		&:hover
+			opacity: .8
+		&:active
+			opacity: 1
+
+	.video-info
+		position: relative
+		margin-left: 30px
+		font-family: "RalewaySemiBold", $helvetica
+		font-size: 16px
+		color: #041219
+		text-decoration: none
+		border-bottom: 1px dashed #041219
+		transition: all .35s ease
+		&:before
+			@extend .before
+			width: 30px
+			left: -30px
+			background-image: url("../img/yt-ico.png")
+			background-repeat: no-repeat
+			background-position: left center
+
+		&:hover
+			border-bottom: 1px dashed transparent
+
+/* Первая секция */
+.section_1
+	text-align: center
+	padding-top: 80px
+	padding-bottom: 65px
+	background-color: #252525
+	background-image: url("../img/s_1-bg.png")
+	background-repeat: no-repeat
+	background-position: center 90px
+
+	h3
+		color: #999
+		margin-bottom: 30px
+	p
+		display: inline-block
+		margin-bottom: 50px
+		max-width: 615px
+		line-height: 21px
+		color: #777
+
+	.video_yb
+		margin-bottom: 45px
+		width: 640px
+		height: 360px
+		border: 0
+		animation-delay: .3s
+
+/* Вторая секция */
+.section_2
+	padding-top: 70px
+	padding-bottom: 90px
+	h3
+		margin-bottom: 60px
+
+.item
+	cursor: pointer
+	opacity: 0
+	transform: translateY(100px)
+	transition: transform 1.8s ease
+
+	&.on
+		opacity: 1
+		transform: translateY(0)
+	.img-wrap
+		margin-bottom: 30px
+		padding: 25px
+		transition: all .65s ease
+		background-color: #f5f5f5
+
+
+		img
+			width: 100%
+			height: auto
+	h4
+		text-align: left
+
+	.price
+		color: #000
+		margin-right: 10px
+		padding-right: 16px
+		font-weight: bold
+		background-image: url("../img/rubl_1.png")
+		background-repeat: no-repeat
+		background-position: right center
+
+	.old_price
+		padding-right: 16px
+		font-size: 15px
+		font-weight: bold
+		text-decoration: line-through
+		color: #cdcdcd
+		background-image: url("../img/rubl_2.png")
+		background-repeat: no-repeat
+		background-position: right center
+
+	.button-wrap
+		text-align: left
+		margin-top: 18px
+
+		.buttons
+			padding-top: 11px
+			height: 38px
+			text-transform: uppercase
+			font-size: 14px
+			color: #555
+			background-color: #e7e7e7
+.item:hover
+	.img-wrap
+		background-color: #d9d9d9
+	.buttons
+		background-color: $main-color
+		color: #fff
+
+
+/* Третья секция */
+.warranty
+	padding-top: 75px
+	padding-bottom: 65px
+	background-color: #f1f1f1
+	.left-sect
+		margin-top: 30px
+		// margin-left: 30px
+	//	display: inline-block
+		vertical-align: middle
+		img
+			display: inline-block
+	.w-descr
+		text-align: left
+		animation-delay: .6s
+		h5
+			margin-bottom: 20px
+			text-align: left
+
+/* Четвертая секция */
+.section_4
+	padding: 70px 0
+	text-align: center
+	.adv-title
+		margin-bottom: 40px
+		h3
+			margin-bottom: 20px
+		p
+			color: #777
+	.product-item
+		padding-bottom: 85px
+		width: 25%
+		float: left
+		background-image: url("../img/p-item-bg.png")
+		background-repeat: no-repeat
+		background-position: center bottom
+		transition: all .5s ease
+		cursor: pointer
+		&:hover
+			background-color: #f1f1f1
+			background-image: url("../img/p-item-bg-hover.png")
+			h4::after
+					width: 100% !important
+		.product-descr
+			padding: 0 30px
+			h4
+				position: relative
+				margin-top: 30px
+				margin-bottom: 20px
+				&::after, &::before
+					@extend .after
+					left: 50%
+					bottom: -8px
+					height: 2px
+					width: 100%
+					background-color: #e2e2e2
+					transform: translateX(-50%)
+					z-index: 1
+					transition: all .35s ease
+				&::after
+					width: 50px
+					z-index: 2
+					background-color: #4c9a22
+
+			p
+				font-size: 15px
+				line-height: 19px
+		.img-wrap
+			width: 100%
+			max-height: 195px
+			overflow: hidden
+			img
+				width: 100%
+				height: auto
+
+
+.advantage
+	margin-bottom: 60px
+
+/* Пятая секция */
+.section_5
+	padding-top: 75px
+	padding-bottom: 85px
+	background-image: url("../img/bg-s-comments.jpg")
+	background-repeat: no-repeat
+	background-position: center
+	background-size: cover
+	h3
+		color: #999
+		margin-bottom: 15px
+	p
+		color: #777
+		text-align: center
+.coments
+	margin-top: 55px
+	.profil-wrap
+		margin-top: 10px
+		text-align: center
+		.img-wrap
+			display: inline-block
+			margin-bottom: 20px
+			width: 135px
+			height: 135px
+			overflow: hidden
+			border-radius: 50%
+			border: 5px solid #f1f1f1
+			img
+				width: 100%
+				height: auto
+		> h4
+			font-size: 14px
+			color: #fff
+			margin-bottom: 2px
+		span
+			font-size: 14px
+			font-style: italic
+			color: #999
+
+	.coment
+		padding: 30px
+		padding-right: 20px
+		background-color: #fff
+		border-radius: 10px
+		animation-delay: .4s
+		h4
+			margin-bottom: 15px
+			color: #333
+			text-align: left
+		p
+			text-align: left
+			font-size: 14px
+			color: #333
+		span
+			display: inline-block
+			margin-top: 15px
+.coment-wrap
+	margin-bottom: 45px
+	&:last-child
+		margin-bottom: 0
+
+/* Шестая секция */
+.section_6
+	padding-top: 80px
+	padding-bottom: 70px
+	text-align: center
+	h3
+		margin-bottom: 10px
+	p
+		color: #777
+
+.specialists
+	margin-top: 60px
+	.button-wrap
+		margin-top: 65px
+		.phone-btn
+			padding-left: 45px
+			background-image: url("../img/phone-btn.png")
+			background-repeat: no-repeat
+			background-position: 20px center
+			background-color: transparent
+			border: 2px solid #4c9a46
+			color: #4c9a46
+			&:hover
+				background-color: #ecfaef
+	.profil-wrap
+		transform: rotateY(90deg);
+		opacity: 0;
+		transition: all 1.4s ease
+		&.on
+			transform: rotateY(0);
+			opacity: 1;
+		.img-wrap
+			display: inline-block
+			margin-bottom: 20px
+			max-width: 165px
+			max-height: 165px
+			overflow: hidden
+			border-radius: 50%
+			border: 5px solid #eee
+			img
+				width: 100%
+				height: auto
+				border-radius: 50%
+				border: 6px solid #f8f8f8
+		h4
+			color: #333 !important
+			margin-bottom: 3px
+		span
+			font-size: 13px
+			color: #bab9b9
+		.phone
+			display: inline-block
+			margin-top: 10px
+			margin-bottom: 3px
+			font-family: arial, sans-serif
+			font-size: 15px
+			font-weight: bold
+			color: #333
+.social
+	.s-item
+		display: inline-block
+		width: 24px
+		height: 24px
+		text-decoration: none
+		opacity: .7
+		background-image: url("../img/social-set.png")
+		transition: opacity .25s ease
+		&.s-vk
+			background-position: 0 3px
+		&.s-fb
+			background-position: 0 -28px
+		&.s-in
+			background-position: 0 -68px
+		&.s-tw
+			background-position: 0 -108px
+		&:hover
+			opacity: 1
+
+/* Футер с картой */
+.footer
+	position: relative
+	text-align: center
+	background-position: center top
+	min-height: 520px
+	//.f-map
+	//	display: inline-block
+	//	height: 100%
+	//	width: 100%
+	.address
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		padding-top: 48px
+		padding-bottom: 35px
+		background-color: rgba(242,241,241,.8)
+		h3
+			margin-bottom: 7px
+		p
+			font-family: "RalewayBold", $helvetica
+			color: #777

@@ -1,0 +1,108 @@
+
+.before
+	content:''
+	width: 100%
+	height: 100%
+	position: absolute
+	top: 0
+	left: 0
+.after
+	content:''
+	position: absolute
+	width: 100%
+	height: 100%
+	bottom: 0
+	left: 0
+
+// Переменные, Цвета
+$main-color: #f39f18
+$title-color: #2c3949 //Цвет заголовков
+$text-color: #333
+$dark-blue-color: #2c3949
+$blue-color: #394b5f
+$gray-color: #e5e5e5
+$dark-gray-color: #f9f9f9
+
+/* My icon */
+.my
+	color: $main-color
+
+/* Свойства Кнопки */
+.button-wrap
+	text-align: center
+.buttons
+	display: inline-block
+	padding: 15px 35px
+	margin: 0 5px
+	border: none
+	border-bottom: 3px solid #b97200
+	background-color: $main-color
+	font-family: "PFCentroSlabProBold", $helvetica
+	font-size: 20px
+	color: #111
+	transition: all .5s ease
+	text-decoration: none
+	&:hover
+		background-color: #fec871
+		color: #111
+	&:active
+		color: #111
+		text-decoration: none
+		background-color: #d18a18
+	&:focus
+		color: #111
+		text-decoration: none
+
+
+/* Карточки из 4 и 5 секции */
+.cards
+	text-align: center
+	perspective: 600px
+	
+	.card
+		&-off
+			transform: rotateY(90deg)
+			opacity: 0
+		&-on
+			opacity: 1
+
+		transition: all .5s ease
+		display: inline-block
+		vertical-align: top
+		margin: 0 12px
+		margin-bottom: 20px
+		padding: 55px 30px
+		width: 260px
+		height: 380px
+		background-color: $dark-blue-color
+		color: #97a4b2
+		font-size: 14px
+		line-height: 19px
+
+		h5
+			margin-bottom: 25px
+			font-family: "RalewayBold"
+			color: $gray-color
+		p
+			span
+				font-family: "RalewayBold"
+				color: $main-color
+
+		.card-icon
+			display: inline-block
+			margin-bottom: 37px
+			height: 120px
+			width: 120px
+			border-radius: 50%
+			overflow: hidden
+			
+				
+.card:first-child .card-icon
+	background-image: url("../img/discount.png")
+	span
+		display: inline-block
+		padding-top: 45px
+		font-family: "PFCentroSlabProBold", $helvetica
+		font-size: 40px
+		line-height: 33px
+		color: #fff

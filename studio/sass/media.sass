@@ -1,0 +1,137 @@
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px)
+	.divide
+		width: 9%
+
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px)
+	.divide
+		width: 5%
+
+	.footer_cont p
+		margin-bottom: 20px
+	.f-info-wrap
+		margin-bottom: 25px
+	.footer_cont
+		padding-bottom: 0px
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px)
+	.top_nav
+		display: none
+		text-align: center
+		li
+			display: block
+			margin: 0
+			border-bottom: 1px solid #e1e1e1
+
+			a
+				display: inline-block
+				width: 100%
+				height: 100%
+				line-height: 25px
+
+	.head_cont
+		padding-top: 30px
+	.head_cont h1
+		font-size: 26px
+	.head_cont span
+		font-size: 18px
+		margin-bottom: 30px
+
+	.head_cont .slider .owl-nav .owl-prev
+		margin-left: 0
+	.head_cont .slider .owl-nav .owl-next
+		right: 0
+
+	.owl-prev, .owl-next
+		transform: scale(.75)
+
+	.head_cont .slider .slide_descr
+		left: 20px
+		bottom: 20px
+
+	.head_cont .slider .slide_descr h2,
+	.head_cont .slider .slide_descr h3
+		padding: 5px
+		height: auto
+	.head_cont .slider .slide_descr h2
+		font-size: 18px
+	.head_cont .slider .slide_descr h3
+		font-size: 14px
+		white-space: nowrap
+
+	.work-item
+		max-width: 270px
+		display: inline-block
+
+	.procc-item
+		margin-bottom: 30px
+	.sect_2
+		padding-bottom: 45px
+
+	.project-wrap
+		display: inline-block
+		max-width: 360px
+		margin-bottom: 70px
+	.sect_3
+		padding-bottom: 10px
+	
+	.project-wrap
+		display: inline-block
+		max-width: 360px
+
+	.jornals
+		text-align: center
+		.project-wrap
+			text-align: left
+	.sect_5
+		padding-bottom: 10px
+
+	.f-info-wrap
+		margin-bottom: 50px
+	.footer_cont h5
+		margin-bottom: 10px
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+	.head_cont .slider .slide_descr
+		left: 3px
+		bottom: 3px
+
+	.head_cont .slider .slide_descr h2,
+	.head_cont .slider .slide_descr h3
+		padding: 0
+	.head_cont .slider .slide_descr h2
+		font-size: 16px
+	.head_cont .slider .slide_descr h3
+		font-size: 12px
+
+	.head_cont .slider .owl-nav
+		top: 20%
+
+	.divide
+		width: 3%
+
+	section
+		h3
+			&::after, &::before
+				width: 25px
+			&::before
+				left: -37px
+			&::after
+				right: -37px
+
+	.customers p
+		font-size: 18px
+		line-height: 22px
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px)
+	
+	.top_nav
+		display: block !important

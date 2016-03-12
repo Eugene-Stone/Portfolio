@@ -1,0 +1,331 @@
+@import "bourbon/bourbon"
+@import "_var"
+
+/* Голова сайта */
+.main_head
+	padding-bottom: 40px
+	position: relative
+	background-image: url("../img/bg-header.jpg")
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: top center
+	&::before
+		@extend .before
+		top: 0
+		left: 0
+		background-color: #2b2e4a
+		opacity: .95
+
+	.head_cont
+		position: relative
+		z-index: 2
+		animation-delay: .5s
+
+.top_line
+	position: fixed
+	padding-top: 35px
+	padding-bottom: 35px
+	width: 100%
+	border-bottom: 1px solid #505369
+	transition: all .35s ease
+	z-index: 55
+	&.sticky
+		padding-top: 15px
+		padding-bottom: 12px
+		background-color: #2a2e48
+	a.mPS2id-highlight-first
+		color: $main-color
+
+
+.bottom_line
+	display: inline-block
+	width: 100%
+	height: 1px
+	background-color: #505369
+.top_nav
+	text-align: right
+	li
+		display: inline-block
+		margin-left: 55px
+		a
+			text-transform: uppercase
+			color: #fff
+			font-size: 13px
+			font-weight: bold
+			text-decoration: none
+
+
+/* Кнопка выпадающего меню */
+.toggle-mnu
+	display: inline-block
+	position: absolute
+	top: 0
+	right: 10px
+	text-align: center
+	text-decoration: none
+	width: 40px
+	height: 40px
+	z-index: 2
+	cursor: pointer
+
+.toggle-mnu span:after,
+.toggle-mnu span:before 
+	content: ""
+	position: absolute
+	left: 0
+	top: -12px
+
+.toggle-mnu span:after
+	top: 12px
+
+.toggle-mnu span 
+	position: relative
+	top: 67%
+	display: block
+
+
+.toggle-mnu span,
+.toggle-mnu span:after,
+.toggle-mnu span:before 
+	width: 100%
+	height: 2px
+	background-color: #fff
+	transition: all 0.3s
+	backface-visibility: hidden
+	border-radius: 2px
+
+/* on activation */
+.toggle-mnu.on span 
+	background-color: transparent
+
+.toggle-mnu.on span:before 
+	transform: rotate(45deg) translate(8px, 8px)
+
+.toggle-mnu.on span:after 
+	transform: rotate(-45deg) translate(9px, -9px)
+
+.toggle-mnu.on + #menu 
+	opacity: 1
+	visibility: visible
+/** Кнопка выпадающего меню **/
+
+
+.head_cont
+	padding-top: 250px
+	text-align: center
+	h1
+		margin-bottom: 30px
+	p
+		padding-bottom: 75px
+		font-size: 22px
+		color: #fff
+
+/* Первая секция */
+.sect_1
+	padding-top: 100px
+
+.feat_item
+	margin-bottom: 65px	
+	text-align: center
+	opacity: 0
+	transform: translateY(100px)
+	transition: transform 1.8s ease
+	&.on
+		opacity: 1
+		transform: translateY(0)
+	img
+		margin-bottom: 27px
+	h3
+		margin-bottom: 20px
+	p
+		padding: 0 20px
+		padding-bottom: 5px
+
+
+/* Вторая секция */
+.sect_2
+	position: relative
+	padding-top: 60px
+	margin-bottom: 100px
+
+.work-item
+	position: relative
+	display: inline-block
+	float: left
+	width: 25%
+	height: auto
+	cursor: pointer
+	background-color: transparent
+	transform: scale(0)
+	opacity: 0
+	transition: all 1.9s ease
+	&.on
+		opacity: 1
+		transform: scale(1)
+	&:hover
+		.overlay_descr
+			opacity: 1
+	
+		.img-wrap
+			img
+				transform: rotate(5deg) scale(1.2)
+
+	.img-wrap
+		overflow: hidden
+		img
+			height: 100%
+			width: 100%
+			transition: all .9s ease
+	.overlay_descr
+		opacity: 0
+		position: absolute
+		top: 0
+		left:0
+		width: 100%
+		height: 100%
+		color: #fff
+		background-color: rgba(232,69,69,.8)
+		text-align: center
+		text-decoration: none
+		transition: all .5s ease
+		z-index: 2
+		.w-descr
+			position: relative
+			top: 50%
+			transform: translate(0,-50%)
+		h3
+			margin-top: 5px
+			margin-bottom: 5px
+			color: #fff
+
+/* Третья секция */
+.sect_3
+	padding-bottom: 100px
+
+.team
+	perspective: 600px
+
+.profil
+	transform: rotateY(90deg)
+	opacity: 0
+	transition: all .5s ease
+	&.on
+		opacity: 1
+		transform: rotateY(0)
+
+	.avatar-wrap
+		margin-bottom: 30px
+		img
+			display: inline-block
+	h2
+		margin-bottom: 10px
+	h4
+		margin-bottom: 22px
+	p
+		padding-bottom: 25px
+.soc-wrap
+	a
+		display: inline-block
+		margin-right: 4px
+		width: 40px
+		height: 40px
+		text-decoration: none
+		background-image: url("../img/soc-set.png")
+		transition: all .3s ease
+		&:hover
+			transform: scale(1.07) rotate(-360deg)
+		&.fb
+			background-position: left top
+		&.tw
+			background-position: -44px top
+		&.in
+			background-position: -88px top
+
+/* Четвертая секция */
+.sect_4
+	padding-bottom: 50px
+.testimonial
+	background-color: #53354a
+	.img-wrap
+		width: 50%
+		float: left
+		img
+			display: inline-block
+			width: 100%
+			height: auto
+	.testimonial-descr
+		max-width: 620px
+		width: 50%
+		float: left
+		padding-top: 4.5%
+		padding-left: 4.5%
+		p
+			padding-bottom: 25px
+			font-family: "Cardo99s"
+			font-size: 36px
+			line-height: 42px
+			font-style: italic
+			color: #fff
+		span
+			color: #fff
+			font-size: 13px
+			font-weight: bold
+			text-transform: uppercase
+
+/* Пятая секция */
+.sect_5
+	padding-top: 50px
+	padding-bottom: 100px
+	text-align: center
+	h4
+		margin-bottom: 12px
+		color: $title-color
+		font-size: 28px
+		text-transform: none
+	h3
+		margin-bottom: 35px
+		font-size: 13px
+		font-weight: bold
+
+/* Футер */
+.footer
+	padding-top: 65px
+	background-color: #3a3e64
+	text-align: center
+	h3
+		margin-bottom: 15px
+		color: #fff
+
+.location
+	color: #adaebb
+	
+	p
+		display: inline-block
+		max-width: 150px
+		line-height: 24px
+
+.share
+	.soc-wrap
+		a
+			background-image: url("../img/f-soc-set.png")
+			&.fb
+				background-position: left top
+			&.tw
+				background-position: -47px top
+			&.in
+				background-position: -94px top
+
+.about
+	p
+		display: inline-block
+		max-width: 330px
+
+.bottom-footer
+	margin-top: 80px
+	background-color: #313454
+	animation-delay: .1s
+	p
+		display: inline-block
+		padding: 25px 0
+		max-width: 315px
+		color: #808080

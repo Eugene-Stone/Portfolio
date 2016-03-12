@@ -1,0 +1,126 @@
+
+ol, ul
+	list-style: none
+* 
+	margin: 0
+	padding: 0
+	outline: none
+	box-sizing: border-box
+
+/* Плейсхолдер */
+*::-webkit-input-placeholder
+	color: #6a6a6a !important
+	opacity: 1
+	left: 11px !important
+
+*:-moz-placeholder
+	color: #6a6a6a !important
+	opacity: 1
+	left: 11px !important
+
+*::-moz-placeholder
+	color: #6a6a6a !important
+	opacity: 1
+	left: 11px !important
+
+*:-ms-input-placeholder
+	color: #6a6a6a !important
+	opacity: 1
+	left: 11px !important
+/* Плейсхолдер END*/
+
+
+/* ПЕРЕМЕННЫЕ СТИЛИ */
+.before, .after
+	content:''
+	width: 100%
+	height: 100%
+	position: absolute
+
+
+// Переменные, Цвета
+$title-color: #000 //Цвет заголовков
+$main-color: #4c9a22
+$text-color: #262626
+
+
+/* Заголовки */
+h1
+	color: $title-color
+
+h2
+	font-family: "Playfair Display", serif
+	font-size: 30px
+	font-style: italic
+	font-weight: bold !important
+	font-weight: normal
+	color: $title-color
+
+h3
+	font-family: "Lato", sans-serif
+	font-size: 16px
+	color: #fff
+	font-weight: bold
+	text-transform: uppercase
+
+h4
+	color: $title-color
+
+
+
+
+body
+	position: relative
+	min-width: 320px
+	font-family: "Lato", sans-serif
+	font-size: 16px
+	line-height: 1.66
+	font-weight: normal
+	color: #393939
+	-webkit-font-smoothing: antialiased
+	// overflow-x: hidden
+.hidden
+	display: none
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	/* Свойства писать здесь */
+	color: red
+body input:required:valid,
+body textarea:required:valid
+	/* Свойства писать здесь */
+	color: green
+
+
+
+/* Свойства Кнопки */
+.button-wrap
+	text-align: center
+.buttons
+	display: inline-block
+	padding: 16px 25px
+	height: 53px
+	border: none
+	background-color: #f09d66
+	font-family: "Lato", sans-serif
+	font-size: 24px
+	line-height: 24px
+	font-style: normal
+	font-weight: bold
+	text-transform: uppercase
+	color: #fff
+	transition: all .5s ease
+	text-decoration: none
+	box-shadow: 1px 1px 1px rgba(0,0,0, .25)
+	text-shadow: 0 1px 0 rgba(0,0,0, .5)
+	&:hover
+		background-color: #f4b78f
+		color: #fff
+		text-decoration: none
+	&:active
+		color: #fff
+		text-decoration: none
+		background-color: #ea7e36
+	&:focus
+		color: #fff
+		text-decoration: none

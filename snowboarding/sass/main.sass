@@ -1,0 +1,495 @@
+@import "bourbon/bourbon"
+@import "fonts"
+@import "_var"
+
+/* Header */
+.top_line
+	background-color: $main-color
+	width: 100%
+	padding-top: 20px
+	padding-bottom: 23px
+	.line_wrap
+		margin: auto
+		padding-right: 5px
+		padding-left: 5px
+		width: 100%
+		max-width: 1230px
+
+.top_mnu
+	@extend .box_left, .box_75
+
+.search_box
+	@extend .box_right, .box_25
+	text-align: right
+
+.logo-wrap
+	display: inline-block
+	vertical-align: middle
+	margin-right: 40px
+
+.top_nav
+	display: inline-block
+	vertical-align: middle
+	li
+		display: inline-block
+		margin-right: 27px
+		&:last-child
+			margin-right: 0
+		a
+			font-family: "ProximaNovaBold", $helvetica
+			font-size: 13px
+			text-transform: uppercase
+			color: #fff
+			text-decoration: none
+			&:hover
+				text-decoration: underline
+
+.search_box
+	padding-top: 15px
+	a
+		font-family: "ProximaNovaBold", $helvetica
+		font-size: 13px
+		text-transform: uppercase
+		color: #fff
+		text-decoration: none
+		&:hover
+			text-decoration: underline
+	
+	.backet
+		display: inline-block
+
+.shop-bag
+	display: inline-block
+	margin-right: 10px
+	margin-left: 15px
+	vertical-align: middle
+	height: 16px
+	width: 14px
+	background-image: url("../img/shop-ic.png")
+
+.top_search
+	display: inline-block
+	position: relative
+	height: 28px
+	input
+		&[type="text"]
+			width: 0px
+			height: 100%
+			border: none
+			outline: none
+			padding-left: 10px
+			padding-right: 35px
+			transition: all .7s ease
+			opacity: 0
+		&.visible
+			&[type="text"]
+				opacity: 1
+				width: 100%
+
+.search-btn
+	position: absolute
+	display: inline-block
+	right: 0
+	top: 0
+	border: none
+	outline: none
+	height: 30px
+	width: 30px
+	background-image: url("../img/search-ic.png")
+	background-repeat: no-repeat
+	background-position: center 7px
+	background-color: $main-color
+
+.slide
+	position: relative
+
+.slide-descr
+	position: absolute
+	top: 40%
+	left: 40%
+	transform: translateX(-50%)
+	h1, h2
+		line-height: 90px
+		margin-bottom: 50px
+	.button-wrap
+		text-align: right
+
+/* Section SNOWBOARDS (Slider)*/
+.sect_1
+	padding-top: 155px
+	padding-bottom: 200px
+	background-color: #FFF
+
+.title_wrap
+	text-align: center
+	padding-bottom: 60px
+	margin-bottom: 80px
+	background-image: url("../img/title-after.png")
+	background-repeat: no-repeat
+	background-position: center bottom
+	h3
+		margin-bottom: 35px
+	p
+		text-transform: uppercase
+		color: #000
+		font-weight: bold
+		font-size: 14px
+
+.sky-carousel
+	background-color: #fff
+	border: none
+	min-height: 510px
+	.sc-nav-button.sc-prev,
+	.sc-nav-button.sc-next
+		background-color: transparent
+		background-image: url("../img/nav_btn.png")
+		background-repeat: no-repeat
+		width: 130px
+		height: 230px
+		top: 55%
+		transform: translateY(-50%)
+		&:hover
+			background-color: transparent
+	.sc-nav-button.sc-next
+		background-position: -1244px center
+.sc-content
+	margin-top: 50px
+	h2
+		font-family: "ProximaNovaBold", sans-serif
+		font-size: 24px
+		color: $title-color
+
+/* Section Mountains Snowboarding */
+.sect_2
+	padding-top: 240px
+	padding-bottom: 200px
+	background-color: #000
+	background-image: url("../img/bg-sect_2.jpg")
+	background-position: center
+	background-repeat: no-repeat
+	background-size: cover
+
+.descr-wrap
+	width: 100%
+	max-width: 610px
+	h3
+		margin-bottom: 55px
+		line-height: 55px
+		color: #fff
+	p
+		margin-bottom: 40px
+		color: #fff
+		&:last-child
+			margin-bottom: 0
+
+/* Section Features */
+.sect_3
+	padding-top: 120px
+	padding-bottom: 100px
+	.title_wrap
+		margin-bottom: 80px
+		h3
+			margin-bottom: 10px
+.features-wrap
+	text-align: center
+
+.feat_item
+	display: inline-block
+	vertical-align: top
+	margin-bottom: 35px
+	width: 100%
+	max-width: 22.92%
+	color: #000
+	text-align: left
+	&+&
+		margin-left: 2.15%
+	img
+		width: 100%
+		height: auto
+		margin-bottom: 10px
+	h5,
+	span
+		font-family: "ProximaNovaBold", $helvetica
+		font-size: 16px
+		color: #000
+		&:hover
+			text-decoration: underline
+		a
+			text-decoration: none
+			color: inherit
+
+/* Footer */
+.footer
+	padding-top: 70px
+	background-color: #000
+
+.f-item
+	@extend .box_25, .box_left
+	padding-right: 10px	
+	h5
+		margin-bottom: 10px
+		text-transform: uppercase
+	li
+		a
+			color: #c9c9c9
+			text-decoration: none
+			&:hover
+				text-decoration: underline
+
+.newsletter
+	h5 
+		margin-bottom: 20px
+	.f_search
+		margin-bottom: 55px
+
+.f_search
+	display: inline-block
+	position: relative
+	height: 42px
+	width: 100%
+	max-width: 300px
+	input
+		&[type="text"]
+			width: 100%
+			height: 100%
+			border: none
+			outline: none
+			padding-left: 10px
+			padding-right: 35px
+			transition: all .7s ease
+
+	/* Placeholder */
+	::-webkit-input-placeholder
+		color: #6c6c6c
+		opacity: 1
+
+	:-moz-placeholder
+		color: #6c6c6c
+		opacity: 1
+
+	::-moz-placeholder
+		color: #6c6c6c
+		opacity: 1
+
+	:-ms-input-placeholder
+		color: #6c6c6c
+		opacity: 1
+	/* Placeholder END*/
+
+.search-btn-f
+	position: absolute
+	display: inline-block
+	right: 0
+	top: 0
+	border: none
+	outline: none
+	height: 42px
+	width: 58px
+	background-image: url("../img/f-btn-search.jpg")
+	background-repeat: no-repeat
+	background-position: center top
+	background-color: $main-color
+
+.soc_wrap
+	li
+		display: inline-block
+		margin-right: 14%
+		&:last-child
+			margin-right: 0
+		i
+			font-size: 20px
+			color: #fff
+
+.bottom_line
+	padding-top: 50px
+	padding-bottom: 55px
+
+.language-f
+	@extend .box_right
+	a
+		color: inherit
+		font-size: 14px
+		text-decoration: none
+		font-weight: bold
+		&:hover
+			text-decoration: underline
+
+.lang-ic
+	display: inline-block
+	margin-right: 10px
+	height: 10px
+	width: 14px
+	background-image: url("../img/lang-ic.jpg")
+
+
+
+
+
+
+
+
+
+
+/* ============================================= Media Quaries ============================================= */
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1100px)
+	.slide-descr
+		top: 25%
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px)
+	.container
+		padding-right: 10px
+		padding-left: 10px
+
+	.top_mnu
+		margin: auto
+		float: none
+		clear: both
+		width: 100%
+	.search_box
+		float: none
+		width: 100%
+		text-align: left
+	.backet
+		transition: all 0.7s ease
+
+	.slide-descr
+		top: 15%
+		h2, h1
+			font-family: "ProximaNovaRegular", $helvetica
+
+	.f-item
+		width: 50%
+		margin-bottom: 70px
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px)
+
+	.line_wrap
+		text-align: center
+	.top_mnu
+		text-align: center
+	.search_box
+		margin-left: -50px
+		display: inline-block
+		width: auto
+	.top_nav 
+		li
+			margin-right: 20px
+			a
+				font-size: 13px
+
+	.slide-descr
+		top: 5%	
+		h1, h2
+			margin-bottom: 20px
+			font-family: "ProximaNovaRegular", $helvetica
+			font-weight: bold
+			font-size: 40px
+			line-height: 60px
+	.sect_1
+		padding-top: 70px
+		padding-bottom: 70px
+	.title_wrap
+		margin-bottom: 30px
+		> h3
+			font-size: 36px
+
+	.sect_2 
+		padding-top: 70px
+		padding-bottom: 70px
+		background-position: left top
+	.descr-wrap
+		h3
+			font-size: 33px
+			margin-bottom: 30px
+
+	.sect_3
+		padding-top: 70px
+		padding-bottom: 0
+		.title_wrap
+			margin-bottom: 30px
+
+	.feat_item
+		max-width: 100%
+		margin-bottom: 70px
+		&+&
+			margin-left: 0
+
+	.soc_wrap
+		li
+			margin-right: 13%
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+
+	.top_line
+		padding-top: 10px
+	.top_mnu
+		text-align: left
+	.top_nav
+		display: none
+		li
+			display: block
+			width: 100%
+			text-align: center
+			height: 40px
+			border-bottom: 1px solid #ccc
+			a
+				padding-top: 6px
+				display: inline-block
+				font-size: 16px
+				width: 100%
+				height: 100%
+				&:hover
+					background-color: #202020
+
+	.search_box
+		padding-left: 10px
+
+	.slide-descr
+		position: relative
+		margin-left: 30px
+		display: block
+		width: 100%
+		max-width: 310px
+		h1, h2
+			margin-bottom: 20px
+			font-family: "ProximaNovaRegular", $helvetica
+			font-weight: bold
+			font-size: 40px
+			line-height: 60px
+			color: #000
+	.sc-nav-button
+		display: none !important
+
+	.f-item
+		width: 100%
+		margin-bottom: 70px
+		text-align: center
+		li
+			border-bottom: 1px solid #ccc
+			&:hover
+				background-color: #202020
+				a
+					color: #fff
+			a
+				display: inline-block
+				width: 100%
+				height: 100%
+		.soc_wrap
+			li
+				border-bottom: none
+				&:hover
+					background-color: inherit
+
+	.bottom_line
+		padding-top: 20px
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 481px)
+	.top_nav
+		display: inline-block !important
+	.toggle-mnu
+		display: none

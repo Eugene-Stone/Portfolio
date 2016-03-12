@@ -1,0 +1,496 @@
+@import "bourbon/bourbon"
+@import "fonts"
+@import "_var"
+
+/* Header */
+.logo_wrap
+	float: left
+	margin-right: 110px
+	padding: 8px 0 0 10px
+	a
+		text-decoration: none
+		color: inherit
+
+.top_mnu
+	float: left
+	li
+		position: relative
+		float: left
+		margin-right: 25px
+		&:last-child
+			margin-right: 0
+		&::after
+			@extend .after
+			left: 0
+			bottom: 0
+			height: 6px
+			width: 100%
+			background-color: $main-color
+			transition: all .3s ease
+			opacity: 0
+		&:hover,
+		&.actived
+			a
+				color: $main-color
+			&::after
+				opacity: 1
+		a
+			display: inline-block
+			padding: 15px 20px
+			font-family: "GothamProBold", sans-serif
+			font-size: 16px
+			text-transform: uppercase
+			text-decoration: none
+			color: #c6c5c5
+			transition: all .3s ease
+			&:hover
+				color: $main-color
+
+.activity
+	background-image: url("../img/nav_activity-bg.png")
+	background-repeat: no-repeat
+	background-position: right 7px top 8px
+
+.profil_sett
+	padding-top: 9px
+	padding-right: 10px
+	float: right
+
+.search_wrap
+	margin-top: 3px
+	float: left
+	position: relative
+	width: 100%
+	max-width: 175px
+	height: 32px
+	border-radius: 10em
+	background-color: #f2f2f2
+	overflow: hidden
+	input
+		background-color: transparent
+		border: none
+		&[type="search"]
+			width: 100%
+			height: 100%
+			padding-left: 35px
+			padding-right: 15px
+		&[type="submit"]
+			position: absolute
+			left: 3px
+			top: 0
+			height: 32px
+			width: 32px
+			background-image: url("../img/search-ic.png")
+			background-repeat: no-repeat
+			background-position: center
+			cursor: pointer
+
+.profil_info,
+.new_profil
+	margin-left: 20px
+	float: left
+	height: 37px
+	width: 37px
+	border-radius: 10em
+	background-color: $main-color
+	cursor: pointer
+
+.new_profil
+	display: inline-block
+	background-image: url("../img/add_profil.png")
+	background-repeat: no-repeat
+	background-position: center
+
+.profil_info
+	position: relative
+	border: 4px solid #efe5ec
+	img
+		width: 100%
+
+.profil_descr
+	display: none
+	position: absolute
+	right: -33px
+	top: 55px
+	width: 230px
+	box-shadow: 1px 0 8px rgba(0,0,0,.75)
+	z-index: 3
+	li
+		height: 45px
+		border-bottom: 2px solid #f8f8f8
+		transition: all .25s ease
+		&:hover
+			border-color: $main-color
+			a
+				color: #fff
+				background-image: url("../img/profil_ic-set-hover.png")
+				background-color: $main-color
+		a
+			display: inline-block
+			padding-left: 15px
+			width: 100%
+			height: 100%
+			font-family: "GothamProBold", sans-serif
+			font-size: 13px
+			line-height: 45px
+			color: $text-color
+			text-decoration: none
+			background-color: #FFF
+			background-image: url("../img/profil_ic-set.png")
+			background-repeat: no-repeat
+			background-position: right 15px top 11px
+			transition: all .25s ease
+		&:nth-child(2)
+			a
+				background-position: right 15px top -34px
+		&:nth-child(3)
+			a
+				background-position: right 15px top -79px
+		&:nth-child(4)
+			a
+				background-position: right 15px top -125px
+		&:first-child
+			position: relative
+			&::before
+				@extend .before
+				top: -11px
+				right: 37px
+				height: 11px
+				width: 18px
+				background-image: url("../img/profil_after-arr.png")
+				background-repeat: no-repeat
+
+/* Top_slider */
+.slide_descr
+	position: absolute
+	top: 45px
+	left: 45px
+	h2
+		margin-bottom: 17px
+	.button-wrap
+		text-align: left
+.buttons
+	&:hover,
+	&:focus,
+	&:active
+		color: #fff
+		border-color: #fff
+
+.top_slider
+	overflow: hidden !important
+	.owl-dots
+		position: absolute
+		bottom: 22px
+		left: 55px
+		width: 100%
+		height: 10px
+		.owl-dot
+			display: inline-block
+			margin-right: 8px
+			height: 10px
+			width: 10px
+			border-radius: 10em
+			background-color: #fff
+			opacity: .6
+			&.active
+				opacity: 1
+
+
+/* Main content */
+.content
+	overflow: hidden
+
+.left_s,
+.right_s
+	width: 100%
+	max-width: 225px
+	text-align: center
+.left_s
+	float: left
+	padding-top: 50px
+.right_s
+	padding-top: 50px
+	float: right
+
+.top_sidebar_wrap
+	margin-bottom: 40%
+	.contractor_wrap
+		margin-bottom: 20px
+
+.contractor_wrap
+	display: inline-block
+	position: relative
+	padding-bottom: 13px
+	border-bottom: 1px solid #ebebeb
+	min-width: 100px
+	h4
+		margin-bottom: 3px
+		a
+			text-decoration: none
+			color: inherit
+	.img_wrap
+		display: inline-block
+		width: 50px
+		height: 50px
+		border-radius: 10em
+		overflow: hidden
+		img
+			width: 100%
+
+.follow_ic
+	display: inline-block
+	position: absolute
+	width: 25px
+	height: 25px
+	top: 14px
+	left: -11px
+	background-image: url("../img/follow-icon.png")
+	transition: all .3s ease
+	&:hover
+		background-image: url("../img/follow-icon-hover.png")
+
+.time
+	color: #cccbcb
+	font-size: 14px
+
+.s-contr
+	display: inline-block
+	padding-left: 23px
+	background-image: url("../img/s-contr-bg.png")
+	background-repeat: no-repeat
+	background-position: left center
+	font-size: 15px
+	color: #cccbcb
+	text-decoration: none
+	transition: all .3s ease
+	&:hover
+		color: #757575
+
+/* Main Content */
+.center_cotent
+	position: relative
+	border-left: 1px solid #ccc
+	border-right: 1px solid #ccc
+	margin-right: 225px
+	margin-left: 225px
+	padding: 50px
+	padding-right: 0	
+	text-align: center
+	&::after
+		display: none
+		@extend .after
+		height: 1px
+		width: 150%
+		left: 0
+		top: 335px
+		background-color: #ccc
+
+.film_item
+	text-align: left
+	margin-bottom: 85px	
+	display: inline-block
+	margin-right: 40px
+	.img_wrap
+		position: relative
+		margin-bottom: 10px
+		width: 100%
+		max-width: 190px
+		max-height: 190px
+		overflow: hidden
+		img
+			width: 100%
+			height: auto
+	h3
+		margin-bottom: 5px
+	.info
+		font-family: "GothamProMedium", sans-serif
+
+	&:hover
+		.box_hover
+			opacity: 1
+
+.box_hover
+	position: absolute
+	top: 0
+	left: 0
+	height: 100%
+	background-image: url("../img/play-button.png")
+	background-repeat: no-repeat
+	background-position: center
+	background-color: rgba(0,0,0,.1)
+	box-shadow: inset 0 -35px 40px 20px rgba(0,0,0,.6)
+	cursor: pointer
+	transition: all .5s ease
+	opacity: 0
+
+.film_descr
+	padding-left: 10px
+	margin-top: 140px
+	color: #fff
+
+.director
+	font-size: 14px
+	color: #c2c3c4
+
+
+/* CONTROL_PANEL */
+.control_panel
+	padding-top: 20px
+	position: fixed
+	left: 0
+	bottom: 0
+	height: 80px
+	width: 100%
+	background-color: #efefef
+	transition: height .5s ease
+	z-index: 122
+
+.right_ctrl_btn,
+.left_ctrl_btn
+	width: 100%
+	max-width: 225px
+
+.right_ctrl_btn
+	margin-top: 5px
+	float: right
+	padding-right: 10px
+	li
+		float: right
+		margin-left: 30px
+		&:last-child
+			margin-left: 0
+		&:first-child
+			a
+				background-position: -133px center
+		&:nth-child(2)
+			a
+				background-position: -70px center
+		&.active,
+		&:hover
+			a
+				background-image: url("../img/control_buttons_right_active.png")
+		a
+			text-decoration: none
+			display: inline-block
+			width: 35px
+			height: 28px
+			background-image: url("../img/control_buttons_right.png")
+			background-position: left center
+			transition: all .3s ease
+
+.left_ctrl_btn
+	padding-left: 30px
+	float: left
+	li
+		float: left
+		margin-right: 27px
+		&.active,
+		&:hover
+			a
+				background-image: url("../img/control_buttons_active.png")
+		&:nth-child(2)
+			a
+				background-position: -61px center
+		&:last-child
+			margin-right: 0
+			a
+				background-position: -120px center
+		a
+			text-decoration: none
+			display: inline-block
+			width: 40px
+			height: 40px
+			background-image: url("../img/control_buttons.png")
+			background-position: left center
+			transition: all .3s ease
+
+.streak_player
+	margin-top: 9px
+	margin-left: 225px
+	margin-right: 225px
+	padding: 0 50px
+
+.non_playad
+	margin-right: 30px
+	display: inline-block
+	width: 88%
+	height: 5px
+	background-color: #d0ccdb
+	vertical-align: middle
+.played
+	display: block
+	width: 50%
+	height: 5px
+	background-color: $main-color
+	text-align: right
+	img
+		display: inline-block
+		position: relative
+		top: -7px
+
+.some_time
+	display: inline-block
+
+/* Right_Sidebar */
+.add_sound_btn
+	margin-bottom: 132px
+	display: inline-block
+	text-decoration: none
+	height: 76px
+	width: 130px
+	background-image: url("../img/add_sound_btn.png")
+	transition: all .35s ease
+	&:hover
+		background-image: url("../img/add_sound_btn_hover.png")
+
+.collect,
+.gallery
+	margin-bottom: 21px
+	border-color: #d0d0d0
+	color: #d0d0d0
+	width: 132px
+	&:hover,
+	&:active,
+	&:focus
+		border-color: #8b759d
+		color: #8b759d
+
+.collect
+	padding-left: 45px
+	background-image: url("../img/collect-icon.png")
+	background-repeat: no-repeat
+	background-position: 30px center
+	&:hover,
+	&:focus
+		background-image: url("../img/collect-icon_hover.png")
+
+.gallery
+	position: relative
+	padding-left: 20px
+	text-align: left
+	.count
+		position: absolute
+		right: 0
+		top: 0
+		width: 40px
+		height: 100%
+		text-align: center
+		padding-top: 13px
+		border-left: 2px solid #d0d0d0
+		transition: border-color .35s ease
+	&:hover
+		.count
+			border-color: #8b759d
+
+.hidden_br
+	display: none
+
+
+
+
+
+
+
+/* ============================================= Media Quaries ============================================= */
+
+@import "media"

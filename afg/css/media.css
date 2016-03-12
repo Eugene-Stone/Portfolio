@@ -1,0 +1,253 @@
+/*==========  Desktop First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+	.main-mnu{
+		display: none;
+		position: absolute;
+		right: 15px;
+		z-index: 2;
+		margin-top: 20px;
+		min-width: 295px;
+		float: right;
+		background-color: #243343;
+		opacity: .97;
+	}
+	.main-mnu li,
+	.main-mnu li a{
+		display: block;
+		margin: none;
+		font-size: 18px;
+		height: 50px;
+		background-color: transparent;
+		border-bottom: 1px solid #3c4752;
+		-webkit-transition: all .35s ease;
+						transition: all .35s ease;
+	}
+
+	.main-mnu li a{
+		line-height: 42px;
+		padding-right: 20px;
+		line-height: 50px;
+	}
+	.main-mnu li:hover{
+		background-color: #111b26;
+	}
+	.main-mnu li+li{
+		margin: 0;
+	}
+	.phone{
+		padding-right: 60px
+	}
+
+	.phone-wrap .toggle-mnu{
+		cursor: pointer;
+	}
+
+	/*Футер*/
+	footer.bottom-line .main-mnu{
+		position: relative;
+		top: 0;
+		left: 0;
+		opacity: 1;
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+	.header-wrap h1{
+		margin-top: 0
+	}
+
+	.main-mnu {
+		top: 30px;
+	}
+
+	.info-item{
+		padding-left: 0;
+		max-width: 320px;
+		line-height: 18px;
+	}
+
+	.info-item::after{
+		left:0;
+		width: 100%;
+	}
+
+	.section_1 .s1-bottom .s1-bottom-triangle .triangle-logo {
+		margin-top: 80px;
+	}
+
+	/*Восьмая секция*/
+	.section_8 .section-head.left_sect{
+		text-align: center;
+	}
+
+	.section_8 .section-head.left_sect h2::after{
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+	/*Disable Animation on Mobile Devices*/
+	.animated {
+		/*CSS transitions*/
+		-o-transition-property: none !important;
+		-moz-transition-property: none !important;
+		-ms-transition-property: none !important;
+		-webkit-transition-property: none !important;
+		transition-property: none !important;
+		/*CSS transforms*/
+		-o-transform: none !important;
+		-moz-transform: none !important;
+		-ms-transform: none !important;
+		-webkit-transform: none !important;
+		transform: none !important;
+		/*CSS animations*/
+		-webkit-animation: none !important;
+		-moz-animation: none !important;
+		-o-animation: none !important;
+		-ms-animation: none !important;
+		animation: none !important;
+	}
+
+	.header-wrap h1{
+		font-size: 35px
+	}
+
+	.info-item{
+		max-width: 100%;
+		margin: 40px 0;
+	}
+	.info-item:first-child{
+		margin-top: 0;
+	}
+	.info-item::after{
+		background-color: #c0c1c1;
+	}
+
+	.logo-triangle-top{
+		display: none;
+	}
+
+	.s1-bottom.blue-sect{
+		padding-top: 70px;
+	}
+
+	.s1-bottom .info-item-nth_2.info-item {
+			margin-top: 20px;
+	}
+
+	/*Третья секция*/
+	.section_3 .section-content .info-item::after{
+		display: block;
+		bottom: 0;
+	}
+	.section_3 .section-content .info-item,
+	.section_3 .section-content .info-item.info-item-nth_2,
+	.section_3 .section-content .info-item.info-item-nth_4,
+	.section_3 .section-content .info-item.info-item-nth_5,
+	.section_3 .section-content .info-item.info-item-nth_7{
+		margin: 0;
+		padding: 10px 0 0;
+		max-width: 100%;
+	}
+	.section_3 .section-content{
+		background-image: none;
+	}
+
+	.section_3 .section-content .my.my_k{
+		display: none;
+	}
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+	.top-line,
+	.bottom-line{
+		padding-top: 30px;
+	}
+
+	.bottom-line{
+		min-height: 100px;
+	}
+
+	.top-line .logo img,
+	.bottom-line .logo img{
+		width: 90px;
+	}
+	.top-line .phone,
+	.bottom-line .phone{
+		font-size: 18px;
+		line-height: 40px;
+	}
+	.phone-wrap .toggle-mnu{
+		right: -5px;
+		cursor: pointer;
+	}
+
+	.main-mnu {
+		width: 300px;
+	}
+
+	.section_1 .s1-bottom .s1-bottom-triangle .triangle-logo {
+		margin-top: 100px;
+	}
+
+	
+
+
+
+}
+
+@media only screen and (max-width : 380px) {
+
+	/*Пятая секция*/
+	.tc-item{
+		margin-right: 0;
+		margin-left: -55px;
+	}
+
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+
+}
+
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+ /* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+	
+	.main-mnu{
+		display: block !important
+	}
+
+}

@@ -1,0 +1,161 @@
+// Values Unchanged
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video
+	margin: 0
+	padding: 0
+	border: 0
+	font-size: 100%
+	font: inherit
+	vertical-align: baseline
+
+ol, ul
+	list-style: none
+*
+	margin: 0
+	padding: 0
+	outline: none
+	box-sizing: border-box
+
+
+/* Clearfix */
+.clearfix:before,
+.clearfix:after
+	content: " "
+	display: table
+
+.clearfix:after
+	clear: both
+
+.before
+	content:''
+	width: 100%
+	height: 100%
+	position: absolute
+.after
+	content:''
+	position: absolute
+	width: 100%
+	height: 100%
+// Values Unchanged END
+
+
+// The Variables Styles
+$title-color: #3f444e
+$main-color: #d8232a
+$text-color: #3f444e
+
+body
+	position: relative
+	min-width: 320px
+	font-family: "Adobe Gothic Std", $helvetica
+	font-size: 14px
+	line-height: 1.4em
+	font-weight: normal
+	color: $text-color
+	-webkit-font-smoothing: antialiased
+	// overflow-x: hidden
+	// background-color: #000
+
+.container
+	@extend .clearfix
+	position: relative
+	margin: auto
+	padding: 0 30px
+	width: 100%
+	max-width: 1195px
+	//	border-right: 1px solid red
+	//	border-left: 1px solid red
+
+.hidden
+	display: none
+
+/* Title */
+h1
+	font-size: 18px
+	line-height: 1em
+	text-transform: uppercase
+	color: $title-color
+
+h2
+	display: inline-block
+	position: relative
+	font-size: 17px
+	color: $title-color
+
+h3
+	font-size: 14px
+	color: #fff
+
+
+/* Placeholder */
+::-webkit-input-placeholder
+	color: #9b9ea3
+	font-family: "Arial", sans-serif
+	font-size-adjust: 13px
+	font-style: italic
+	opacity: 1
+
+:-moz-placeholder
+	color: #9b9ea3
+	font-family: "Arial", sans-serif
+	font-size-adjust: 13px
+	font-style: italic
+	opacity: 1
+
+::-moz-placeholder
+	color: #9b9ea3
+	font-family: "Arial", sans-serif
+	font-size-adjust: 13px
+	font-style: italic
+	opacity: 1
+
+:-ms-input-placeholder
+	color: #9b9ea3
+	font-family: "Arial", sans-serif
+	font-size-adjust: 13px
+	font-style: italic
+	opacity: 1
+/* Placeholder END*/
+
+
+/* The Properties Of The Button */
+.button-wrap
+	text-align: center
+.buttons
+	display: inline-block
+	padding: 19px 17px
+	height: 38px
+	border: none
+	background-color: $main-color
+	font-family: "Adobe Gothic Std", $helvetica
+	font-size: 14px
+	line-height: 0
+	text-transform: uppercase
+	color: #fff
+	transition: all .25s ease
+	text-decoration: none
+	border-radius: 4px
+	cursor: pointer
+	&:hover
+		background-color: lighten($main-color, 15%) 
+		color: #fff
+		text-decoration: none
+	&:active
+		color: #fff
+		text-decoration: none
+		background-color: darken($main-color, 8%) 
+	&:focus
+		color: #fff
+		text-decoration: none
+/* The Properties Of The Button END*/

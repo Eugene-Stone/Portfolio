@@ -1,0 +1,94 @@
+
+/* ПЕРЕМЕННЫЕ СТИЛИ */
+.before
+	content:''
+	width: 100%
+	height: 100%
+	position: absolute
+.after
+	content:''
+	position: absolute
+	width: 100%
+	height: 100%
+
+// Переменные, Цвета
+$main-color: #d12f22 // Красный
+$text-color: #050505
+$text-light-color: #fefefe
+
+
+/* Общие стили */
+body
+	position: relative
+	min-width: 320px
+	font-family: "RobotoRegular", $helvetica
+	font-weight: normal
+	font-size: 14px
+	line-height: 1.4285
+	color: $text-color
+	-webkit-font-smoothing: antialiased
+	// overflow-x: hidden
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	/* Свойства писать здесь */
+	color: red
+body input:required:valid,
+body textarea:required:valid
+	/* Свойства писать здесь */
+	color: green
+
+.hidden
+	display: none
+
+/* Заголовки */
+h1, h2, h3, h4
+	font-family: "BebasRegular", $helvetica
+	text-transform: uppercase
+	color: $text-color
+	text-align: center
+
+h1
+	color: #fff
+h1, h2
+	font-size: 40px
+h3
+	font-size: 36px
+h4
+	font-size: 18px
+	font-weight: 400
+.dark_s h2
+	color: #c9c9c9
+
+
+
+
+
+/* Свойства Кнопки */
+.button-wrap
+	text-align: center
+.buttons
+	display: inline-block
+	padding: 15px 25px
+	margin: 0 10px
+	border: none
+	border-bottom: 5px solid #ac160a
+	background-color: $main-color
+	font-family: "BebasRegular", $helvetica
+	font-size: 20px
+	text-transform: uppercase
+	color: #fff
+	transition: all .25s ease
+	text-decoration: none
+	&:hover
+		background-color: #c05951
+		color: #fff
+		text-decoration: none
+	&:active
+		color: #fff
+		text-decoration: none
+		background-color: #822922
+	&:focus
+		color: #fff
+		text-decoration: none
+

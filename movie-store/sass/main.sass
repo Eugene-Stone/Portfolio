@@ -1,0 +1,619 @@
+@import "bourbon/bourbon"
+@import "_var"
+
+/* Header */
+.top_line
+	padding: 28px 0 21px
+
+.logo_wrap
+	float: left
+	span
+		display: inline-block
+		margin-bottom: -1px
+		width: 16px
+		height: 16px
+		background-image: url("../img/logo_icon.png")
+	a
+		color: inherit
+		text-decoration: none
+
+.profil_wrap
+	margin-top: -6px
+	float: right
+	max-width: 170px
+	h3
+		margin-right: 14px
+		display: inline-block
+		vertical-align: middle
+		a
+			font-size: 15px
+			color: $title-color
+			text-decoration: none
+
+.photo_wrap
+	margin-right: 9px
+	position: relative
+	display: inline-block
+	vertical-align: middle
+	width: 30px
+	height: 30px
+	img
+		width: 100%
+		height: auto
+		border-radius: 10em
+
+.notification_user
+	display: inline-block
+	width: 14px
+	height: 14px
+	position: absolute
+	z-index: 20
+	top: -3px
+	right: -5px
+	background-image: url("../img/notification_user.png")
+
+.edit-profile
+	display: inline-block
+	vertical-align: middle
+	width: 12px
+	height: 17px
+	background-image: url("../img/edit-profile.png")
+
+.main_mnu
+	text-align: center
+	ul
+		display: inline-block
+		li
+			position: relative
+			float: left
+			margin-right: 45px
+			&::after
+				@extend .after
+				left: 50%
+				bottom: -25px
+				width: 13px
+				height: 8px
+				transform: translateX(-50%)
+				background-image: url("../img/m_item_bg-arr.png")
+				transition: all .3s ease
+				opacity: 0
+			&:last-child
+				margin-right: 0
+				a
+					background-position: -328px center
+			&:hover
+				&::after
+					opacity: 1
+				.m_item_hover
+					opacity: 1
+				a
+					background-image: url("../img/top_navigation-hover.png")
+			&:nth-child(2)
+				a
+					background-position: -65px center
+			&:nth-child(3)
+				a
+					background-position: -132px center
+			&:nth-child(4)
+				a
+					background-position: -196px center
+			&:nth-child(5)
+				a
+					background-position: -262px center
+
+			a
+				display: inline-block
+				width: 25px
+				height: 25px
+				text-decoration: none
+				background-image: url("../img/top_navigation.png")
+				background-repeat: no-repeat
+				background-position: 3px center
+				transition: all .25s ease
+
+.m_item_hover
+	position: absolute
+	display: inline-block
+	height: 24px
+	padding: 0 10px
+	bottom: -45px
+	left: -70%
+	font-size: 13px
+	line-height: 25px
+	text-transform: uppercase
+	color: #fff
+	background-color: $main-color
+	border-radius: 4px
+	z-index: 2
+	transition: all .3s ease
+	opacity: 0
+
+.tv-item
+	.m_item_hover
+		left: -5px
+
+
+/* TOP_SLIDER */
+.top_slider
+	position: relative
+	max-width: 1195px
+	margin: auto
+	padding: 0
+
+.film_descr,
+.film_info
+	position: absolute
+
+.film_descr
+	top: 0
+	right: 0
+	padding-top: 150px
+	height: 100%
+	width: 45%
+	text-align: center
+
+.film_info
+	bottom: 0
+	left: 0
+	min-height: 50px
+	width: 100%
+	background-image: url("../img/slider_bottom_line-bg.png")
+	transition: all .5s ease
+	transform:translateY(100%)
+
+.owl-item.active
+	.film_info
+		transition-delay: .3s
+		transform:translateY(0)
+
+.name_film
+	display: inline-block
+	max-width: 320px
+	img
+		width: 100%
+		height: auto
+
+.top_slider
+	.owl-dots
+		position: absolute
+		left: 45px
+		top: 50%
+		transform: translateY(-50%)
+		transition: all .5s ease
+		.owl-dot
+			position: relative
+			margin-bottom: 8px
+			width: 10px
+			height: 10px
+			background-color: #fff
+			border-radius: 10em
+			transition: all .5s ease
+			&::after
+				@extend .after
+				left: 40px
+				top: 50%
+				transform: translateY(-50%)
+				width: 91px
+				height: 11px
+				background-image: url("../img/film_director_text.png")
+				background-repeat: no-repeat
+				opacity: 0
+			&:nth-child(2)
+				&::after
+					background-image: url("../img/film_director_text-2.png")
+			&:nth-child(3)
+				&::after
+					background-image: url("../img/film_director_text-3.png")
+			&:nth-child(4)
+				&::after
+					background-image: url("../img/film_director_text-4.png")
+			&.active
+				width: 30px
+				height: 30px
+				margin-left: -9px
+				border: 2px solid $main-color
+				background-image: url("../img/film_director.jpg")
+				background-size: cover
+				background-position: center
+				&::after
+					opacity: 1
+					transition-delay: .5s
+					transition-duration: 1s
+	
+
+/* FILM INFO LINE */
+.film_info
+	padding: 16px 30px
+	.rate_card
+		display: inline-block
+
+
+.movie_status
+	padding-right: 15px
+	min-width: 260px
+	float: right
+	text-align: right
+	
+.like,
+.comments,
+.downloads
+	margin-right: 25px
+	display: inline-block
+	padding-left: 28px
+	color: #fff
+	text-decoration: none
+	background-image: url("../img/movie_status-ic.png")
+	background-repeat: no-repeat
+	background-position: left center
+	&:hover
+		text-decoration: underline
+
+.comments
+	background-position: -90px center
+.downloads
+	margin-right: 0
+	background-position: -156px center
+
+
+.published,
+.updated,
+.rate
+	margin-right: 25px
+	display: inline-block
+	color: #fff
+	text-transform: uppercase
+	a
+		font-family: "Calibri", sans-serif
+		font-size: 16px
+		color: $main-color
+		text-decoration: none
+		&:hover
+			text-decoration: underline
+
+/* Rating */
+.film_info
+	.rate_card
+		@extend .rate
+		.rate_streak
+			height: 16px
+			width: 100px
+			background-image: url("../img/star.png")
+			background-repeat: repeat-x
+			background-position: left -19px
+			.rate_filling
+				background-image: url("../img/star.png")
+				background-repeat: repeat-x
+				background-position: left 1px
+
+
+
+/* Main Content */
+.title_box
+	text-align: center
+	.container
+		padding-top: 35px
+		padding-bottom: 30px
+		background-color: #edeff0
+
+.main_title
+	text-transform: uppercase
+	float: left
+
+.sorting_film
+	display: inline-block
+	li
+		display: inline-block
+		font-family: "Calibri", sans-serif
+		font-size: 18px
+		font-style: italic
+		color: #989ca4
+		a
+			color: inherit
+			text-decoration: none
+			transition: all .25s ease
+		&:hover,
+		&.active
+			a
+				color: $title-color
+
+.search_wrap
+	float: right
+	position: relative
+	width: 100%
+	max-width: 160px
+	height: 25px
+	border-bottom: 1px solid #cacdd0
+	overflow: hidden
+	input
+		background-color: transparent
+		border: none
+		&[type="search"]
+			width: 100%
+			height: 100%
+			padding-right: 25px
+			font-family: "Arial", sans-serif
+			font-style: italic
+			font-size: 14px
+		&[type="submit"]
+			position: absolute
+			right: 0px
+			top: -5px
+			height: 32px
+			width: 32px
+			background-image: url("../img/search-ic.png")
+			background-repeat: no-repeat
+			background-position: center
+			cursor: pointer
+
+.main_content
+	.container
+		padding: 0
+		background-color: #edeff0
+
+/* Masonry */
+.grid
+	margin: auto
+
+.grid-item,
+.card_movie
+	width: 210px
+	height: 190px
+	
+.grid-item--width2,
+.ext_descr_movie
+	width: 210px
+	height: 400px
+	
+.grid-item--width3,
+.movie_trailer
+	width: 440px
+	height: 190px
+	
+
+.grid-item,
+.grid-item--width2,
+.grid-item--width3
+	float: left
+	margin-bottom: 20px
+	.like
+		position: absolute
+		top: 15px
+		left: 18px
+		z-index: 2
+
+.card_movie,
+.ext_descr_movie,
+.movie_trailer
+	position: relative
+	transition: all .3s ease
+	&:hover
+		.top_right_status
+			text-decoration: none
+			background-color: $main-color
+		.card_poster
+			&::after
+				background-color: transparent
+				z-index: -9
+
+.card_movie
+	&:hover
+		.card_poster
+			box-shadow: 0 0 0 2px $main-color
+
+.title_movie
+	position: absolute
+	bottom: 14px
+	left: 18px
+	width: 100%
+	z-index: 2
+
+.card_poster
+	display: inline-block
+	position: relative
+	height: 100%
+	width: 100%
+	border-radius: 4px
+	transition: all .3s ease
+	overflow: hidden
+	img
+		width: 100%
+		height: 100%
+	&::after
+		@extend .after
+		left: 0
+		top: 0
+		background-color: rgba(0,0,0,.4)
+		transition: all .3s ease
+
+.top_right_status
+	position: absolute
+	right: 0
+	top: 0
+	width: 34px
+	height: 34px
+	padding: 0
+	background-image: url("../img/movie_status-ic-white.png")
+	background-repeat: no-repeat
+	transition: all .3s ease
+	border-bottom-left-radius: 4px
+	z-index: 2
+	text-decoration: none
+
+	&.downloads
+		background-position: -116px center
+	&.play
+		background-position: -159px center
+
+.ext_descr_movie
+	background-color: #FFF
+	border-radius: 4px
+	overflow: hidden
+	&:hover
+		box-shadow: 0 0 0 2px $main-color
+	.card_poster
+		position: absolute
+		top: auto
+		bottom: 0
+		height: 235px
+		border-radius: 0
+	.top_right_status
+		border-top-right-radius: 4px
+		background-color: $title-color 
+
+	.movie_status
+		position: absolute
+		padding: 0
+		top: 15px
+		left: 18px
+		min-width: 100%
+		text-align: left
+		color: $text-color
+		.like,
+		.comments,
+		.downloads
+			position: static
+			display: block
+			margin-right: 0
+			color: inherit
+			max-width: 60px
+			margin-bottom: 7px
+		.downloads
+			margin-bottom: 15px
+
+		.rate_card
+			display: inline-block
+			margin-bottom: 7px
+		h3
+			color: $title-color
+			span
+				font-family: "Calibri", sans-serif
+				color: #000
+
+.rate_streak
+	position: relative
+	top: 1px
+	display: inline-block
+	width: 70px
+	height: 12px
+	background-image: url("../img/star-card.png")
+	background-position: left -14px 
+
+.rate_filling
+	display: block
+	height: 100%
+	background-image: url("../img/star-card.png")
+	background-position: left 0 
+
+
+/* MOVIE_TRAILER */
+.movie_trailer
+	border-radius: 5px
+	overflow: hidden
+
+	video
+		width: 440px
+		height: 190px
+
+.video-js
+	border-radius: 5px
+	overflow: hidden
+	.vjs-big-play-button
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+		background-color: transparent
+		opacity: 0
+	.vjs-control-bar
+		bottom: 10px
+		left: 10px
+		width: auto
+		background-color: transparent !important
+	.vjs-slider,
+	.vjs-load-progress
+		background-color: #fff !important
+	.vjs-play-progress
+		background-color: $main-color !important
+	.vjs-play-control.vjs-playing:before,
+	.vjs-play-control.vjs-playing:after,
+	.vjs-play-control:before
+		content: ""
+		background-image: url("../img/control_buttons.png")
+		background-repeat: no-repeat
+		background-position: center -69px
+	.vjs-play-control:before
+		background-position: center 6px
+	.vjs-progress-control.vjs-control
+		padding-right: 20px
+	&:hover
+		.vjs-big-play-button
+			background-color: transparent
+			transition: all .4s ease
+			opacity: 1
+
+.vjs-volume-menu-button,
+.vjs-remaining-time.vjs-time-control.vjs-control,
+.video-js .vjs-play-progress:before,
+.video-js .vjs-play-progress:after
+	display: none
+
+
+.bottom_line
+	padding-top: 18px
+	min-height: 50px
+	width: 100%
+	background-color: red
+	position: fixed
+	bottom: 0
+	left: 0
+	z-index: 5
+	background-color: rgba(#3f444e, .7)
+	transition: all .5s ease
+	transform: translateY(0)
+	opacity: 1
+	&.hidd
+		opacity: 0
+		transform: translateY(100%)
+
+.bottom_download
+	display: inline-block
+	padding-left: 30px
+	font-size: 13px
+	color: #fff
+	background-image: url("../img/bottom_line_ic.png")
+	background-position: left -82px
+	background-repeat: no-repeat
+
+.title_film
+	text-decoration: none
+	color: inherit
+	&:hover
+		text-decoration: underline
+
+.progress_download
+	color: #b4bfd6
+
+.bottom_buttons_box
+	float: right
+
+.delete-btn,
+.repeat-btn,
+.close-btn
+	margin-left: 25px
+	display: inline-block
+	width: 16px
+	height: 16px
+	background-image: url("../img/bottom_line_ic.png")
+	cursor: pointer
+
+.delete-btn
+	background-position: -2px -296px
+.repeat-btn
+	background-position: -2px -216px
+.close-btn
+	background-position: -2px -147px
+
+
+
+/* ============================================= Media Quaries ============================================= */
+
+@import "media"

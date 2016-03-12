@@ -1,0 +1,360 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, /* strong, */ sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+html {height: 100%;}
+body {
+	height: 100%;
+	font: 14px/22px Arial, Tahoma, sans-serif;
+	color: #575652;
+	background: #171510 url(../img/bg.jpg) repeat;
+}
+ol, ul {list-style: none;}
+* {
+	margin: 0;
+	padding: 0;
+	outline: none;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+a, a:hover {color: #000; text-decoration: none;}
+
+/*Отступы*/
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+.clearfix:after {clear: both;}
+
+.left {float:left;}
+.right {float:right;}
+.text-right {text-align: right;}
+.text-center {text-align: center;}
+
+.center {
+	width: 940px;
+	margin: 0 auto;
+}
+
+
+/*Прижатие футера к низу без позиционирования*/
+.wrapper{
+	/* margin-top: -161px; */
+	padding-top: 161px;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+
+.content{
+	padding-bottom: 235px;
+}
+
+footer{
+	/* position: relative; */
+	margin-top: -235px;  /*Прижатие футера к низу без позиционирования*/
+	height: 235px;
+	width: 100%;
+	min-width: 940px;
+}
+/** Прижатие футера к низу без позиционирования **/
+
+/* Общие стили */
+h2,
+h2 a{
+	font: 40px/40px arial, sans-serif;
+	color: #fff;
+}
+
+h3,
+h3 a{
+	font: 35px/35px arial, sans-serif;
+	color: #575652;
+}
+
+h4,
+h4 a{
+	font: 16px/24px arial, sans-serif;
+	text-transform: uppercase;
+	color: #aeadad;
+}
+
+/** Общие стили **/
+
+
+/* HEADER */
+header{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	min-width: 940px;
+	padding-top: 30px;
+	height: 161px;
+	background: inherit;
+	border-top: 10px solid #000;
+}
+.logo{
+	display: block;
+	margin-left: 35px;
+}
+.top-nav{
+	display: block;
+	margin-right: 40px;
+}
+.top-nav li{
+	float: right;
+}
+
+.top-nav a{
+	display: inline-block;
+	height: 17px;
+	width: 17px;
+	vertical-align: middle;
+	background: url(../img/header-nav-i.png) no-repeat;
+}
+
+.top-nav .top-home{background-position: 0 4px;}
+.top-nav .top-menu{background-position: -66px 4px;}
+.top-nav .top-mail{background-position: -131px 4px;}
+
+/* Навигация*/
+.bottom-nav{
+	display: inline-block;
+	margin-right:20px;
+	margin-top: 35px;
+}
+.bottom-nav li{
+	float: left;
+	margin-right: 2px;
+}
+.bottom-nav li a{
+	/* display: inline-block; */
+	padding: 15px 20px;
+	font: 15px/15px arial, sans-serif;
+	color:#fff;
+	text-transform: uppercase;
+	transition: all .7s ease;
+}
+.active,
+.bottom-nav li:hover a{
+	background: #ffbe1c;
+}
+/** HEADER **/
+
+/* Основной контент */
+.block-story{
+	padding: 20px 0 30px 35px;
+	background: #dcd8ce;
+	border-top: 5px solid #cdc8bc;
+}
+
+.block-story h3{
+	margin-bottom: 15px;
+}
+
+.story-item {
+	position: relative;
+	padding-right: 15px;
+	/* padding-bottom: 15px; */
+	float: left;
+	width: 285px;
+	font-size: 13px;
+	border-right: 2px groove #eceae4;
+}
+.story-item+.story-item{margin-left: 20px;}
+.story-item:nth-child(3n){border: none;}	
+
+.story-1,
+.story-2,
+.story-3{
+	display: inline-block;
+	margin-right: 4px;
+	padding: 3px 5px;
+	color: #fff;
+	background: #ffba1a;
+	font-weight: bold;
+	text-shadow: 0 1px 1px rgba(0,0,0,.5);
+	box-shadow: 0 1px 1px rgba(0,0,0,.5);
+}
+
+.story-2{background: #96ca33;}
+.story-3{background: #64d2a8;}
+
+.story-item img{
+	margin-bottom: 15px;
+	border: 4px solid #f2f2f2;
+	box-shadow: 0 0 3px rgba(0,0,0,.25);
+}
+
+.story-item p>a{
+	font-weight: normal;
+	color: #575652;
+	text-decoration: underline;
+}
+.story-item p>a:hover{text-decoration: none;}
+
+.read-more{
+	position: absolute;
+	bottom: 0;
+	right: 15px;
+}
+.read-more>a{
+	display: inline-block;
+	padding: 4px 10px;
+	line-height: 14px;
+	color: #fff;
+	background: #000;
+}
+.read-more>a:hover{ background: #4f4f4f;}
+
+.description h3{
+	display: inline-block;
+	margin-top: 30px;
+	margin-left: 35px;
+	color: #dad6cc;
+}
+
+.descr-box{
+	padding: 30px 39px 20px;
+	width: 620px;
+	background: url(../img/quot-left.png) no-repeat left 19px; 
+}
+.descr-box p{font-style: italic;}
+
+.descr-box p span{
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	background: url(../img/quot-right.png);
+}
+
+.date{
+	padding: 35px 0 35px 35px;
+	background: #0e0c0a;
+}
+.date h3{
+	margin-bottom: 15px;
+	color:#dad6cc; 
+}
+
+.date-item{
+	float: left;
+	width: 285px;
+	border-right:1px solid #221e1a ;
+}
+.date-item:nth-child(3n){border: none;}
+.date-item+.date-item{margin-left:25px;}
+
+.date-item p{margin-bottom: 22px;}
+
+.btn-date-1 a,
+.btn-date-2 a,
+.btn-date-3 a{
+	display: inline-block;
+	padding: 12px 20px;
+	font-size: 15px;
+	text-transform: uppercase;
+	color: #fff;
+}
+.btn-date-1 a{background: #ffbe1c;}
+.btn-date-1 a:hover{background: #e3a71d;}
+.btn-date-2 a{background: #98cb35;}
+.btn-date-2 a:hover{background: #88b62e;}
+.btn-date-3 a{background: #61d0a5;}
+.btn-date-3 a:hover{background: #51b58e;}
+
+
+
+
+
+
+/** Основной контент **/
+
+
+/* ФУТЕР */
+.footer-top{
+	padding: 30px 30px 0;
+}
+
+.social{margin-top: 10px;}
+.social a{
+	display: inline-block;
+	margin-left: 4px;
+	height: 18px;
+	width: 18px;
+	color:#fff;
+	background: url(../img/f-soc-sprite.png) no-repeat;
+}
+
+.social .fb{background-position: 0 0;}
+.social .tw{background-position: 0 -21px;}
+.social .in{background-position: 0 -42px;}
+
+
+.footer-bottom{
+	margin-bottom: 30px;
+	padding: 20px 30px 0;
+}
+
+.footer-nav li{
+	float: left;
+}
+.footer-nav li a{
+	color: #dad6cc;
+}
+.footer-nav .actived,
+.footer-nav li:hover a{
+	color: #575652;
+}
+
+
+.footer-tel{
+	display: block;
+	padding-left: 40px;
+	height: 40px;
+	font-size: 35px;
+	color: #dedad1;
+	background: url(../img/footer-tel.png) no-repeat left 2px;
+}
+.footer-tel span{
+	color: #ffc11e;
+}
+
+.footer-creaters{
+	text-align: center;
+	padding-bottom: 40px;
+}
+
+.footer-creaters span{color: #dedad1;}
+
+/** ФУТЕР **/
+
+
+
+
+
+
+
+
+

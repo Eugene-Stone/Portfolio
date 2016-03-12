@@ -1,0 +1,384 @@
+/*==========  Desktop First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media screen and (min-width: 992px) and (max-width: 1200px)
+
+	.product-item .product-info
+		padding-left: 5px
+		padding-right: 5px
+		padding-top: 20px
+		.button-wrap
+			bottom: 20px
+	.big-pr .product-info h4
+		margin-top: 40px
+
+
+@media only screen and (max-width: 1360px)
+	.article .owl-nav
+		.owl-prev, .owl-next
+			height: 25px
+			width: 25px
+		.owl-prev
+			left: -28px
+		.owl-next
+			right: -28px
+			background-position: 0 25px
+
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px)
+	
+	.top_nav
+		padding-left: 0
+		li
+			margin-right: 25px
+
+	.products
+		min-height: 297px
+
+	.reviews
+		.review-text
+			p
+				padding-right: 0
+
+	.sect_7 .button-wrap
+		text-align: right
+
+	.article
+		h3
+			font-size: 24px
+			line-height: 26px
+		.owl-nav
+			top: 160px
+
+
+
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px)
+	
+	.phone-wrap
+		.phone
+			font-size: 18px
+
+	.top_nav
+		li
+			margin-right: 9px
+
+	.tools
+		.dropdown
+			white-space: nowrap
+
+	.item-info h3
+		font-size: 21px
+
+	.big-pr .product-info
+		padding-top: 100px
+
+	.reviews 
+		.review-text
+			p
+				font-size: 18px
+			h3
+				font-size: 36px
+
+
+@media only screen and (max-width: 800px)
+	.article .owl-nav
+		display: block
+		position: absolute
+		top: 100%
+		left: 0
+		width: 100%
+		height: 69px
+		.owl-prev
+			left: 25%
+		.owl-next
+			right: 25%
+
+
+
+
+
+
+
+
+
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 769px)
+	
+	/*Disable Animation on Mobile Devices*/
+	.animated
+		/*CSS transitions*/
+		-o-transition-property: none !important
+		-moz-transition-property: none !important
+		-ms-transition-property: none !important
+		-webkit-transition-property: none !important
+		transition-property: none !important
+		/*CSS transforms*/
+		-o-transform: none !important
+		-moz-transform: none !important
+		-ms-transform: none !important
+		-webkit-transform: none !important
+		transform: none !important
+		/*CSS animations*/
+		-webkit-animation: none !important
+		-moz-animation: none !important
+		-o-animation: none !important
+		-ms-animation: none !important
+		animation: none !important
+
+
+
+	.top-banner
+		text-align: center
+		margin-top: 0
+
+	.action-top
+		margin-bottom: 20px
+		h3
+			font-size: 18px
+
+	.read-more
+		text-align: center
+		padding-right: 0
+		.close-banner
+			top: -40px
+
+	.box-wrap, .phone-wrap, .language
+		text-align: center
+		font-weight: bold
+
+	.box-wrap
+		padding-top: 20px
+
+	.language
+		margin-bottom: 15px
+
+	.top-tabs .tab-item
+		left: 0
+		margin-left: 0
+
+	.products
+		margin-bottom: 5px
+
+	.top_mnu
+		text-align: center
+		padding-bottom: 23px
+		background-color: rgba(235, 211, 207, 0.95)
+
+	.tools
+		text-align: center
+		margin-top: 60px
+		.dropdown
+			font-weight: bold
+
+	.products
+		li
+			padding-top: 5px
+			border-bottom: 1px solid rgba(179,223,99,.5)
+			&:hover
+				background-color: rgba(179,223,99,.2)
+		.title
+			border: none
+
+	.top_nav
+		display: none
+		margin-bottom: 40px
+		li
+			display: block
+			z-index: 111
+			margin-top: 15px
+			&::after
+				opacity: .2
+			a
+				display: inline-block
+				width: 100%
+	
+	.header
+		background-size: auto
+
+	.item-info h3
+		font-size: 20px
+
+	section h2
+		font-size: 28px
+		line-height: 45px
+
+	.big-pr 
+		.product-info 
+			h4
+			font-size: 18px
+			line-height: 24px
+
+	.product-item 
+		.product-info 
+			.button-wrap
+				bottom: 40px
+
+	.reviews 
+		.img-wrap
+			display: block
+			float: none
+			margin: auto
+			width: 100%
+			margin-bottom: 20px
+
+		.review-text
+			margin-left: 0
+			margin-left: auto
+			text-align: center
+
+	.discount
+		font-size: 50px
+
+	.footer
+		text-align: center
+
+
+
+@media only screen and (max-width: 600px)
+	.article .slide
+		margin: auto
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+	
+	.action-top br
+		display: block !important
+
+	.read-more .close-banner
+		top: -60px
+		right: -10px
+
+	.phone-wrap
+		margin-bottom: 5px
+		white-space: normal
+		.phone
+			transform: none
+			margin-bottom: 10px
+		.buttons
+			margin-bottom: 10px
+
+	.hidden-480
+		display: none
+
+	.item-info h3
+		font-size: 16px
+
+	.sect_1 .img-wrap
+		margin: auto
+		max-width: 65px
+		img
+			width: 100%
+			height: auto
+
+	section h2
+		&::after
+			bottom: -5px
+			left: 0
+			max-width: 285px !important
+			height: 4px
+			background-color: #6f8d00
+		span::after
+			bottom: -5px
+			left: 0
+			max-width: 285px !important
+			height: 4px
+			background-color: #6f8d00
+			min-width: 285px
+
+	.sect_4 h2 span::after
+		min-width: 285px !important
+
+	section h2
+		padding-right: 0
+		font-size: 18px
+		white-space: nowrap
+		line-height: 45px
+
+	.product-item
+		.img-wrap
+			border: none
+		.product-info
+			border-left: 2px solid #c2c0c1
+			padding: 50px 2px 90px
+			h4
+				font-size: 15px
+				text-transform: none
+
+	.big-pr .product-info
+		padding-bottom: 140px
+
+	.reviews
+		padding-bottom: 50px
+
+	.sect_6 p
+		font-size: 18px
+
+	.loyalty
+		padding-top: 20px
+		padding-bottom: 20px
+		h1
+			font-size: 40px
+			line-height: 40px
+			margin-bottom: 10px
+		h3
+			font-size: 30px
+			line-height: 32px
+
+	.discount
+		font-size: 30px
+
+	.sect_7
+		text-align: center
+		a.mail, .phone
+			padding-left: 0
+			margin-bottom: 15px
+			height: 50px
+			background-image: none
+		a.mail
+			font-size: 20px
+		.phone
+			padding-left: 0
+		.button-wrap
+			text-align: center
+
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px)
+	/**/
+
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px)
+	/**/
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px)
+	/**/
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 770px)
+	
+	.top_nav
+		display: block !important
+
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px)
+	/**/
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px)
+	/**/
+
