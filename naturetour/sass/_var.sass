@@ -1,0 +1,205 @@
+// Values Unchanged
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video
+	margin: 0
+	padding: 0
+	border: 0
+	font-size: 100%
+	font: inherit
+	vertical-align: baseline
+
+ol, ul
+	list-style: none
+*
+	margin: 0
+	padding: 0
+	outline: none
+	box-sizing: border-box
+
+
+/* Clearfix */
+.clearfix:before,
+.clearfix:after
+	content: " "
+	display: table
+
+.clearfix:after
+	clear: both
+
+.before
+	content:''
+	width: 100%
+	height: 100%
+	position: absolute
+.after
+	content:''
+	position: absolute
+	width: 100%
+	height: 100%
+// Values Unchanged END
+
+
+// The Variables Styles
+$title-color: #444137
+$main-color: #54b837
+$text-color: #3a3731
+
+html,
+body
+	height: 100%
+	min-height: 100%
+
+body
+	position: relative
+	font-family: Arial, sans-serif
+	font-size: 12px
+	line-height: 18px
+	font-weight: normal
+	color: $text-color
+	-webkit-font-smoothing: antialiased
+	background-image: url("../img/bg.jpg")
+
+
+.wrap,
+.container
+	@extend .clearfix
+	position: relative
+	margin: auto
+
+.container
+	width: 990px
+
+.wrap
+	padding-bottom: 340px
+	min-height: 100%
+	width: 100%
+	min-width: 100%
+
+footer
+	margin-top: -320px
+	height: 320px
+
+.hidden
+	display: none
+
+
+/* Title */
+h1
+	display: inline-block
+	font-family: "KlavikaMedium Plain", sans-serif
+	font-size: 34px
+	line-height: 1em
+	text-transform: uppercase
+	color: #231f20
+
+h2
+	font-family: "ZurichBT RomanCondensed", sans-serif
+	font-size: 26px
+	text-transform: uppercase
+	color: $title-color
+
+h3
+	font-size: 14px
+	font-weight: bold
+	color: #3a3731
+
+h4
+	font-family: "Myriad Pro", sans-serif
+	font-size: 12px
+	color: #585755
+
+/* Placeholder */
+::-webkit-input-placeholder
+	color: #666
+	font-size: 11px
+
+:-moz-placeholder
+	color: #666
+	font-size: 11px
+
+::-moz-placeholder
+	color: #666
+	font-size: 11px
+
+:-ms-input-placeholder
+	color: #666
+	font-size: 11px
+/* Placeholder END*/
+
+
+/* The Properties Of The Button */
+.button-wrap
+	text-align: left
+.basic-btn
+	display: inline-block
+	padding: 7px 10px 5px
+	border: none
+	font-family: "KlavikaMedium Plain", sans-serif
+	font-size: 14px
+	line-height: 1em
+	text-transform: uppercase
+	color: #fff
+	transition: background-image .45s ease
+	text-decoration: none
+	border-radius: 5px
+	cursor: pointer
+	text-shadow: 0 -2px 1px rgba(0,92,19,.63)
+	box-shadow: 0 0 0 3px #d8d5cc, inset 1px 1px 2px 0 #0c932f, inset 2px 2px 1px 0 #81de41
+	background-image: linear-gradient(to top, #0f941a, #66c13e)
+	&:hover
+		background-image: linear-gradient(to top, #66c13e, #0f941a)
+		color: #fff
+		text-decoration: none
+	&:active
+		color: #fff
+		text-decoration: none
+		background-image: none
+		background-color: darken($main-color, 3%) 
+	&:focus
+		color: #fff
+		text-decoration: none
+
+.fb-btn
+	position: relative
+	padding: 5px 50px 6px 16px
+	font-size: 13px
+	text-shadow: 0 -2px 1px rgba(97,87,65,.63)
+	box-shadow: 0 0 0 3px #d8d5cc, inset 0 1px 0 0 #867b6b, inset 0 2px 0 0 #b0a59d
+	background-image: linear-gradient(to top, #736b61, #948c80)
+	border: 1px solid #7c7161
+	overflow: hidden
+	&:hover
+		background-image: linear-gradient(to top, #948c80, #736b61)
+		color: #fff
+		text-decoration: none
+	&:active
+		color: #fff
+		text-decoration: none
+		background-image: linear-gradient(to top, #736b61, #948c80)
+	&:focus
+		color: #fff
+		text-decoration: none
+
+.ic-fb
+	display: inline-block
+	position: absolute
+	right: 0
+	top: -1px
+	bottom: 0
+	width: 35px
+	border-left: 1px solid #867b6b
+	box-shadow: inset 1px 1px 0 0 #b0a59d
+	background-image: url("../img/icon-set.png")
+	background-position: center -404px
+/* The Properties Of The Button END*/

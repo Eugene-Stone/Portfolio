@@ -1,0 +1,824 @@
+@import "bourbon/bourbon"
+@import "fonts"
+@import "_var"
+
+header
+	min-width: 990px
+	padding-top: 17px
+	background-image: linear-gradient(to top, rgba(255,255,255,.05), rgba(255,255,255,.8))
+
+.top-line
+	margin-bottom: 15px
+	@extend .clearfix
+
+/* Logo */
+.logo
+	float: left
+	display: inline-block
+	margin-left: 25px
+	padding-top: 12px
+	padding-left: 32px
+	text-decoration: none
+	text-transform: uppercase
+	background-image: url("../img/logo-img.png")
+	background-repeat: no-repeat
+	background-position: left top
+	span
+		font-family: "Myriad Pro", sans-serif
+		font-weight: 500
+		font-size: 11px
+		color: #858689
+
+/* Top Information */
+.main-info
+	float: right
+	text-align: right	
+	font-family: "Myriad Pro", sans-serif
+	h4
+		margin-bottom: 3px
+
+.phone
+	font-size: 20px
+	color: #373737
+
+.top-nav
+	margin-top: 13px
+	li
+		display: inline-block
+		text-transform: uppercase
+		margin-left: 12px
+		&:hover
+			a
+				text-decoration: underline
+		a
+			font-family: "ZurichBT RomanCondensed", sans-serif
+			font-size: 13px
+			color: #209a28
+			text-decoration: none
+
+/* Main Navigation */
+.main-nav
+	padding: 13px 27px
+	margin-bottom: 12px
+	border-radius: 6px
+	box-shadow: inset 1px 1px 2px 0 #0c932f, inset 2px 2px 1px 0 #81de41
+	background-image: linear-gradient(to top, #0f941a, #66c13e)
+	li
+		display: inline-block
+		text-transform: uppercase
+		margin-right: 54px
+		&:last-child
+			margin-right: 0
+		a
+			font-family: "ZurichBT RomanCondensed", sans-serif
+			font-size: 15px
+			font-weight: bold
+			color: #fff
+			text-decoration: none
+			text-shadow: 0 -2px 1px rgba(0,92,19,.63)
+
+
+/* Main content */
+.bread-crumbs
+	padding-left: 27px
+	margin-bottom: 10px
+	li
+		display: inline-block
+		margin-right: 10px
+		&:hover
+			a
+				text-decoration: underline
+		a
+			font-size: 12px
+			color: #14961c
+			text-decoration: none
+
+
+.content
+	@extend .clearfix
+	position: relative
+	background-color: #fff
+	border-radius: 4px
+	box-shadow: inset 0 0 1px 1px #e1dbce, inset 0 0 1px 2px #fff
+	background-image: url("../img/bg-sidebar.png")
+	background-position: right top
+	background-repeat: repeat-y
+
+.main-cont
+	float: left
+	width: 740px
+	padding: 18px 0 15px
+
+/* Slider */
+.flexslider
+	padding: 0 18px
+	margin: 0
+	margin-bottom: 28px
+	width: 100%
+	border: none
+	background-color: transparent
+	.slides
+		> li
+				img
+					border-radius: 8px
+				&::after
+					@extend .after
+					z-index: 1
+					content:""
+					right: 0
+					bottom: -120px
+					width: 235px
+					height: 135px
+					opacity: 0
+				&.flex-active-slide
+					&::after
+						opacity: 1
+				&:first-child,
+				&:nth-child(3)
+					&::after
+						background-image: url("../img/slide-after1.png")
+						background-size: auto
+				&:nth-child(2),
+				&:nth-child(4)
+					&::after
+						background-image: url("../img/slide-after2.png")
+						background-size: auto
+
+.flex-caption
+	position: absolute
+	top: 0
+	right: 0
+	bottom: 0
+	padding: 18px 15px
+	border-top-right-radius: 8px
+	border-bottom-right-radius: 8px
+	width: 235px
+	background: rgba(37, 29, 20, 0.9)
+	color: #fff
+	font-size: 12px
+
+	h2
+		margin-bottom: 14px
+		text-transform: none
+		color: #28b028
+		line-height: 1.15em
+		span
+			color: #fff
+
+.more
+	display: inline-block
+	margin-top: 1px
+	color: #28b028
+	text-decoration: none
+	&:hover
+		text-decoration: underline
+
+.flex-control-nav
+	position: absolute
+	bottom: 25px
+	right: 0
+	width: 220px
+	text-align: left
+	z-index: 2
+	li
+		margin: 0
+		margin-right: 10px
+		vertical-align: middle
+		a
+			padding-top: 5px
+			padding-left: 1px
+			width: 22px
+			height: 22px
+			background-color: #6b685e
+			transition: all .5s ease
+			box-shadow: inset 1px -1px 2px 0 rgba(192,186,166,.75)
+			text-indent: 0
+			font-size: 12px
+			font-weight: bold
+			text-align: center
+			text-decoration: none
+			line-height: 1em
+			color: #cbcbcb
+			&.flex-active,
+			&.flex-active:hover
+				box-shadow: none
+				transform: scale(1.2)
+				background-image: linear-gradient(to top, #1a7912, #6ddd49)
+				color: #fff
+			&:hover
+				background-color: #6b685e
+
+
+/* Main Info */
+.info-block
+	padding-left: 18px
+	padding-right: 293px
+	margin-bottom: 16px
+	h2
+		margin-bottom: 18px
+	p
+		line-height: 20px
+		color: #595447
+		a
+			font-weight: bold
+			color: #28b028
+
+
+/* SORT-tabs */
+.sort-tabs
+	width: 100%
+	li
+		position: relative
+		width: 232px
+		float: left
+		text-align: center
+		cursor: pointer
+		background-image: linear-gradient(to top, #f4f3f1, #fff)
+		border: 1px solid #cfcdc5
+		&:first-child
+			border-top-left-radius: 5px
+			border-bottom-left-radius: 5px
+		&:nth-child(2)
+			width: 240px
+			border-left: none
+			border-right: none
+		&:last-child
+			border-top-right-radius: 5px
+			border-bottom-right-radius: 5px
+		&:hover,
+		&.ui-tabs-active,
+		&.ui-state-active
+			box-shadow: inset 1px 1px 2px 0 #0c932f, inset 2px 2px 1px 0 #81de41
+			background-image: linear-gradient(to top, #16981d, #65c03e)
+			border-color: #0c932f
+			&::after
+				@extend .after
+				display: block
+				content: ""
+				left: 50%
+				bottom: -14px
+				width: 0
+				height: 7px
+				border-left: 5px solid transparent
+				border-right: 5px solid transparent
+				border-top: 7px solid #11951b
+
+			a
+				color: #fff
+				text-shadow: 0 -2px 1px rgba(0,92,19,.63)
+			span
+				display: none
+		span
+			display: inline-block
+			position: relative
+			top: -1px
+			margin-left: -20px
+			margin-right: 6px
+			color: #43ac2d
+			font-size: 14px
+			line-height: 14px
+		a
+			display: inline-block
+			padding: 10px 0
+			width: 100%
+			font-family: "ZurichBT RomanCondensed", sans-serif
+			font-size: 18px
+			text-decoration: none
+			color: $title-color
+
+.ui-tabs-nav
+	@extend .clearfix
+	width: 100%
+	padding: 0 18px
+	margin-bottom: 23px
+
+/* tabs Content */
+.holidays-wrap
+	text-align: center
+
+.holiday-item
+	display: inline-block
+	padding-bottom: 16px
+	vertical-align: top
+	width: 220px
+	margin: 0 9px
+	text-align: left
+	h3
+		margin-bottom: 5px
+		a
+			text-decoration: none
+			color: inherit
+
+.img-wrap
+	margin-bottom: 10px
+	width: 220px
+	height: 106px
+	border: 4px solid #e9e6df
+	border-radius: 6px
+	img
+		width: 100%
+		height: auto
+		border-radius: 2px
+	
+
+/* Sidebar */
+.r-bar
+	float: left
+	width: 250px
+	h3
+		margin-bottom: 5px
+		font-family: "Myriad Pro", sans-serif
+		text-transform: uppercase
+		font-weight: normal
+		color: #3f3b30
+	h4
+		margin-bottom: 10px
+		font-family: Arial, sans-serif
+		color: #3f3b30
+
+.search-box
+	padding: 20px 25px 25px 22px
+	border-bottom: 1px solid #e1dbce
+	box-shadow: 0 1px 0 0 #fff
+
+/* Advanced Search */
+.advanced-search
+	margin-bottom: 20px
+	width: 100%
+
+
+/* Select Menu (defoult)*/
+.ui-selectmenu-menu
+	padding: 0
+	margin: 0
+	position: absolute
+	top: 0
+	left: 0
+	display: none
+	.ui-menu
+		overflow: auto
+		overflow-x: hidden
+		padding-bottom: 1px
+		.ui-selectmenu-optgroup
+			font-size: 1em
+			font-weight: bold
+			line-height: 1.5
+			padding: 2px 0.4em
+			margin: 0.5em 0 0 0
+			height: auto
+			border: 0
+
+.ui-selectmenu-open
+	display: block
+
+.ui-selectmenu-button
+	display: inline-block
+	overflow: hidden
+	position: relative
+	text-decoration: none
+	cursor: pointer
+	span
+		&.ui-icon
+			position: absolute
+		&.ui-selectmenu-text
+			text-align: left
+			display: block
+			line-height: 1.4
+			overflow: hidden
+			text-overflow: ellipsis
+			white-space: nowrap
+/* Select Menu (defoult) END*/
+
+/* Select Menu (custom) */
+.ui-selectmenu-button
+	margin-bottom: 13px
+	padding: 0
+	width: 100%
+	min-width: 100%
+	height: 25px
+	border-radius: 5px
+	border: 1px solid #cfcdc5
+	box-shadow: 0 0 0 3px #e8e5de, inset 0 -1px 0 0 #fff
+	background-image: linear-gradient(to top, #f4f3f1, #fff)
+	opacity: .3
+	&.active
+		opacity: 1
+	span.ui-selectmenu-text
+		padding: 6px 8px
+		font-size: 11px
+		line-height: 11px
+		color: #231f20
+
+	span.ui-icon
+		top: 0
+		right: 0
+		bottom: 0
+		width: 25px
+		background-image: url("../img/icon-set.png")
+		background-position: center 3px
+
+.ui-selectmenu-open
+	padding: 0
+	border: 1px solid #cfcdc5
+	box-shadow: 0 0 0 3px #e8e5de, inset 0 -1px 0 0 #fff
+	border-radius: 5px
+	overflow: hidden
+
+.ui-menu-item
+	padding: 8px
+	height: 25px
+	background-image: linear-gradient(to top, #f4f3f1, #fff)
+	border-bottom: 1px solid #cfcdc5
+	cursor: pointer
+	font-size: 11px
+	line-height: 11px
+	color: #231f20
+	&:last-child
+		border-bottom: none
+	&.ui-state-focus
+		background-image: linear-gradient(to top, #fff, #f4f3f1)
+/* Select Menu (custom) END*/
+
+/* Datepicker */
+.ui-datepicker
+	width: 17em
+	padding: .2em .2em 0
+	display: none
+	.ui-datepicker-header
+		position: relative
+		padding: .2em 0
+	.ui-datepicker-prev, .ui-datepicker-next
+		position: absolute
+		top: 2px
+		width: 1.8em
+		height: 1.8em
+	.ui-datepicker-prev-hover, .ui-datepicker-next-hover
+		top: 1px
+	.ui-datepicker-prev
+		left: 2px
+	.ui-datepicker-next
+		right: 2px
+	.ui-datepicker-prev-hover
+		left: 1px
+	.ui-datepicker-next-hover
+		right: 1px
+	.ui-datepicker-prev span, .ui-datepicker-next span
+		display: block
+		position: absolute
+		left: 50%
+		margin-left: -8px
+		top: 50%
+		margin-top: -8px
+	.ui-datepicker-title
+		margin: 0 2.3em
+		line-height: 1.8em
+		text-align: center
+		select
+			font-size: 1em
+			margin: 1px 0
+	select
+		&.ui-datepicker-month, &.ui-datepicker-year
+			width: 45%
+	table
+		width: 100%
+		font-size: .9em
+		border-collapse: collapse
+		margin: 0 0 .4em
+	th
+		padding: .7em .3em
+		text-align: center
+		font-weight: bold
+		border: 0
+	td
+		border: 0
+		padding: 1px
+		span, a
+			display: block
+			padding: .2em
+			text-align: right
+			text-decoration: none
+	.ui-datepicker-buttonpane
+		background-image: none
+		margin: .7em 0 0 0
+		padding: 0 .2em
+		border-left: 0
+		border-right: 0
+		border-bottom: 0
+		button
+			float: right
+			margin: .5em .2em .4em
+			cursor: pointer
+			padding: .2em .6em .3em .6em
+			width: auto
+			overflow: visible
+			&.ui-datepicker-current
+				float: left
+	&.ui-datepicker-multi
+		width: auto
+
+.ui-datepicker-multi .ui-datepicker-group
+	float: left
+	table
+		width: 95%
+		margin: 0 auto .4em
+
+.ui-datepicker-multi-2 .ui-datepicker-group
+	width: 50%
+
+.ui-datepicker-multi-3 .ui-datepicker-group
+	width: 33.3%
+
+.ui-datepicker-multi-4 .ui-datepicker-group
+	width: 25%
+
+.ui-datepicker-multi
+	.ui-datepicker-group-last .ui-datepicker-header, .ui-datepicker-group-middle .ui-datepicker-header
+		border-left-width: 0
+	.ui-datepicker-buttonpane
+		clear: left
+
+.ui-datepicker-row-break
+	clear: both
+	width: 100%
+	font-size: 0
+
+.ui-datepicker-rtl
+	direction: rtl
+	.ui-datepicker-prev
+		right: 2px
+		left: auto
+	.ui-datepicker-next
+		left: 2px
+		right: auto
+	.ui-datepicker-prev:hover
+		right: 1px
+		left: auto
+	.ui-datepicker-next:hover
+		left: 1px
+		right: auto
+	.ui-datepicker-buttonpane
+		clear: right
+		button
+			float: left
+			&.ui-datepicker-current
+				float: right
+	.ui-datepicker-group
+		float: right
+	.ui-datepicker-group-last .ui-datepicker-header, .ui-datepicker-group-middle .ui-datepicker-header
+		border-right-width: 0
+		border-left-width: 1px
+
+/* Datepicker (Custom)*/
+.ui-datepicker
+	background-color: #f4f2ec
+	border: 1px solid #cfcdc5
+	border-radius: 5px
+	box-shadow: 0 0 0 3px #e8e5de, inset 0 -1px 0 0 #fff
+	overflow: hidden
+	.ui-state-default
+		border: 1px solid #cfcdc5
+		color: inherit
+		&:hover
+			background-color: #53b736
+	.ui-datepicker-today
+		background-color: #bdffb5
+
+	.ui-datepicker-header
+		border-bottom: 1px solid #cfcdc5
+	.ui-datepicker-prev, 
+	.ui-datepicker-next
+		top: 0
+		.ui-icon
+			text-indent: 9999px
+			width: 20px
+			height: 21px
+			background-image: url("../img/icon-set.png")
+			background-position: center -518px
+			cursor: pointer
+	.ui-datepicker-next
+		.ui-icon
+			background-position: center -618px
+/* Datepicker END*/
+
+/* Select Date */
+.date
+	margin-bottom: 15px
+	border-bottom: 1px solid #e1dbce
+	box-shadow: 0 1px 0 0 #fff	
+	opacity: .3
+	&.active
+		opacity: 1
+	input
+		&[type="text"]
+			padding: 8px 8px
+			width: 100%
+			height: 26px
+			border-radius: 5px
+			border: 1px solid #cfcdc5
+			box-shadow: 0 0 0 3px #e8e5de, inset 0 -1px 0 0 #fff
+			font-size: 11px
+			color: #666
+			background-image: url("../img/icon-set.png")
+			background-repeat: no-repeat
+			background-position: right -1px top 3px
+
+
+/* Button Search */
+.large-btn
+	position: relative
+	padding: 14px 20px 10px
+	height: 40px
+	width: 205px
+	font-size: 15px
+	background-image: none
+	background: url("../img/icon-set.png") right 25px top -178px no-repeat, url("../img/large-btn.png") no-repeat
+	border: none
+	box-shadow: none
+	&:hover
+		background: url("../img/icon-set.png") right 25px top -178px no-repeat, url("../img/large-btn.png") no-repeat
+		opacity: .8
+	&:active,
+	&:focus
+		background: url("../img/icon-set.png") right 25px top -178px no-repeat, url("../img/large-btn.png") no-repeat
+		background-color: transparent
+
+/* Quick Search */
+.quick-search
+	input
+		&[type="search"]
+			float: left
+			padding: 8px 8px
+			width: 118px
+			height: 26px
+			border-radius: 5px
+			border: 1px solid #cfcdc5
+			box-shadow: 0 0 0 3px #e8e5de, inset 0 -1px 0 0 #fff
+			font-size: 11px
+			color: #666
+		&[type="submit"]
+			float: right
+			@extend .basic-btn
+
+/* Newsletter Signup */
+.news-signup
+	padding: 20px 25px 25px 22px
+	border-bottom: 1px solid #e1dbce
+	box-shadow: 0 1px 0 0 #fff
+	input
+		&[type="text"]
+			float: left
+			padding: 8px 8px
+			width: 118px
+			height: 26px
+			border-radius: 5px
+			border: 1px solid #cfcdc5
+			box-shadow: 0 0 0 3px #e8e5de, inset 0 -1px 0 0 #fff
+			font-size: 11px
+			color: #666
+		&[type="submit"]
+			float: right
+			@extend .basic-btn
+
+		&.e-mail
+			margin-bottom: 15px
+			width: 100%
+
+/* Latest News */
+.lat-news
+	padding: 20px 25px 25px 22px
+
+.news-item
+	margin-bottom: 20px
+	color: #3f3b30
+	&:last-child
+		margin-bottom: 0
+	h4,
+	.sb-date
+		display: inline-block
+		margin-bottom: 2px
+		font-family: Arial, sans-serif
+		font-weight: bold
+		color: #3f3b30
+		text-decoration: none
+		&:hover
+			text-decoration: underline
+	h4
+		a
+			text-decoration: none
+			color: inherit
+
+
+/* Footer */
+.f-top-line
+	padding: 14px 10px 12px
+	text-align: center
+	border-bottom: 1px solid #635543
+	border-top-right-radius: 4px
+	border-top-left-radius: 4px
+	background-image: linear-gradient(to top, #6f685e, #979286)
+	h3
+		font-size: 16px
+		font-weight: normal
+		font-style: italic
+		color: #fff
+		text-shadow: 1px 1px 1px rgba(0,0,0,.75)
+
+.main-f
+	padding: 20px 20px 18px
+	background-color: #f4f2ec
+	border-bottom-right-radius: 4px
+	border-bottom-left-radius: 4px
+	font-size: 12px
+	color: #757268
+	h3
+		margin-bottom: 6px
+		font-family: "KlavikaMedium Plain", sans-serif
+		font-weight: normal
+		text-transform: uppercase
+		color: #64522a
+
+/* Follow Us */
+.follow-us
+	float: left
+	position: relative
+	width: 225px
+	padding-right: 30px
+	h3
+		position: relative
+		top: -5px
+		a
+			color: inherit
+			text-decoration: none
+	.fb-btn
+		margin-top: 12px
+
+.ic-tw
+	position: relative
+	bottom: -5px
+	display: inline-block
+	margin-left: 3px
+	height: 20px
+	width: 30px
+	background-image: url("../img/icon-set.png")
+	background-position: center -292px
+
+/* Footer Links */
+.f-links
+	position: relative
+	float: left
+	padding-left: 25px
+	width: 510px
+	ul
+		margin-right: 47px
+		display: inline-block
+		vertical-align: top
+		&:last-child
+			margin-right: 0
+		a
+			text-decoration: none
+			color: inherit
+			line-height: 20px
+			&:hover
+				text-decoration: underline
+
+
+.follow-us,
+.f-links
+	&::after
+		@extend .after
+		top: 0
+		right: 0
+		width: 0
+		height: 118px
+		border-left: 1px solid #d8d6ce
+		border-right: 1px solid #faf9f7
+
+/* Contact Us */
+.contact-us
+	float: left
+	padding-left: 25px
+	width: 215px
+	span
+		display: block
+	strong
+		font-weight: bold
+
+.email
+	margin-bottom: 25px
+	a
+		text-decoration: none
+		color: inherit
+		&:hover
+			text-decoration: underline
+
+/* Copyright */
+.f-copy
+	padding: 20px 10px
+	text-align: center
+	h5
+		font-size: 11px
+		font-weight: bold
+		color: #3a3731
+	p
+		font-size: 11px
+		color: #716c61
