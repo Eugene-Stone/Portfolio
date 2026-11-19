@@ -19,6 +19,10 @@ export const Cases: CollectionConfig = {
 		group: 'Progects',
 		description: '',
 	},
+	defaultPopulate: {
+		title: true,
+		slug: true,
+	},
 	access: {
 		read: () => true,
 		// create: () => true,
@@ -33,6 +37,14 @@ export const Cases: CollectionConfig = {
 		beforeValidate: [generateSlug(slugSourceField, collectionName)],
 	},
 	fields: [
+		{
+			name: '_collection',
+			type: 'text',
+			defaultValue: 'case',
+			admin: {
+				hidden: true,
+			},
+		},
 		// slugField(),
 		// slugField(slugSourceField),
 		slugField(slugSourceField, collectionName),
@@ -57,6 +69,12 @@ export const Cases: CollectionConfig = {
 		htmlEditorField({
 			name: 'textHtml',
 			label: 'Text Html',
+			features: {
+				// images: false,
+				tables: false,
+				// sourceEditing: false,
+				// textAlignment: true,
+			},
 		}),
 		{
 			name: 'price',
@@ -65,15 +83,6 @@ export const Cases: CollectionConfig = {
 		{
 			name: 'duration',
 			type: 'text',
-		},
-
-		{
-			name: '_collection',
-			type: 'text',
-			defaultValue: 'case',
-			admin: {
-				hidden: true,
-			},
 		},
 	],
 }

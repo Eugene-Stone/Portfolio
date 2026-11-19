@@ -1,6 +1,6 @@
 import { CollectionConfig } from 'payload'
 
-const CasesTags: CollectionConfig = {
+export const CasesTags: CollectionConfig = {
 	slug: 'casestags',
 
 	fields: [
@@ -17,5 +17,3 @@ const CasesTags: CollectionConfig = {
 	},
 	timestamps: true,
 }
-
-export default CasesTags

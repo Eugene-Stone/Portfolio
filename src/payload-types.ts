@@ -91,8 +91,12 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: null;
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    GeneralData: GeneralDatum;
+  };
+  globalsSelect: {
+    GeneralData: GeneralDataSelect<false> | GeneralDataSelect<true>;
+  };
   locale: null;
   widgets: {
     collections: CollectionsWidget;
@@ -155,6 +159,7 @@ export interface User {
 export interface Media {
   id: number;
   alt: string;
+  capture?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -166,6 +171,56 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+  sizes?: {
+    thumbnail?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    xsmall?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    small?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    medium?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    large?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    xlarge?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -173,6 +228,7 @@ export interface Media {
  */
 export interface Case {
   id: number;
+  _collection?: string | null;
   /**
    * When enabled, the slug will auto-generate from the title field on save and autosave.
    */
@@ -199,7 +255,6 @@ export interface Case {
   textHtml?: string | null;
   price?: number | null;
   duration?: string | null;
-  _collection?: string | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -326,6 +381,7 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  capture?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -337,12 +393,77 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+  sizes?:
+    | T
+    | {
+        thumbnail?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        xsmall?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        small?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        medium?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        large?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        xlarge?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+      };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "cases_select".
  */
 export interface CasesSelect<T extends boolean = true> {
+  _collection?: T;
   generateSlug?: T;
   slug?: T;
   title?: T;
@@ -352,7 +473,6 @@ export interface CasesSelect<T extends boolean = true> {
   textHtml?: T;
   price?: T;
   duration?: T;
-  _collection?: T;
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
@@ -405,6 +525,195 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GeneralData".
+ */
+export interface GeneralDatum {
+  id: number;
+  header?: {
+    logo?: (number | null) | Media;
+    buttons?:
+      | {
+          text?: string | null;
+          url?: string | null;
+          isExternal?: boolean | null;
+          id?: string | null;
+          blockName?: string | null;
+          blockType: 'button';
+        }[]
+      | null;
+  };
+  Navigation?:
+    | {
+        /**
+         * Если выбрана связь поле необязательное
+         */
+        title?: string | null;
+        relationLink?:
+          | ({
+              relationTo: 'cases';
+              value: number | Case;
+            } | null)
+          | ({
+              relationTo: 'users';
+              value: number | User;
+            } | null);
+        url?: string | null;
+        isExternal?: boolean | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'link';
+      }[]
+    | null;
+  NavigationGeneral?:
+    | {
+        level?: string | null;
+        /**
+         * Если выбрана связь поле необязательное
+         */
+        title?: string | null;
+        isExternal?: boolean | null;
+        relationLink?:
+          | ({
+              relationTo: 'cases';
+              value: number | Case;
+            } | null)
+          | ({
+              relationTo: 'users';
+              value: number | User;
+            } | null);
+        url?: string | null;
+        hasChildren?: boolean | null;
+        subMenu?:
+          | {
+              level?: string | null;
+              /**
+               * Если выбрана связь поле необязательное
+               */
+              title?: string | null;
+              isExternal?: boolean | null;
+              relationLink?:
+                | ({
+                    relationTo: 'cases';
+                    value: number | Case;
+                  } | null)
+                | ({
+                    relationTo: 'users';
+                    value: number | User;
+                  } | null);
+              url?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  Footer?: {
+    logo?: (number | null) | Media;
+    description?: string | null;
+    copyrightLeft?: string | null;
+    copyrightRight?: string | null;
+  };
+  contactsList?:
+    | {
+        contact?: {
+          text?: string | null;
+          url?: string | null;
+          isLink?: boolean | null;
+          isExternal?: boolean | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  _status?: ('draft' | 'published') | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GeneralData_select".
+ */
+export interface GeneralDataSelect<T extends boolean = true> {
+  header?:
+    | T
+    | {
+        logo?: T;
+        buttons?:
+          | T
+          | {
+              button?:
+                | T
+                | {
+                    text?: T;
+                    url?: T;
+                    isExternal?: T;
+                    id?: T;
+                    blockName?: T;
+                  };
+            };
+      };
+  Navigation?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              title?: T;
+              relationLink?: T;
+              url?: T;
+              isExternal?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  NavigationGeneral?:
+    | T
+    | {
+        level?: T;
+        title?: T;
+        isExternal?: T;
+        relationLink?: T;
+        url?: T;
+        hasChildren?: T;
+        subMenu?:
+          | T
+          | {
+              level?: T;
+              title?: T;
+              isExternal?: T;
+              relationLink?: T;
+              url?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  Footer?:
+    | T
+    | {
+        logo?: T;
+        description?: T;
+        copyrightLeft?: T;
+        copyrightRight?: T;
+      };
+  contactsList?:
+    | T
+    | {
+        contact?:
+          | T
+          | {
+              text?: T;
+              url?: T;
+              isLink?: T;
+              isExternal?: T;
+            };
+        id?: T;
+      };
+  _status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

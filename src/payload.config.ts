@@ -19,7 +19,8 @@ import { htmlEditorPlugin } from 'payload-html-editor'
 import { Users } from './app_payload/collections/Users'
 import { Media } from './app_payload/collections/Media'
 import { Cases } from './app_payload/collections/Cases'
-import CasesTags from './app_payload/collections/CasesTags'
+import { CasesTags } from './app_payload/collections/CasesTags'
+import { GeneralData } from './app_payload/globals/GeneralData'
 
 export default buildConfig({
 	admin: {
@@ -34,9 +35,19 @@ export default buildConfig({
 				// '@/app_payload/components/SidebarLink#SidebarLink_2',
 			],
 		},
+		meta: {
+			titleSuffix: '- Eugene Stone',
+			icons: [
+				{
+					rel: 'icon',
+					type: 'image/png',
+					url: '/images/favicon-admin.png', // путь относительно папки public
+				},
+			],
+		},
 	},
 	collections: [Users, Media, Cases, CasesTags],
-	// globals: [GlobalFields, Header, Footer, Homepage],
+	globals: [GeneralData],
 
 	// Конфигурация едитора с верхней панелью
 	editor: lexicalEditor({
