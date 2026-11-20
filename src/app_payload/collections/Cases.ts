@@ -1,9 +1,10 @@
-// import { slugField, type CollectionConfig } from 'payload'
 import { type CollectionConfig } from 'payload'
 
-import { htmlEditorField } from 'payload-html-editor'
 import { slugField } from '@/app_payload/fields/slugField'
-import { generateSlug } from '../utils/generateSlug'
+import { generateSlug } from '../utils/slugify/generateSlug'
+
+import { htmlEditorField } from 'payload-html-editor'
+import { publishedAtCollection } from '../utils/publishedAt'
 
 const slugSourceField = 'title'
 const collectionName = 'cases'
@@ -14,15 +15,19 @@ export const Cases: CollectionConfig = {
 		singular: 'Case',
 		plural: 'Cases',
 	},
+
+	// Групировка в админке
 	admin: {
 		useAsTitle: 'title',
 		group: 'Progects',
 		description: '',
 	},
+	// defaultPopulate определяет, какие поля выбирать, когда документ этой коллекции попадает в результат как связанный документ (relationship/upload population)
 	defaultPopulate: {
 		title: true,
 		slug: true,
 	},
+
 	access: {
 		read: () => true,
 		// create: () => true,
@@ -30,41 +35,73 @@ export const Cases: CollectionConfig = {
 		// delete: () => true,
 		// delete: hasRole(['superAdmin', 'admin', 'editor']),
 	},
+
 	versions: {
 		drafts: true,
 	},
-	hooks: {
-		beforeValidate: [generateSlug(slugSourceField, collectionName)],
-	},
-	fields: [
-		{
-			name: '_collection',
-			type: 'text',
-			defaultValue: 'case',
-			admin: {
-				hidden: true,
-			},
-		},
-		// slugField(),
-		// slugField(slugSourceField),
-		slugField(slugSourceField, collectionName),
 
+	fields: [
+		// Sidebar
 		{
-			name: 'title',
-			type: 'text',
+			type: 'group',
+			admin: {
+				position: 'sidebar',
+			},
+			fields: [
+				slugField(slugSourceField, collectionName),
+				{
+					name: 'publishedAt',
+					type: 'date',
+				},
+			],
+		},
+
+		// Fields
+		{
+			type: 'row',
+			fields: [
+				{
+					name: 'title',
+					type: 'text',
+					admin: {
+						width: '50%',
+					},
+				},
+				{
+					name: 'typeProject',
+					type: 'relationship',
+					relationTo: ['casesCategory'],
+					admin: {
+						width: '50%',
+					},
+				},
+			],
 		},
 		{
-			name: 'description',
-			type: 'textarea',
+			type: 'row',
+			fields: [
+				{
+					name: 'description',
+					type: 'textarea',
+					admin: {
+						width: '50%',
+					},
+				},
+				{
+					name: 'tags',
+					type: 'relationship',
+					relationTo: ['tagsFrontend', 'tagsBackend'],
+					hasMany: true,
+					admin: {
+						width: '50%',
+					},
+				},
+			],
 		},
 		{
 			name: 'image',
 			type: 'upload',
 			relationTo: 'media',
-		},
-		{
-			name: 'text',
-			type: 'richText',
 		},
 		htmlEditorField({
 			name: 'textHtml',
@@ -76,13 +113,10 @@ export const Cases: CollectionConfig = {
 				// textAlignment: true,
 			},
 		}),
-		{
-			name: 'price',
-			type: 'number',
-		},
-		{
-			name: 'duration',
-			type: 'text',
-		},
 	],
+
+	hooks: {
+		beforeValidate: [generateSlug(slugSourceField, collectionName)],
+		beforeChange: [publishedAtCollection],
+	},
 }

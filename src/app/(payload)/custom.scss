@@ -1,0 +1,15 @@
+.nav-group {
+	.nav-group__content {
+		padding-left: 10px;
+	}
+}
+
+
+
+
+.render-fields:not(.render-fields--margins-small) > input[type="hidden"] + .field-type,
+.render-fields:not(.render-fields--margins-small) > input[type="hidden"] + .group-field--top-level {
+	margin-top: 0;
+	padding-top: 0;
+	border-top: 0;
+}

@@ -67,10 +67,13 @@ export interface Config {
   };
   blocks: {};
   collections: {
-    users: User;
+    pages: Page;
     media: Media;
+    users: User;
     cases: Case;
-    casestags: Casestag;
+    casesCategory: CasesCategory;
+    tagsFrontend: TagsFrontend;
+    tagsBackend: TagsBackend;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -78,10 +81,13 @@ export interface Config {
   };
   collectionsJoins: {};
   collectionsSelect: {
-    users: UsersSelect<false> | UsersSelect<true>;
+    pages: PagesSelect<false> | PagesSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    users: UsersSelect<false> | UsersSelect<true>;
     cases: CasesSelect<false> | CasesSelect<true>;
-    casestags: CasestagsSelect<false> | CasestagsSelect<true>;
+    casesCategory: CasesCategorySelect<false> | CasesCategorySelect<true>;
+    tagsFrontend: TagsFrontendSelect<false> | TagsFrontendSelect<true>;
+    tagsBackend: TagsBackendSelect<false> | TagsBackendSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -92,10 +98,12 @@ export interface Config {
   };
   fallbackLocale: null;
   globals: {
-    GeneralData: GeneralDatum;
+    generalData: GeneralDatum;
+    homePage: HomePage;
   };
   globalsSelect: {
-    GeneralData: GeneralDataSelect<false> | GeneralDataSelect<true>;
+    generalData: GeneralDataSelect<false> | GeneralDataSelect<true>;
+    homePage: HomePageSelect<false> | HomePageSelect<true>;
   };
   locale: null;
   widgets: {
@@ -127,30 +135,70 @@ export interface UserAuthOperations {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users".
+ * via the `definition` "pages".
  */
-export interface User {
+export interface Page {
   id: number;
-  username: string;
-  updatedAt: string;
-  createdAt: string;
-  email: string;
-  resetPasswordToken?: string | null;
-  resetPasswordExpiration?: string | null;
-  salt?: string | null;
-  hash?: string | null;
-  resetPasswordRequestedAt?: string | null;
-  loginAttempts?: number | null;
-  lockUntil?: string | null;
-  sessions?:
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  publishedAt?: string | null;
+  title?: string | null;
+  description?: string | null;
+  sections?:
     | {
-        id: string;
-        createdAt?: string | null;
-        expiresAt: string;
+        title?: string | null;
+        description?: string | null;
+        text?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        image?: (number | null) | Media;
+        id_anchor?: string | null;
+        textHtml?: string | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'about';
       }[]
     | null;
-  password?: string | null;
-  collection: 'users';
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+    keywords?: string | null;
+    canonicalUrl?: string | null;
+    metaRobots?: ('index,follow' | 'noindex,follow' | 'index,nofollow' | 'noindex,nofollow') | null;
+    ogTitle?: string | null;
+    ogDescription?: string | null;
+    ogImage?: (number | null) | Media;
+    twitterCard?: ('summary' | 'summary_large_image' | 'app' | 'player') | null;
+    twitterTitle?: string | null;
+    twitterDescription?: string | null;
+    twitterImage?: (number | null) | Media;
+    /**
+     * JSON-LD structured data in JSON format
+     */
+    structuredData?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -224,50 +272,136 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users".
+ */
+export interface User {
+  id: number;
+  username: string;
+  updatedAt: string;
+  createdAt: string;
+  email: string;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiration?: string | null;
+  salt?: string | null;
+  hash?: string | null;
+  resetPasswordRequestedAt?: string | null;
+  loginAttempts?: number | null;
+  lockUntil?: string | null;
+  sessions?:
+    | {
+        id: string;
+        createdAt?: string | null;
+        expiresAt: string;
+      }[]
+    | null;
+  password?: string | null;
+  collection: 'users';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "cases".
  */
 export interface Case {
   id: number;
-  _collection?: string | null;
   /**
    * When enabled, the slug will auto-generate from the title field on save and autosave.
    */
   generateSlug?: boolean | null;
   slug: string;
+  publishedAt?: string | null;
   title?: string | null;
-  description?: string | null;
-  image?: (number | null) | Media;
-  text?: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
+  typeProject?: {
+    relationTo: 'casesCategory';
+    value: number | CasesCategory;
   } | null;
+  description?: string | null;
+  tags?:
+    | (
+        | {
+            relationTo: 'tagsFrontend';
+            value: number | TagsFrontend;
+          }
+        | {
+            relationTo: 'tagsBackend';
+            value: number | TagsBackend;
+          }
+      )[]
+    | null;
+  image?: (number | null) | Media;
   textHtml?: string | null;
-  price?: number | null;
-  duration?: string | null;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+    keywords?: string | null;
+    canonicalUrl?: string | null;
+    metaRobots?: ('index,follow' | 'noindex,follow' | 'index,nofollow' | 'noindex,nofollow') | null;
+    ogTitle?: string | null;
+    ogDescription?: string | null;
+    ogImage?: (number | null) | Media;
+    twitterCard?: ('summary' | 'summary_large_image' | 'app' | 'player') | null;
+    twitterTitle?: string | null;
+    twitterDescription?: string | null;
+    twitterImage?: (number | null) | Media;
+    /**
+     * JSON-LD structured data in JSON format
+     */
+    structuredData?: string | null;
+  };
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "casestags".
+ * via the `definition` "casesCategory".
  */
-export interface Casestag {
+export interface CasesCategory {
   id: number;
-  fieldName?: string | null;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  title?: string | null;
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tagsFrontend".
+ */
+export interface TagsFrontend {
+  id: number;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  title?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tagsBackend".
+ */
+export interface TagsBackend {
+  id: number;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  title?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -294,20 +428,32 @@ export interface PayloadLockedDocument {
   id: number;
   document?:
     | ({
-        relationTo: 'users';
-        value: number | User;
+        relationTo: 'pages';
+        value: number | Page;
       } | null)
     | ({
         relationTo: 'media';
         value: number | Media;
       } | null)
     | ({
+        relationTo: 'users';
+        value: number | User;
+      } | null)
+    | ({
         relationTo: 'cases';
         value: number | Case;
       } | null)
     | ({
-        relationTo: 'casestags';
-        value: number | Casestag;
+        relationTo: 'casesCategory';
+        value: number | CasesCategory;
+      } | null)
+    | ({
+        relationTo: 'tagsFrontend';
+        value: number | TagsFrontend;
+      } | null)
+    | ({
+        relationTo: 'tagsBackend';
+        value: number | TagsBackend;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -353,27 +499,51 @@ export interface PayloadMigration {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users_select".
+ * via the `definition` "pages_select".
  */
-export interface UsersSelect<T extends boolean = true> {
-  username?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  email?: T;
-  resetPasswordToken?: T;
-  resetPasswordExpiration?: T;
-  salt?: T;
-  hash?: T;
-  resetPasswordRequestedAt?: T;
-  loginAttempts?: T;
-  lockUntil?: T;
-  sessions?:
+export interface PagesSelect<T extends boolean = true> {
+  generateSlug?: T;
+  slug?: T;
+  publishedAt?: T;
+  title?: T;
+  description?: T;
+  sections?:
     | T
     | {
-        id?: T;
-        createdAt?: T;
-        expiresAt?: T;
+        about?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              text?: T;
+              image?: T;
+              id_anchor?: T;
+              textHtml?: T;
+              id?: T;
+              blockName?: T;
+            };
       };
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+        keywords?: T;
+        canonicalUrl?: T;
+        metaRobots?: T;
+        ogTitle?: T;
+        ogDescription?: T;
+        ogImage?: T;
+        twitterCard?: T;
+        twitterTitle?: T;
+        twitterDescription?: T;
+        twitterImage?: T;
+        structuredData?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -460,31 +630,99 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users_select".
+ */
+export interface UsersSelect<T extends boolean = true> {
+  username?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  email?: T;
+  resetPasswordToken?: T;
+  resetPasswordExpiration?: T;
+  salt?: T;
+  hash?: T;
+  resetPasswordRequestedAt?: T;
+  loginAttempts?: T;
+  lockUntil?: T;
+  sessions?:
+    | T
+    | {
+        id?: T;
+        createdAt?: T;
+        expiresAt?: T;
+      };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "cases_select".
  */
 export interface CasesSelect<T extends boolean = true> {
-  _collection?: T;
   generateSlug?: T;
   slug?: T;
+  publishedAt?: T;
   title?: T;
+  typeProject?: T;
   description?: T;
+  tags?: T;
   image?: T;
-  text?: T;
   textHtml?: T;
-  price?: T;
-  duration?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+        keywords?: T;
+        canonicalUrl?: T;
+        metaRobots?: T;
+        ogTitle?: T;
+        ogDescription?: T;
+        ogImage?: T;
+        twitterCard?: T;
+        twitterTitle?: T;
+        twitterDescription?: T;
+        twitterImage?: T;
+        structuredData?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "casestags_select".
+ * via the `definition` "casesCategory_select".
  */
-export interface CasestagsSelect<T extends boolean = true> {
-  fieldName?: T;
+export interface CasesCategorySelect<T extends boolean = true> {
+  generateSlug?: T;
+  slug?: T;
+  title?: T;
   updatedAt?: T;
   createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tagsFrontend_select".
+ */
+export interface TagsFrontendSelect<T extends boolean = true> {
+  generateSlug?: T;
+  slug?: T;
+  title?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tagsBackend_select".
+ */
+export interface TagsBackendSelect<T extends boolean = true> {
+  generateSlug?: T;
+  slug?: T;
+  title?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -528,7 +766,7 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "GeneralData".
+ * via the `definition` "generalData".
  */
 export interface GeneralDatum {
   id: number;
@@ -536,37 +774,14 @@ export interface GeneralDatum {
     logo?: (number | null) | Media;
     buttons?:
       | {
+          type?: ('Primary' | 'Secondary') | null;
           text?: string | null;
           url?: string | null;
           isExternal?: boolean | null;
           id?: string | null;
-          blockName?: string | null;
-          blockType: 'button';
         }[]
       | null;
   };
-  Navigation?:
-    | {
-        /**
-         * Если выбрана связь поле необязательное
-         */
-        title?: string | null;
-        relationLink?:
-          | ({
-              relationTo: 'cases';
-              value: number | Case;
-            } | null)
-          | ({
-              relationTo: 'users';
-              value: number | User;
-            } | null);
-        url?: string | null;
-        isExternal?: boolean | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'link';
-      }[]
-    | null;
   NavigationGeneral?:
     | {
         level?: string | null;
@@ -610,7 +825,7 @@ export interface GeneralDatum {
         id?: string | null;
       }[]
     | null;
-  Footer?: {
+  footer?: {
     logo?: (number | null) | Media;
     description?: string | null;
     copyrightLeft?: string | null;
@@ -618,22 +833,96 @@ export interface GeneralDatum {
   };
   contactsList?:
     | {
-        contact?: {
-          text?: string | null;
-          url?: string | null;
-          isLink?: boolean | null;
-          isExternal?: boolean | null;
-        };
+        text?: string | null;
+        url?: string | null;
+        isExternal?: boolean | null;
         id?: string | null;
       }[]
     | null;
+  ContactsGroupName?: {
+    Contacts?:
+      | {
+          text?: string | null;
+          url?: string | null;
+          isExternal?: boolean | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
   _status?: ('draft' | 'published') | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "GeneralData_select".
+ * via the `definition` "homePage".
+ */
+export interface HomePage {
+  id: number;
+  __component?: string | null;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  publishedAt?: string | null;
+  title?: string | null;
+  sections?:
+    | {
+        title?: string | null;
+        description?: string | null;
+        text?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        image?: (number | null) | Media;
+        id_anchor?: string | null;
+        textHtml?: string | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'about';
+      }[]
+    | null;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+    keywords?: string | null;
+    canonicalUrl?: string | null;
+    metaRobots?: ('index,follow' | 'noindex,follow' | 'index,nofollow' | 'noindex,nofollow') | null;
+    ogTitle?: string | null;
+    ogDescription?: string | null;
+    ogImage?: (number | null) | Media;
+    twitterCard?: ('summary' | 'summary_large_image' | 'app' | 'player') | null;
+    twitterTitle?: string | null;
+    twitterDescription?: string | null;
+    twitterImage?: (number | null) | Media;
+    /**
+     * JSON-LD structured data in JSON format
+     */
+    structuredData?: string | null;
+  };
+  _status?: ('draft' | 'published') | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "generalData_select".
  */
 export interface GeneralDataSelect<T extends boolean = true> {
   header?:
@@ -643,29 +932,11 @@ export interface GeneralDataSelect<T extends boolean = true> {
         buttons?:
           | T
           | {
-              button?:
-                | T
-                | {
-                    text?: T;
-                    url?: T;
-                    isExternal?: T;
-                    id?: T;
-                    blockName?: T;
-                  };
-            };
-      };
-  Navigation?:
-    | T
-    | {
-        link?:
-          | T
-          | {
-              title?: T;
-              relationLink?: T;
+              type?: T;
+              text?: T;
               url?: T;
               isExternal?: T;
               id?: T;
-              blockName?: T;
             };
       };
   NavigationGeneral?:
@@ -689,7 +960,7 @@ export interface GeneralDataSelect<T extends boolean = true> {
             };
         id?: T;
       };
-  Footer?:
+  footer?:
     | T
     | {
         logo?: T;
@@ -700,15 +971,71 @@ export interface GeneralDataSelect<T extends boolean = true> {
   contactsList?:
     | T
     | {
-        contact?:
+        text?: T;
+        url?: T;
+        isExternal?: T;
+        id?: T;
+      };
+  ContactsGroupName?:
+    | T
+    | {
+        Contacts?:
           | T
           | {
               text?: T;
               url?: T;
-              isLink?: T;
               isExternal?: T;
+              id?: T;
             };
-        id?: T;
+      };
+  _status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "homePage_select".
+ */
+export interface HomePageSelect<T extends boolean = true> {
+  __component?: T;
+  generateSlug?: T;
+  slug?: T;
+  publishedAt?: T;
+  title?: T;
+  sections?:
+    | T
+    | {
+        about?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              text?: T;
+              image?: T;
+              id_anchor?: T;
+              textHtml?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+        keywords?: T;
+        canonicalUrl?: T;
+        metaRobots?: T;
+        ogTitle?: T;
+        ogDescription?: T;
+        ogImage?: T;
+        twitterCard?: T;
+        twitterTitle?: T;
+        twitterDescription?: T;
+        twitterImage?: T;
+        structuredData?: T;
       };
   _status?: T;
   updatedAt?: T;

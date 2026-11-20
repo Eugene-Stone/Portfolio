@@ -1,4 +1,5 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
+import { seoPlugin } from '@payloadcms/plugin-seo'
 import {
 	EXPERIMENTAL_TableFeature,
 	FixedToolbarFeature,
@@ -19,8 +20,12 @@ import { htmlEditorPlugin } from 'payload-html-editor'
 import { Users } from './app_payload/collections/Users'
 import { Media } from './app_payload/collections/Media'
 import { Cases } from './app_payload/collections/Cases'
-import { CasesTags } from './app_payload/collections/CasesTags'
 import { GeneralData } from './app_payload/globals/GeneralData'
+import { TagsFrontend } from './app_payload/collections/TagsFrontend'
+import { CasesCategory } from './app_payload/collections/CasesCategory'
+import { TagsBackend } from './app_payload/collections/TagsBackend'
+import { Pages } from './app_payload/collections/Pages'
+import { HomePage } from './app_payload/globals/HomePage'
 
 export default buildConfig({
 	admin: {
@@ -46,8 +51,8 @@ export default buildConfig({
 			],
 		},
 	},
-	collections: [Users, Media, Cases, CasesTags],
-	globals: [GeneralData],
+	collections: [Pages, Media, Users, Cases, CasesCategory, TagsFrontend, TagsBackend],
+	globals: [GeneralData, HomePage],
 
 	// Конфигурация едитора с верхней панелью
 	editor: lexicalEditor({
@@ -84,6 +89,164 @@ export default buildConfig({
 
 		htmlEditorPlugin({
 			mediaCollection: 'media',
+		}),
+		seoPlugin({
+			globals: ['homePage'],
+			collections: ['pages', 'cases'],
+			uploadsCollection: 'media',
+			// tabbedUI: true,
+
+			generateTitle: ({ doc }) => {
+				return doc?.title ? `${doc.title} | Website` : 'Payload Website'
+			},
+			generateDescription: ({ doc }) => doc.description,
+			generateURL: ({ doc }) => {
+				// const url =
+				// 	process.env.NEXT_PUBLIC_SERVER_URL ||
+				// 	(process.env.VERCEL_PROJECT_PRODUCTION_URL
+				// 		? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+				// 		: 'http://localhost:3000')
+
+				const url = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
+
+				return doc?.slug ? `${url}/${doc.slug}` : url
+			},
+
+			fields: ({ defaultFields }) => [
+				...defaultFields,
+
+				{
+					name: 'keywords',
+					type: 'textarea',
+					label: 'Keywords',
+				},
+
+				{
+					name: 'canonicalUrl',
+					type: 'text',
+					label: 'Canonical URL',
+				},
+
+				{
+					name: 'metaRobots',
+					type: 'select',
+					label: 'Robots',
+					defaultValue: 'index,follow',
+					options: [
+						{
+							label: 'Index, Follow',
+							value: 'index,follow',
+						},
+						{
+							label: 'Noindex, Follow',
+							value: 'noindex,follow',
+						},
+						{
+							label: 'Index, Nofollow',
+							value: 'index,nofollow',
+						},
+						{
+							label: 'Noindex, Nofollow',
+							value: 'noindex,nofollow',
+						},
+					],
+				},
+
+				{
+					name: 'ogTitle',
+					type: 'text',
+					label: 'OG Title',
+				},
+
+				{
+					name: 'ogDescription',
+					type: 'textarea',
+					label: 'OG Description',
+				},
+
+				{
+					name: 'ogImage',
+					type: 'upload',
+					relationTo: 'media',
+					label: 'OG Image',
+				},
+
+				// {
+				// 	name: 'ogUrl',
+				// 	type: 'text',
+				// 	label: 'OG URL',
+				// },
+
+				// {
+				// 	name: 'ogType',
+				// 	type: 'select',
+				// 	label: 'OG Type',
+				// 	defaultValue: 'website',
+				// 	options: [
+				// 		{
+				// 			label: 'Website',
+				// 			value: 'website',
+				// 		},
+				// 		{
+				// 			label: 'Article',
+				// 			value: 'article',
+				// 		},
+				// 	],
+				// },
+
+				{
+					name: 'twitterCard',
+					type: 'select',
+					label: 'Twitter Card',
+					defaultValue: 'summary_large_image',
+					options: [
+						{
+							label: 'Summary',
+							value: 'summary',
+						},
+						{
+							label: 'Summary Large Image',
+							value: 'summary_large_image',
+						},
+						{
+							label: 'App',
+							value: 'app',
+						},
+						{
+							label: 'Player',
+							value: 'player',
+						},
+					],
+				},
+
+				{
+					name: 'twitterTitle',
+					type: 'text',
+					label: 'Twitter Title',
+				},
+
+				{
+					name: 'twitterDescription',
+					type: 'textarea',
+					label: 'Twitter Description',
+				},
+
+				{
+					name: 'twitterImage',
+					type: 'upload',
+					relationTo: 'media',
+					label: 'Twitter Image',
+				},
+
+				{
+					name: 'structuredData',
+					type: 'textarea',
+					label: 'Structured Data (JSON-LD)',
+					admin: {
+						description: 'JSON-LD structured data in JSON format',
+					},
+				},
+			],
 		}),
 	],
 })

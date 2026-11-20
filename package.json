@@ -20,6 +20,7 @@
 	"dependencies": {
 		"@payloadcms/db-postgres": "3.91.0",
 		"@payloadcms/next": "3.91.0",
+		"@payloadcms/plugin-seo": "^3.91.0",
 		"@payloadcms/richtext-lexical": "3.91.0",
 		"@payloadcms/ui": "3.91.0",
 		"@tiptap/core": "^3.32.0",
