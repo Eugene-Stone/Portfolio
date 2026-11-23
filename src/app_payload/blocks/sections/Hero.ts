@@ -1,0 +1,61 @@
+import { ButtonFields } from '@/app_payload/fields/ButtonFields'
+import type { Block } from 'payload'
+
+export const Hero: Block = {
+	slug: 'hero',
+	labels: {
+		singular: 'Hero',
+		plural: 'Hero',
+	},
+	fields: [
+		{
+			name: 'subTitle',
+			type: 'text',
+		},
+		{
+			name: 'title',
+			type: 'text',
+			required: true,
+		},
+		{
+			name: 'description',
+			type: 'textarea',
+		},
+		{
+			type: 'array',
+			name: 'buttons',
+			fields: ButtonFields,
+		},
+		{
+			type: 'array',
+			name: 'stats',
+			fields: [
+				{
+					type: 'row',
+					fields: [
+						{
+							name: 'number',
+							type: 'text',
+							required: false,
+							admin: {
+								width: '25%',
+							},
+						},
+						{
+							name: 'text',
+							type: 'text',
+							required: false,
+							admin: {
+								width: '75%',
+							},
+						},
+					],
+				},
+			],
+		},
+		{
+			name: 'id_anchor',
+			type: 'text' as const,
+		},
+	],
+}
