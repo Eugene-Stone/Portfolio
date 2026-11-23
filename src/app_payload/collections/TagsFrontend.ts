@@ -1,0 +1,62 @@
+import { type CollectionConfig } from 'payload'
+
+import { slugField } from '@/app_payload/fields/slugField'
+import { generateSlug } from '../utils/slugify/generateSlug'
+
+const slugSourceField = 'title'
+const collectionName = 'tagsFrontend'
+
+export const TagsFrontend: CollectionConfig = {
+	slug: 'tagsFrontend',
+	labels: {
+		singular: 'Tag Frontend',
+		plural: 'Tags Frontend',
+	},
+
+	admin: {
+		useAsTitle: 'title',
+		group: 'Progects',
+		description: '',
+	},
+
+	defaultPopulate: {
+		title: true,
+		slug: true,
+	},
+
+	access: {
+		read: () => true,
+		// create: () => true,
+		// update: () => true,
+		// delete: () => true,
+		// delete: hasRole(['superAdmin', 'admin', 'editor']),
+	},
+
+	versions: {
+		drafts: true,
+	},
+
+	fields: [
+		// Sidebar
+		{
+			type: 'group',
+			admin: {
+				position: 'sidebar',
+			},
+			fields: [
+				slugField(slugSourceField, collectionName),
+				//
+			],
+		},
+
+		// Fields
+		{
+			name: 'title',
+			type: 'text',
+		},
+	],
+
+	hooks: {
+		beforeValidate: [generateSlug(slugSourceField, collectionName)],
+	},
+}

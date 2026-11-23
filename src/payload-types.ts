@@ -74,6 +74,8 @@ export interface Config {
     casesCategory: CasesCategory;
     tagsFrontend: TagsFrontend;
     tagsBackend: TagsBackend;
+    forms: Form;
+    'form-requests': FormRequest;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -88,6 +90,8 @@ export interface Config {
     casesCategory: CasesCategorySelect<false> | CasesCategorySelect<true>;
     tagsFrontend: TagsFrontendSelect<false> | TagsFrontendSelect<true>;
     tagsBackend: TagsBackendSelect<false> | TagsBackendSelect<true>;
+    forms: FormsSelect<false> | FormsSelect<true>;
+    'form-requests': FormRequestsSelect<false> | FormRequestsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -96,7 +100,7 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
-  fallbackLocale: null;
+  fallbackLocale: ('false' | 'none' | 'null') | false | null | ('en' | 'uk') | ('en' | 'uk')[];
   globals: {
     generalData: GeneralDatum;
     homePage: HomePage;
@@ -105,7 +109,7 @@ export interface Config {
     generalData: GeneralDataSelect<false> | GeneralDataSelect<true>;
     homePage: HomePageSelect<false> | HomePageSelect<true>;
   };
-  locale: null;
+  locale: 'en' | 'uk';
   widgets: {
     collections: CollectionsWidget;
   };
@@ -148,31 +152,134 @@ export interface Page {
   title?: string | null;
   description?: string | null;
   sections?:
-    | {
-        title?: string | null;
-        description?: string | null;
-        text?: {
-          root: {
-            type: string;
-            children: {
-              type: any;
-              version: number;
-              [k: string]: unknown;
-            }[];
-            direction: ('ltr' | 'rtl') | null;
-            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-            indent: number;
-            version: number;
-          };
-          [k: string]: unknown;
-        } | null;
-        image?: (number | null) | Media;
-        id_anchor?: string | null;
-        textHtml?: string | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'about';
-      }[]
+    | (
+        | {
+            subTitle?: string | null;
+            title: string;
+            description?: string | null;
+            buttons?:
+              | {
+                  type?: ('Primary' | 'Secondary') | null;
+                  text?: string | null;
+                  url?: string | null;
+                  isExternal?: boolean | null;
+                  id?: string | null;
+                }[]
+              | null;
+            stats?:
+              | {
+                  number?: string | null;
+                  text?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id_anchor?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'hero';
+          }
+        | {
+            title: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'marquee';
+          }
+        | {
+            subTitle?: string | null;
+            title: string;
+            description?: string | null;
+            servicesCards?:
+              | {
+                  image?: (number | null) | Media;
+                  title: string;
+                  text?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id_anchor?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'services';
+          }
+        | {
+            subTitle?: string | null;
+            title: string;
+            allCasesUrl?: string | null;
+            bestCases?:
+              | {
+                  relationTo: 'cases';
+                  value: number | Case;
+                }[]
+              | null;
+            id_anchor?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cases';
+          }
+        | {
+            subTitle?: string | null;
+            title: string;
+            id_anchor?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'stack';
+          }
+        | {
+            aboutBadge?: {
+              number?: string | null;
+              text?: string | null;
+            };
+            image?: (number | null) | Media;
+            subTitle?: string | null;
+            title: string;
+            description?: string | null;
+            paragraph?: string | null;
+            list?:
+              | {
+                  text?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            buttons?:
+              | {
+                  type?: ('Primary' | 'Secondary') | null;
+                  text?: string | null;
+                  url?: string | null;
+                  isExternal?: boolean | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id_anchor?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'about';
+          }
+        | {
+            title: string;
+            description?: string | null;
+            buttons?:
+              | {
+                  type?: ('Primary' | 'Secondary') | null;
+                  text?: string | null;
+                  url?: string | null;
+                  isExternal?: boolean | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id_anchor?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cta';
+          }
+        | {
+            title: string;
+            description?: string | null;
+            id_anchor?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contacts';
+          }
+      )[]
     | null;
   meta?: {
     title?: string | null;
@@ -272,33 +379,6 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users".
- */
-export interface User {
-  id: number;
-  username: string;
-  updatedAt: string;
-  createdAt: string;
-  email: string;
-  resetPasswordToken?: string | null;
-  resetPasswordExpiration?: string | null;
-  salt?: string | null;
-  hash?: string | null;
-  resetPasswordRequestedAt?: string | null;
-  loginAttempts?: number | null;
-  lockUntil?: string | null;
-  sessions?:
-    | {
-        id: string;
-        createdAt?: string | null;
-        expiresAt: string;
-      }[]
-    | null;
-  password?: string | null;
-  collection: 'users';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "cases".
  */
 export interface Case {
@@ -309,6 +389,7 @@ export interface Case {
   generateSlug?: boolean | null;
   slug: string;
   publishedAt?: string | null;
+  titlTemp?: string | null;
   title?: string | null;
   typeProject?: {
     relationTo: 'casesCategory';
@@ -405,6 +486,136 @@ export interface TagsBackend {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users".
+ */
+export interface User {
+  id: number;
+  username: string;
+  updatedAt: string;
+  createdAt: string;
+  email: string;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiration?: string | null;
+  salt?: string | null;
+  hash?: string | null;
+  resetPasswordRequestedAt?: string | null;
+  loginAttempts?: number | null;
+  lockUntil?: string | null;
+  sessions?:
+    | {
+        id: string;
+        createdAt?: string | null;
+        expiresAt: string;
+      }[]
+    | null;
+  password?: string | null;
+  collection: 'users';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "forms".
+ */
+export interface Form {
+  id: number;
+  title?: string | null;
+  submitUrl?: string | null;
+  successMessage?: string | null;
+  errorMessage?: string | null;
+  fields?:
+    | (
+        | {
+            label?: string | null;
+            name: string;
+            placeholder?: string | null;
+            isRequired?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'formTextarea';
+          }
+        | {
+            label?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'formSubmit';
+          }
+        | {
+            label?: string | null;
+            name: string;
+            placeholder?: string | null;
+            isRequired?: boolean | null;
+            options?:
+              | {
+                  label?: string | null;
+                  value?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'formSelect';
+          }
+        | {
+            label?: string | null;
+            name: string;
+            placeholder?: string | null;
+            type?: ('text' | 'email') | null;
+            isRequired?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'formInput';
+          }
+        | {
+            label?: string | null;
+            name: string;
+            type?: ('checkbox' | 'radio') | null;
+            items?:
+              | {
+                  title?: string | null;
+                  value: string;
+                  isChecked?: boolean | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'formCheckboxes';
+          }
+        | {
+            label?: string | null;
+            name: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'formAgree';
+          }
+      )[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "form-requests".
+ */
+export interface FormRequest {
+  id: number;
+  formTitle?: string | null;
+  formData?: string | null;
+  formDataJSON?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -454,6 +665,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'tagsBackend';
         value: number | TagsBackend;
+      } | null)
+    | ({
+        relationTo: 'forms';
+        value: number | Form;
+      } | null)
+    | ({
+        relationTo: 'form-requests';
+        value: number | FormRequest;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -510,15 +729,134 @@ export interface PagesSelect<T extends boolean = true> {
   sections?:
     | T
     | {
+        hero?:
+          | T
+          | {
+              subTitle?: T;
+              title?: T;
+              description?: T;
+              buttons?:
+                | T
+                | {
+                    type?: T;
+                    text?: T;
+                    url?: T;
+                    isExternal?: T;
+                    id?: T;
+                  };
+              stats?:
+                | T
+                | {
+                    number?: T;
+                    text?: T;
+                    id?: T;
+                  };
+              id_anchor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        marquee?:
+          | T
+          | {
+              title?: T;
+              id?: T;
+              blockName?: T;
+            };
+        services?:
+          | T
+          | {
+              subTitle?: T;
+              title?: T;
+              description?: T;
+              servicesCards?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    text?: T;
+                    id?: T;
+                  };
+              id_anchor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        cases?:
+          | T
+          | {
+              subTitle?: T;
+              title?: T;
+              allCasesUrl?: T;
+              bestCases?: T;
+              id_anchor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        stack?:
+          | T
+          | {
+              subTitle?: T;
+              title?: T;
+              id_anchor?: T;
+              id?: T;
+              blockName?: T;
+            };
         about?:
+          | T
+          | {
+              aboutBadge?:
+                | T
+                | {
+                    number?: T;
+                    text?: T;
+                  };
+              image?: T;
+              subTitle?: T;
+              title?: T;
+              description?: T;
+              paragraph?: T;
+              list?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              buttons?:
+                | T
+                | {
+                    type?: T;
+                    text?: T;
+                    url?: T;
+                    isExternal?: T;
+                    id?: T;
+                  };
+              id_anchor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        cta?:
           | T
           | {
               title?: T;
               description?: T;
-              text?: T;
-              image?: T;
+              buttons?:
+                | T
+                | {
+                    type?: T;
+                    text?: T;
+                    url?: T;
+                    isExternal?: T;
+                    id?: T;
+                  };
               id_anchor?: T;
-              textHtml?: T;
+              id?: T;
+              blockName?: T;
+            };
+        contacts?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              id_anchor?: T;
               id?: T;
               blockName?: T;
             };
@@ -660,6 +998,7 @@ export interface CasesSelect<T extends boolean = true> {
   generateSlug?: T;
   slug?: T;
   publishedAt?: T;
+  titlTemp?: T;
   title?: T;
   typeProject?: T;
   description?: T;
@@ -726,6 +1065,105 @@ export interface TagsBackendSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "forms_select".
+ */
+export interface FormsSelect<T extends boolean = true> {
+  title?: T;
+  submitUrl?: T;
+  successMessage?: T;
+  errorMessage?: T;
+  fields?:
+    | T
+    | {
+        formTextarea?:
+          | T
+          | {
+              label?: T;
+              name?: T;
+              placeholder?: T;
+              isRequired?: T;
+              id?: T;
+              blockName?: T;
+            };
+        formSubmit?:
+          | T
+          | {
+              label?: T;
+              id?: T;
+              blockName?: T;
+            };
+        formSelect?:
+          | T
+          | {
+              label?: T;
+              name?: T;
+              placeholder?: T;
+              isRequired?: T;
+              options?:
+                | T
+                | {
+                    label?: T;
+                    value?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        formInput?:
+          | T
+          | {
+              label?: T;
+              name?: T;
+              placeholder?: T;
+              type?: T;
+              isRequired?: T;
+              id?: T;
+              blockName?: T;
+            };
+        formCheckboxes?:
+          | T
+          | {
+              label?: T;
+              name?: T;
+              type?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    value?: T;
+                    isChecked?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        formAgree?:
+          | T
+          | {
+              label?: T;
+              name?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "form-requests_select".
+ */
+export interface FormRequestsSelect<T extends boolean = true> {
+  formTitle?: T;
+  formData?: T;
+  formDataJSON?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv_select".
  */
 export interface PayloadKvSelect<T extends boolean = true> {
@@ -772,7 +1210,7 @@ export interface GeneralDatum {
   id: number;
   header?: {
     logo?: (number | null) | Media;
-    buttons?:
+    buttonsInHeader?:
       | {
           type?: ('Primary' | 'Secondary') | null;
           text?: string | null;
@@ -868,31 +1306,134 @@ export interface HomePage {
   publishedAt?: string | null;
   title?: string | null;
   sections?:
-    | {
-        title?: string | null;
-        description?: string | null;
-        text?: {
-          root: {
-            type: string;
-            children: {
-              type: any;
-              version: number;
-              [k: string]: unknown;
-            }[];
-            direction: ('ltr' | 'rtl') | null;
-            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-            indent: number;
-            version: number;
-          };
-          [k: string]: unknown;
-        } | null;
-        image?: (number | null) | Media;
-        id_anchor?: string | null;
-        textHtml?: string | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'about';
-      }[]
+    | (
+        | {
+            subTitle?: string | null;
+            title: string;
+            description?: string | null;
+            buttons?:
+              | {
+                  type?: ('Primary' | 'Secondary') | null;
+                  text?: string | null;
+                  url?: string | null;
+                  isExternal?: boolean | null;
+                  id?: string | null;
+                }[]
+              | null;
+            stats?:
+              | {
+                  number?: string | null;
+                  text?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id_anchor?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'hero';
+          }
+        | {
+            title: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'marquee';
+          }
+        | {
+            subTitle?: string | null;
+            title: string;
+            description?: string | null;
+            servicesCards?:
+              | {
+                  image?: (number | null) | Media;
+                  title: string;
+                  text?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id_anchor?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'services';
+          }
+        | {
+            subTitle?: string | null;
+            title: string;
+            allCasesUrl?: string | null;
+            bestCases?:
+              | {
+                  relationTo: 'cases';
+                  value: number | Case;
+                }[]
+              | null;
+            id_anchor?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cases';
+          }
+        | {
+            subTitle?: string | null;
+            title: string;
+            id_anchor?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'stack';
+          }
+        | {
+            aboutBadge?: {
+              number?: string | null;
+              text?: string | null;
+            };
+            image?: (number | null) | Media;
+            subTitle?: string | null;
+            title: string;
+            description?: string | null;
+            paragraph?: string | null;
+            list?:
+              | {
+                  text?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            buttons?:
+              | {
+                  type?: ('Primary' | 'Secondary') | null;
+                  text?: string | null;
+                  url?: string | null;
+                  isExternal?: boolean | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id_anchor?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'about';
+          }
+        | {
+            title: string;
+            description?: string | null;
+            buttons?:
+              | {
+                  type?: ('Primary' | 'Secondary') | null;
+                  text?: string | null;
+                  url?: string | null;
+                  isExternal?: boolean | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id_anchor?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cta';
+          }
+        | {
+            title: string;
+            description?: string | null;
+            id_anchor?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contacts';
+          }
+      )[]
     | null;
   meta?: {
     title?: string | null;
@@ -929,7 +1470,7 @@ export interface GeneralDataSelect<T extends boolean = true> {
     | T
     | {
         logo?: T;
-        buttons?:
+        buttonsInHeader?:
           | T
           | {
               type?: T;
@@ -1006,15 +1547,134 @@ export interface HomePageSelect<T extends boolean = true> {
   sections?:
     | T
     | {
+        hero?:
+          | T
+          | {
+              subTitle?: T;
+              title?: T;
+              description?: T;
+              buttons?:
+                | T
+                | {
+                    type?: T;
+                    text?: T;
+                    url?: T;
+                    isExternal?: T;
+                    id?: T;
+                  };
+              stats?:
+                | T
+                | {
+                    number?: T;
+                    text?: T;
+                    id?: T;
+                  };
+              id_anchor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        marquee?:
+          | T
+          | {
+              title?: T;
+              id?: T;
+              blockName?: T;
+            };
+        services?:
+          | T
+          | {
+              subTitle?: T;
+              title?: T;
+              description?: T;
+              servicesCards?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    text?: T;
+                    id?: T;
+                  };
+              id_anchor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        cases?:
+          | T
+          | {
+              subTitle?: T;
+              title?: T;
+              allCasesUrl?: T;
+              bestCases?: T;
+              id_anchor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        stack?:
+          | T
+          | {
+              subTitle?: T;
+              title?: T;
+              id_anchor?: T;
+              id?: T;
+              blockName?: T;
+            };
         about?:
+          | T
+          | {
+              aboutBadge?:
+                | T
+                | {
+                    number?: T;
+                    text?: T;
+                  };
+              image?: T;
+              subTitle?: T;
+              title?: T;
+              description?: T;
+              paragraph?: T;
+              list?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              buttons?:
+                | T
+                | {
+                    type?: T;
+                    text?: T;
+                    url?: T;
+                    isExternal?: T;
+                    id?: T;
+                  };
+              id_anchor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        cta?:
           | T
           | {
               title?: T;
               description?: T;
-              text?: T;
-              image?: T;
+              buttons?:
+                | T
+                | {
+                    type?: T;
+                    text?: T;
+                    url?: T;
+                    isExternal?: T;
+                    id?: T;
+                  };
               id_anchor?: T;
-              textHtml?: T;
+              id?: T;
+              blockName?: T;
+            };
+        contacts?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              id_anchor?: T;
               id?: T;
               blockName?: T;
             };

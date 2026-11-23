@@ -10,12 +10,19 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
-const filename = fileURLToPath(import.meta.url)
-const dirname = path.dirname(filename)
+// i18n translations
+import { en } from '@payloadcms/translations/languages/en'
+import { ru } from '@payloadcms/translations/languages/ru'
 
 // Plugins
+import { translator, openAIResolver } from '@payload-enchants/translator'
+import { geminiResolver, openRouterResolver } from './translatorResolvers'
+
 import { openapi, swaggerUI } from 'payload-oapi'
 import { htmlEditorPlugin } from 'payload-html-editor'
+
+const filename = fileURLToPath(import.meta.url)
+const dirname = path.dirname(filename)
 
 import { Users } from './app_payload/collections/Users'
 import { Media } from './app_payload/collections/Media'
@@ -26,6 +33,8 @@ import { CasesCategory } from './app_payload/collections/CasesCategory'
 import { TagsBackend } from './app_payload/collections/TagsBackend'
 import { Pages } from './app_payload/collections/Pages'
 import { HomePage } from './app_payload/globals/HomePage'
+import { Forms } from './app_payload/collections/Forms'
+import { FormRequests } from './app_payload/collections/FormRequests'
 
 export default buildConfig({
 	admin: {
@@ -51,7 +60,17 @@ export default buildConfig({
 			],
 		},
 	},
-	collections: [Pages, Media, Users, Cases, CasesCategory, TagsFrontend, TagsBackend],
+	collections: [
+		Pages,
+		Media,
+		Users,
+		Cases,
+		CasesCategory,
+		TagsFrontend,
+		TagsBackend,
+		Forms,
+		FormRequests,
+	],
 	globals: [GeneralData, HomePage],
 
 	// Конфигурация едитора с верхней панелью
@@ -72,21 +91,49 @@ export default buildConfig({
 		},
 	}),
 	sharp,
-	plugins: [
-		openapi({
-			openapiVersion: '3.0',
-			metadata: {
-				title: 'Dev API',
-				version: '1.0.0',
+
+	// Локализация фронтенда
+	localization: {
+		locales: [
+			{
+				label: 'English',
+				code: 'en',
 			},
-		}),
+			{
+				label: 'Українська',
+				code: 'uk',
+			},
+		],
+		defaultLocale: 'uk',
+		fallback: true, // если перевод поля для текущей локали не заполнен, подставит defaultLocale
+	},
 
-		/* 
-			localhost:3000/api/openapi.json
-			localhost:3000/api/docs
-		*/
-		swaggerUI({}),
+	// Локализация админки
+	i18n: {
+		fallbackLanguage: 'en', // default
+		supportedLanguages: { ru, en },
+		translations: {
+			en: {
+				'plugin-translator': {
+					resolver_openrouter_buttonLabel: 'Translate (OR)',
+					resolver_openrouter_errorMessage: 'OpenRouter translation error',
+					resolver_openrouter_modalTitle: 'Source locale (OpenRouter)',
+					resolver_openrouter_submitButtonLabelEmpty: 'Empty fields only',
+					resolver_openrouter_submitButtonLabelFull: 'Translate all',
+					resolver_openrouter_successMessage: 'Done. Click Save to apply.',
 
+					resolver_gemini_buttonLabel: 'Translate (Gemini)',
+					resolver_gemini_errorMessage: 'Gemini translation error',
+					resolver_gemini_modalTitle: 'Source locale (Gemini)',
+					resolver_gemini_submitButtonLabelEmpty: 'Empty fields only',
+					resolver_gemini_submitButtonLabelFull: 'Translate all',
+					resolver_gemini_successMessage: 'Done. Click Save to apply.',
+				},
+			},
+		},
+	},
+
+	plugins: [
 		htmlEditorPlugin({
 			mediaCollection: 'media',
 		}),
@@ -113,18 +160,34 @@ export default buildConfig({
 			},
 
 			fields: ({ defaultFields }) => [
-				...defaultFields,
+				// // Стандартное поведение
+				// ...defaultFields,
+
+				// Для локализированой версии
+				...defaultFields.map((field) => {
+					// Делаем локализованными базовые поля title и description
+					// (при необходимости добавить и 'image')
+					if ('name' in field && (field.name === 'title' || field.name === 'description')) {
+						return {
+							...field,
+							localized: true,
+						}
+					}
+					return field
+				}),
 
 				{
 					name: 'keywords',
 					type: 'textarea',
 					label: 'Keywords',
+					localized: true, // Для локализированой версии
 				},
 
 				{
 					name: 'canonicalUrl',
 					type: 'text',
 					label: 'Canonical URL',
+					localized: false, // обычно общий URL
 				},
 
 				{
@@ -156,12 +219,14 @@ export default buildConfig({
 					name: 'ogTitle',
 					type: 'text',
 					label: 'OG Title',
+					localized: true, // Для локализированой версии
 				},
 
 				{
 					name: 'ogDescription',
 					type: 'textarea',
 					label: 'OG Description',
+					localized: true, // Для локализированой версии
 				},
 
 				{
@@ -169,6 +234,7 @@ export default buildConfig({
 					type: 'upload',
 					relationTo: 'media',
 					label: 'OG Image',
+					localized: false, // обычно общий URL
 				},
 
 				// {
@@ -223,12 +289,14 @@ export default buildConfig({
 					name: 'twitterTitle',
 					type: 'text',
 					label: 'Twitter Title',
+					localized: true, // Для локализированой версии
 				},
 
 				{
 					name: 'twitterDescription',
 					type: 'textarea',
 					label: 'Twitter Description',
+					localized: true, // Для локализированой версии
 				},
 
 				{
@@ -236,16 +304,45 @@ export default buildConfig({
 					type: 'upload',
 					relationTo: 'media',
 					label: 'Twitter Image',
+					localized: false, // обычно общий URL
 				},
 
 				{
 					name: 'structuredData',
 					type: 'textarea',
 					label: 'Structured Data (JSON-LD)',
+					localized: true, // Для локализированой версии
 					admin: {
 						description: 'JSON-LD structured data in JSON format',
 					},
 				},
+			],
+		}),
+
+		openapi({
+			openapiVersion: '3.0',
+			metadata: {
+				title: 'Dev API',
+				version: '1.0.0',
+			},
+		}),
+		/* 
+			localhost:3000/api/openapi.json
+			localhost:3000/api/docs
+		*/
+		swaggerUI({}),
+
+		translator({
+			collections: ['pages', 'cases'],
+			globals: ['homePage'],
+			resolvers: [
+				openRouterResolver,
+				geminiResolver,
+				// Если понадобится нативный OpenAI:
+				// openAIResolver({
+				// 	apiKey: process.env.OPENAI_API_KEY || '',
+				// 	model: 'gpt-4o-mini',
+				// }),
 			],
 		}),
 	],

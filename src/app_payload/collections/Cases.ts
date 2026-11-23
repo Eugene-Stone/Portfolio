@@ -5,6 +5,7 @@ import { generateSlug } from '../utils/slugify/generateSlug'
 
 import { htmlEditorField } from 'payload-html-editor'
 import { publishedAtCollection } from '../utils/publishedAt'
+import { InfoField } from '../fields/InfoField'
 
 const slugSourceField = 'title'
 const collectionName = 'cases'
@@ -49,6 +50,7 @@ export const Cases: CollectionConfig = {
 			},
 			fields: [
 				slugField(slugSourceField, collectionName),
+				InfoField('Поле slug повинно бути однаковим для всіх локалей.'),
 				{
 					name: 'publishedAt',
 					type: 'date',
@@ -61,8 +63,16 @@ export const Cases: CollectionConfig = {
 			type: 'row',
 			fields: [
 				{
+					name: 'titlTemp',
+					type: 'text',
+					admin: {
+						width: '50%',
+					},
+				},
+				{
 					name: 'title',
 					type: 'text',
+					localized: true,
 					admin: {
 						width: '50%',
 					},
@@ -83,6 +93,7 @@ export const Cases: CollectionConfig = {
 				{
 					name: 'description',
 					type: 'textarea',
+					localized: true,
 					admin: {
 						width: '50%',
 					},
@@ -106,6 +117,7 @@ export const Cases: CollectionConfig = {
 		htmlEditorField({
 			name: 'textHtml',
 			label: 'Text Html',
+			// localized: true,
 			features: {
 				// images: false,
 				tables: false,
@@ -116,7 +128,28 @@ export const Cases: CollectionConfig = {
 	],
 
 	hooks: {
-		beforeValidate: [generateSlug(slugSourceField, collectionName)],
+		// // Стандартное поведение
+		// beforeValidate: [generateSlug(slugSourceField, collectionName)],
+
+		// Срабатывание только при основной локали
+		beforeValidate: [
+			async (args) => {
+				const localization = args.req.payload.config.localization
+				const defaultLocale =
+					localization && typeof localization === 'object' && 'defaultLocale' in localization
+						? (localization as { defaultLocale?: string }).defaultLocale
+						: 'uk'
+
+				const currentLocale = args.req.locale || defaultLocale
+
+				// Генерируем slug только для основной локали
+				if (currentLocale && defaultLocale && currentLocale !== defaultLocale) {
+					return args.data
+				}
+
+				return generateSlug(slugSourceField, collectionName)(args)
+			},
+		],
 		beforeChange: [publishedAtCollection],
 	},
 }

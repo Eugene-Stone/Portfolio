@@ -27,7 +27,7 @@ export const GeneralData: GlobalConfig = {
 			fields: [
 				LogoField,
 				{
-					name: 'buttons',
+					name: 'buttonsInHeader',
 					// label: '',
 					type: 'array',
 					labels: {
