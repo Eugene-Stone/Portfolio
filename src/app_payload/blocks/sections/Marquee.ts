@@ -12,6 +12,7 @@ export const Marquee: Block = {
 			name: 'title',
 			type: 'text',
 			required: true,
+			localized: true,
 			defaultValue: 'Marquee',
 		},
 	],

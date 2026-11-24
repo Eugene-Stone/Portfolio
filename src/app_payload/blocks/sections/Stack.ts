@@ -10,11 +10,13 @@ export const Stack: Block = {
 		{
 			name: 'subTitle',
 			type: 'text',
+			localized: true,
 		},
 		{
 			name: 'title',
 			type: 'text',
 			required: true,
+			localized: true,
 		},
 
 		{

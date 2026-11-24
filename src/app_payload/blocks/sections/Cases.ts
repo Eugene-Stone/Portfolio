@@ -10,15 +10,18 @@ export const Cases: Block = {
 		{
 			name: 'subTitle',
 			type: 'text',
+			localized: true,
 		},
 		{
 			name: 'title',
 			type: 'text',
 			required: true,
+			localized: true,
 		},
 		{
 			name: 'allCasesUrl',
 			type: 'text',
+			localized: true,
 		},
 		{
 			name: 'bestCases',

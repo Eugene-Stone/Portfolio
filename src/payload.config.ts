@@ -334,7 +334,7 @@ export default buildConfig({
 
 		translator({
 			collections: ['pages', 'cases'],
-			globals: ['homePage'],
+			globals: ['homePage', 'generalData'],
 			resolvers: [
 				openRouterResolver,
 				geminiResolver,

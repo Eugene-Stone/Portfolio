@@ -11,15 +11,18 @@ export const Hero: Block = {
 		{
 			name: 'subTitle',
 			type: 'text',
+			localized: true,
 		},
 		{
 			name: 'title',
 			type: 'text',
 			required: true,
+			localized: true,
 		},
 		{
 			name: 'description',
 			type: 'textarea',
+			localized: true,
 		},
 		{
 			type: 'array',
@@ -45,6 +48,7 @@ export const Hero: Block = {
 							name: 'text',
 							type: 'text',
 							required: false,
+							localized: true,
 							admin: {
 								width: '75%',
 							},

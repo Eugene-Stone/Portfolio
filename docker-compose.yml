@@ -1,43 +1,68 @@
-version: '3'
 
 services:
-  payload:
-    image: node:22.23.4-alpine
+  app:
+    container_name: portfolio-app
+
+    # stdin_open: true # оставляет стандартный ввод открытым
+    # tty: true # выделяет контейнеру виртуальный терминал.
+
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+
     ports:
-      - '3000:3000'
+      - "3000:3000"
+
     volumes:
-      - .:/home/node/app
-      - node_modules:/home/node/app/node_modules
-    working_dir: /home/node/app/
-    command: sh -c "corepack enable && corepack prepare pnpm@latest --activate && pnpm install && pnpm dev"
-    depends_on:
-      - mongo
-      # - postgres
+      - .:/app
+      - node_modules:/app/node_modules
+      - next_cache:/app/.next
+
     env_file:
-      - .env
+      - .env.docker
 
-  # Ensure your DATABASE_URL uses 'mongo' as the hostname ie. mongodb://mongo/my-db-name
-  mongo:
-    image: mongo:latest
+    command: npm run dev -- --hostname 0.0.0.0
+
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db: # db или postgres
+    container_name: portfolio-db
+    image: postgres:17
+
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: portfolio
+
     ports:
-      - '27017:27017'
-    command:
-      - --storageEngine=wiredTiger
-    volumes:
-      - data:/data/db
-    logging:
-      driver: none
+      - "5432:5432"
 
-  # Uncomment the following to use postgres
-  # postgres:
-  #   restart: always
-  #   image: postgres:latest
-  #   volumes:
-  #     - pgdata:/var/lib/postgresql/data
-  #   ports:
-  #     - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U root -d portfolio"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  adminer:
+    image: adminer:latest
+    # Docker требует, чтобы имена контейнеров были уникальными во всей системе Docker. Если не указать container_name, Docker автоматически сгенерирует уникальное имя для контейнера. Если нужно использовать конкретное имя контейнера, можно раскомментировать следующую строку и указать желаемое имя.
+    # container_name: local-adminer
+    restart: unless-stopped
+    environment:
+      ADMINER_DEFAULT_SERVER: db  # должен повторять название сервиса
+      # ADMINER_DESIGN: pepa-linha # Опционально: тема оформления
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
 
 volumes:
-  data:
-  # pgdata:
   node_modules:
+  next_cache:
+  postgres_data:

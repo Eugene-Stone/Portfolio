@@ -5,9 +5,10 @@ import { generateSlug } from '@/app_payload/utils/slugify/generateSlug'
 import { publishedAtCollection } from '@/app_payload/utils/publishedAt'
 
 import { Sections } from '@/app_payload/blocks/Sections'
+import { InfoField } from '../fields/InfoField'
 
 const collectionName = 'pages'
-const slugSourceField = 'title'
+const slugSourceField = 'titlePage'
 
 export const Pages: CollectionConfig = {
 	slug: 'pages',
@@ -18,12 +19,12 @@ export const Pages: CollectionConfig = {
 
 	// defaultPopulate определяет, какие поля выбирать, когда документ этой коллекции попадает в результат как связанный документ (relationship/upload population)
 	defaultPopulate: {
-		title: true,
+		titlePage: true,
 		slug: true,
 	},
 
 	admin: {
-		useAsTitle: 'title',
+		useAsTitle: 'titlePage',
 	},
 
 	access: {
@@ -47,6 +48,7 @@ export const Pages: CollectionConfig = {
 			},
 			fields: [
 				slugField(slugSourceField, collectionName),
+				InfoField('Поле slug повинно бути однаковим для всіх локалей.'),
 				{
 					name: 'publishedAt',
 					type: 'date',
@@ -56,12 +58,14 @@ export const Pages: CollectionConfig = {
 
 		// Fields
 		{
-			name: 'title',
+			name: 'titlePage',
 			type: 'text',
+			localized: true,
 		},
 		{
-			name: 'description',
+			name: 'descriptionPage',
 			type: 'textarea',
+			localized: true,
 		},
 
 		{

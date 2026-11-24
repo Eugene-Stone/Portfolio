@@ -13,6 +13,7 @@ export const FormRequests: CollectionConfig = {
 		{
 			name: 'formTitle',
 			type: 'text',
+			localized: true,
 		},
 		{
 			name: 'formData',

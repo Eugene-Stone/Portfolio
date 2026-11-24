@@ -27,6 +27,7 @@ export const About: Block = {
 							name: 'text',
 							type: 'text',
 							required: false,
+							localized: true,
 							admin: {
 								width: '75%',
 							},
@@ -44,19 +45,23 @@ export const About: Block = {
 		{
 			name: 'subTitle',
 			type: 'text',
+			localized: true,
 		},
 		{
 			name: 'title',
 			type: 'text',
 			required: true,
+			localized: true,
 		},
 		{
 			name: 'description',
 			type: 'textarea',
+			localized: true,
 		},
 		{
 			name: 'paragraph',
 			type: 'textarea',
+			localized: true,
 		},
 		{
 			name: 'list',
@@ -69,6 +74,7 @@ export const About: Block = {
 				{
 					name: 'text',
 					type: 'text',
+					localized: true,
 				},
 			],
 		},

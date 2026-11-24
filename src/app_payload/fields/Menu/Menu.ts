@@ -16,6 +16,7 @@ export const Menu: Field = {
 		{
 			name: 'hasChildren',
 			type: 'checkbox',
+			defaultValue: false,
 		},
 
 		MenuSub,

@@ -16,6 +16,7 @@ export const ButtonFields: Field[] = [
 			{
 				name: 'text',
 				type: 'text',
+				localized: true,
 			},
 			{
 				name: 'url',
@@ -26,5 +27,6 @@ export const ButtonFields: Field[] = [
 	{
 		name: 'isExternal',
 		type: 'checkbox',
+		defaultValue: false,
 	},
 ]

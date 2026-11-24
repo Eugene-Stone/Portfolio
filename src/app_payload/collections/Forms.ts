@@ -24,6 +24,7 @@ export const Forms: CollectionConfig = {
 		{
 			name: 'title',
 			type: 'text',
+			localized: true,
 		},
 		{
 			name: 'submitUrl',
@@ -32,10 +33,12 @@ export const Forms: CollectionConfig = {
 		{
 			name: 'successMessage',
 			type: 'text',
+			localized: true,
 		},
 		{
 			name: 'errorMessage',
 			type: 'text',
+			localized: true,
 		},
 		{
 			name: 'fields',

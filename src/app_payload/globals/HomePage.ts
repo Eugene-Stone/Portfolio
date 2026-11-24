@@ -5,9 +5,11 @@ import { slugField } from '@/app_payload/fields/slugField'
 import { publishedAtGlobal } from '@/app_payload/utils/publishedAt'
 import { generateSlugGlobal } from '../utils/slugify/generateSlug'
 import { Sections } from '../blocks/Sections'
+import { InfoField } from '../fields/InfoField'
+import { SpaceField } from '../fields/SpaceField'
 
 const collectionName = 'home'
-const slugSourceField = 'title'
+const slugSourceField = 'titlePage'
 
 export const HomePage: GlobalConfig = {
 	slug: 'homePage', // required
@@ -45,6 +47,7 @@ export const HomePage: GlobalConfig = {
 			},
 			fields: [
 				slugField(slugSourceField, collectionName),
+				InfoField('Поле slug повинно бути однаковим для всіх локалей.'),
 				{
 					name: 'publishedAt',
 					type: 'date',
@@ -59,23 +62,25 @@ export const HomePage: GlobalConfig = {
 						},
 					},
 				},
-				{
-					name: 'space',
-					type: 'ui',
-					admin: {
-						width: '20%',
-						components: {
-							Field: '/app_payload/components/SpaceField',
-						},
-					},
-				},
+				SpaceField('20%', '20px'),
+				// {
+				// 	name: 'space',
+				// 	type: 'ui',
+				// 	admin: {
+				// 		width: '20%',
+				// 		components: {
+				// 			Field: '/app_payload/components/SpaceField',
+				// 		},
+				// 	},
+				// },
 			],
 		},
 
 		// Fields
 		{
 			type: 'text',
-			name: 'title',
+			name: 'titlePage',
+			localized: true,
 		},
 		{
 			name: 'sections',

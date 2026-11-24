@@ -11,15 +11,18 @@ export const Services: Block = {
 		{
 			name: 'subTitle',
 			type: 'text',
+			localized: true,
 		},
 		{
 			name: 'title',
 			type: 'text',
 			required: true,
+			localized: true,
 		},
 		{
 			name: 'description',
 			type: 'textarea',
+			localized: true,
 		},
 		{
 			type: 'array',

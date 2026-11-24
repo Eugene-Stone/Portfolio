@@ -63,13 +63,6 @@ export const Cases: CollectionConfig = {
 			type: 'row',
 			fields: [
 				{
-					name: 'titlTemp',
-					type: 'text',
-					admin: {
-						width: '50%',
-					},
-				},
-				{
 					name: 'title',
 					type: 'text',
 					localized: true,

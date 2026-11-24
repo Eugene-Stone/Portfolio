@@ -51,3 +51,6 @@ node_modules/
 
 /_add
 /_NOTES
+/backups
+portfolio.sql
+docker-steps.txt

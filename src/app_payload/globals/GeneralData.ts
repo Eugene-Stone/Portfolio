@@ -106,6 +106,7 @@ export const GeneralData: GlobalConfig = {
 				{
 					name: 'description',
 					type: 'textarea',
+					localized: true,
 				},
 				{
 					type: 'row',
@@ -113,10 +114,12 @@ export const GeneralData: GlobalConfig = {
 						{
 							name: 'copyrightLeft',
 							type: 'textarea',
+							localized: true,
 						},
 						{
 							name: 'copyrightRight',
 							type: 'textarea',
+							localized: true,
 						},
 					],
 				},
@@ -137,6 +140,7 @@ export const GeneralData: GlobalConfig = {
 						{
 							name: 'text',
 							type: 'text',
+							localized: true,
 							admin: {
 								width: '40%',
 							},
@@ -153,6 +157,7 @@ export const GeneralData: GlobalConfig = {
 						{
 							name: 'isExternal',
 							type: 'checkbox',
+							defaultValue: false,
 							admin: {
 								width: '20%',
 								style: {
@@ -167,54 +172,55 @@ export const GeneralData: GlobalConfig = {
 			],
 		},
 
-		{
-			name: 'ContactsGroupName',
-			type: 'group',
-			fields: [
-				{
-					type: 'array',
-					name: 'Contacts',
-					labels: {
-						singular: 'Contact',
-						plural: 'Contacts',
-					},
-					fields: [
-						{
-							type: 'row',
-							fields: [
-								{
-									name: 'text',
-									type: 'text',
-									admin: {
-										width: '40%',
-									},
-								},
-								{
-									name: 'url',
-									type: 'text',
-									admin: {
-										width: '40%',
-										// siblingData смотрит на поля внутри текущего блока
-										// condition: (data, siblingData) => siblingData?.isLink !== false,
-									},
-								},
-								{
-									name: 'isExternal',
-									type: 'checkbox',
-									admin: {
-										width: '20%',
-										style: {
-											marginTop: 35,
-										},
-										// siblingData смотрит на поля внутри текущего блока
-										// condition: (data, siblingData) => siblingData?.isLink !== false,
-									},
-								},
-							],
-						},
-					],
-				},
-			],
-		},
+		// {
+		// 	name: 'ContactsGroupName',
+		// 	type: 'group',
+		// 	fields: [
+		// 		{
+		// 			type: 'array',
+		// 			name: 'Contacts',
+		// 			labels: {
+		// 				singular: 'Contact',
+		// 				plural: 'Contacts',
+		// 			},
+		// 			fields: [
+		// 				{
+		// 					type: 'row',
+		// 					fields: [
+		// 						{
+		// 							name: 'text',
+		// 							type: 'text',
+		// 							localized: true,
+		// 							admin: {
+		// 								width: '40%',
+		// 							},
+		// 						},
+		// 						{
+		// 							name: 'url',
+		// 							type: 'text',
+		// 							admin: {
+		// 								width: '40%',
+		// 								// siblingData смотрит на поля внутри текущего блока
+		// 								// condition: (data, siblingData) => siblingData?.isLink !== false,
+		// 							},
+		// 						},
+		// 						{
+		// 							name: 'isExternal',
+		// 							type: 'checkbox',
+		// 							admin: {
+		// 								width: '20%',
+		// 								style: {
+		// 									marginTop: 35,
+		// 								},
+		// 								// siblingData смотрит на поля внутри текущего блока
+		// 								// condition: (data, siblingData) => siblingData?.isLink !== false,
+		// 							},
+		// 						},
+		// 					],
+		// 				},
+		// 			],
+		// 		},
+		// 	],
+		// },
 	],
 }

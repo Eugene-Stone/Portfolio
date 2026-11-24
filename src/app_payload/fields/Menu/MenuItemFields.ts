@@ -17,6 +17,7 @@ export const MenuItemFields = (menuLevel: string): Field[] => {
 				{
 					name: 'title',
 					type: 'text',
+					localized: true,
 					validate: (value: any, { siblingData }: { siblingData: any }) => {
 						if (!siblingData?.relationLink && !value) {
 							return 'Поле обязательно, если не выбрана связь'
@@ -29,14 +30,11 @@ export const MenuItemFields = (menuLevel: string): Field[] => {
 					},
 				},
 				{
-					name: 'isExternal',
-					type: 'checkbox',
+					name: 'url',
+					type: 'text',
 					admin: {
 						width: '50%',
-						// Сдвигаем чекбокс чуть ниже, чтобы он визуально выровнялся с инпутом (без учета текста ошибки/описания)
-						style: {
-							marginTop: '34px',
-						},
+						condition: (data, siblingData) => !Boolean(siblingData?.relationLink),
 					},
 				},
 			],
@@ -47,17 +45,29 @@ export const MenuItemFields = (menuLevel: string): Field[] => {
 				{
 					name: 'relationLink',
 					type: 'relationship',
-					relationTo: ['cases', 'users'],
+					relationTo: ['cases', 'pages'],
 					admin: {
 						width: '50%',
 					},
 				},
+				// {
+				// 	name: 'url',
+				// 	type: 'text',
+				// 	admin: {
+				// 		width: '50%',
+				// 		condition: (data, siblingData) => !Boolean(siblingData?.relationLink),
+				// 	},
+				// },
 				{
-					name: 'url',
-					type: 'text',
+					name: 'isExternal',
+					type: 'checkbox',
+					defaultValue: false,
 					admin: {
 						width: '50%',
-						condition: (data, siblingData) => !Boolean(siblingData?.relationLink),
+						// Сдвигаем чекбокс чуть ниже, чтобы он визуально выровнялся с инпутом (без учета текста ошибки/описания)
+						style: {
+							marginTop: '34px',
+						},
 					},
 				},
 			],

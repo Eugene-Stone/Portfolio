@@ -149,8 +149,8 @@ export interface Page {
   generateSlug?: boolean | null;
   slug: string;
   publishedAt?: string | null;
-  title?: string | null;
-  description?: string | null;
+  titlePage?: string | null;
+  descriptionPage?: string | null;
   sections?:
     | (
         | {
@@ -389,7 +389,6 @@ export interface Case {
   generateSlug?: boolean | null;
   slug: string;
   publishedAt?: string | null;
-  titlTemp?: string | null;
   title?: string | null;
   typeProject?: {
     relationTo: 'casesCategory';
@@ -567,10 +566,9 @@ export interface Form {
         | {
             label?: string | null;
             name: string;
-            type?: ('checkbox' | 'radio') | null;
             items?:
               | {
-                  title?: string | null;
+                  label?: string | null;
                   value: string;
                   isChecked?: boolean | null;
                   id?: string | null;
@@ -724,8 +722,8 @@ export interface PagesSelect<T extends boolean = true> {
   generateSlug?: T;
   slug?: T;
   publishedAt?: T;
-  title?: T;
-  description?: T;
+  titlePage?: T;
+  descriptionPage?: T;
   sections?:
     | T
     | {
@@ -998,7 +996,6 @@ export interface CasesSelect<T extends boolean = true> {
   generateSlug?: T;
   slug?: T;
   publishedAt?: T;
-  titlTemp?: T;
   title?: T;
   typeProject?: T;
   description?: T;
@@ -1125,11 +1122,10 @@ export interface FormsSelect<T extends boolean = true> {
           | {
               label?: T;
               name?: T;
-              type?: T;
               items?:
                 | T
                 | {
-                    title?: T;
+                    label?: T;
                     value?: T;
                     isChecked?: T;
                     id?: T;
@@ -1227,17 +1223,17 @@ export interface GeneralDatum {
          * Если выбрана связь поле необязательное
          */
         title?: string | null;
-        isExternal?: boolean | null;
+        url?: string | null;
         relationLink?:
           | ({
               relationTo: 'cases';
               value: number | Case;
             } | null)
           | ({
-              relationTo: 'users';
-              value: number | User;
+              relationTo: 'pages';
+              value: number | Page;
             } | null);
-        url?: string | null;
+        isExternal?: boolean | null;
         hasChildren?: boolean | null;
         subMenu?:
           | {
@@ -1246,17 +1242,17 @@ export interface GeneralDatum {
                * Если выбрана связь поле необязательное
                */
               title?: string | null;
-              isExternal?: boolean | null;
+              url?: string | null;
               relationLink?:
                 | ({
                     relationTo: 'cases';
                     value: number | Case;
                   } | null)
                 | ({
-                    relationTo: 'users';
-                    value: number | User;
+                    relationTo: 'pages';
+                    value: number | Page;
                   } | null);
-              url?: string | null;
+              isExternal?: boolean | null;
               id?: string | null;
             }[]
           | null;
@@ -1277,16 +1273,6 @@ export interface GeneralDatum {
         id?: string | null;
       }[]
     | null;
-  ContactsGroupName?: {
-    Contacts?:
-      | {
-          text?: string | null;
-          url?: string | null;
-          isExternal?: boolean | null;
-          id?: string | null;
-        }[]
-      | null;
-  };
   _status?: ('draft' | 'published') | null;
   updatedAt?: string | null;
   createdAt?: string | null;
@@ -1304,7 +1290,7 @@ export interface HomePage {
   generateSlug?: boolean | null;
   slug: string;
   publishedAt?: string | null;
-  title?: string | null;
+  titlePage?: string | null;
   sections?:
     | (
         | {
@@ -1485,18 +1471,18 @@ export interface GeneralDataSelect<T extends boolean = true> {
     | {
         level?: T;
         title?: T;
-        isExternal?: T;
-        relationLink?: T;
         url?: T;
+        relationLink?: T;
+        isExternal?: T;
         hasChildren?: T;
         subMenu?:
           | T
           | {
               level?: T;
               title?: T;
-              isExternal?: T;
-              relationLink?: T;
               url?: T;
+              relationLink?: T;
+              isExternal?: T;
               id?: T;
             };
         id?: T;
@@ -1517,18 +1503,6 @@ export interface GeneralDataSelect<T extends boolean = true> {
         isExternal?: T;
         id?: T;
       };
-  ContactsGroupName?:
-    | T
-    | {
-        Contacts?:
-          | T
-          | {
-              text?: T;
-              url?: T;
-              isExternal?: T;
-              id?: T;
-            };
-      };
   _status?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -1543,7 +1517,7 @@ export interface HomePageSelect<T extends boolean = true> {
   generateSlug?: T;
   slug?: T;
   publishedAt?: T;
-  title?: T;
+  titlePage?: T;
   sections?:
     | T
     | {

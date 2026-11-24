@@ -4,6 +4,7 @@ const baseField = [
 	{
 		name: 'label',
 		type: 'text' as const,
+		localized: true,
 	},
 	{
 		name: 'name',
@@ -23,6 +24,7 @@ export const FormInput: Block = {
 		{
 			name: 'placeholder',
 			type: 'text',
+			localized: true,
 		},
 		{
 			name: 'type',
@@ -32,6 +34,7 @@ export const FormInput: Block = {
 		{
 			name: 'isRequired',
 			type: 'checkbox',
+			defaultValue: false,
 		},
 	],
 }
@@ -47,10 +50,12 @@ export const FormTextarea: Block = {
 		{
 			name: 'placeholder',
 			type: 'text',
+			localized: true,
 		},
 		{
 			name: 'isRequired',
 			type: 'checkbox',
+			defaultValue: false,
 		},
 	],
 }
@@ -66,6 +71,7 @@ export const FormSelect: Block = {
 		{
 			name: 'placeholder',
 			type: 'text',
+			localized: true,
 		},
 		{
 			name: 'isRequired',
@@ -79,6 +85,7 @@ export const FormSelect: Block = {
 				{
 					name: 'label',
 					type: 'text',
+					localized: true,
 				},
 				{
 					name: 'value',
@@ -98,18 +105,45 @@ export const FormCheckboxes: Block = {
 	fields: [
 		...baseField,
 		{
-			name: 'type',
-			type: 'select',
-			defaultValue: 'checkbox',
-			options: ['checkbox', 'radio'],
+			name: 'items',
+			type: 'array',
+			fields: [
+				{
+					name: 'label',
+					type: 'text',
+					localized: true,
+				},
+				{
+					name: 'value',
+					type: 'text',
+					required: true,
+				},
+				{
+					name: 'isChecked',
+					type: 'checkbox',
+					defaultValue: false,
+				},
+			],
 		},
+	],
+}
+
+export const FormRadio: Block = {
+	slug: 'formRadio',
+	labels: {
+		singular: 'Form Radio',
+		plural: 'Form Radio',
+	},
+	fields: [
+		...baseField,
 		{
 			name: 'items',
 			type: 'array',
 			fields: [
 				{
-					name: 'title',
+					name: 'label',
 					type: 'text',
+					localized: true,
 				},
 				{
 					name: 'value',
@@ -145,6 +179,7 @@ export const FormSubmit: Block = {
 		{
 			name: 'label',
 			type: 'text',
+			localized: true,
 		},
 	],
 }
