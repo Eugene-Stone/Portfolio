@@ -4,6 +4,7 @@ export const defaultLocale: Locale = 'uk'
 
 export const locales = ['uk', 'en'] as const
 
-export function ogLocale(locale: Locale) {
-	return locale === 'uk' ? 'uk_UA' : locale === 'en' ? 'en_EN' : 'uk_UA'
+export const ogLocale = {
+	uk: 'uk_UA',
+	en: 'en_EN',
 }

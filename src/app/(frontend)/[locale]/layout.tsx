@@ -1,13 +1,23 @@
+import { createMetadata, getGeneralData, MetaProps } from '@/api/api-server'
+import { BACKEND_URL, FRONTEND_URL, SITE_TITLE } from '@/CONSTANTS'
+import { Locale } from '@/i18n/config'
+import { Media } from '@/payload-types'
 import '@/styles/base.css'
 import '@/styles/components.css'
 import '@/styles/pages.css'
-import Link from 'next/link'
+import { Metadata } from 'next'
 
+import Link from 'next/link'
 import NextTopLoader from 'nextjs-toploader'
 
-export const metadata = {
-	description: 'A blank template using Payload in a Next.js app.',
-	title: 'Payload Blank Template',
+export async function generateMetadata({ params }: MetaProps): Promise<Metadata> {
+	const { locale, slug } = await params
+	const { meta } = await getGeneralData(locale)
+
+	const pageTitle = meta?.title || meta?.ogTitle || SITE_TITLE || 'Site'
+	const seo = meta || {}
+
+	return createMetadata(pageTitle, seo, locale, slug)
 }
 
 export default async function RootLayout({ children }: LayoutProps<'/'>) {
@@ -31,7 +41,7 @@ export default async function RootLayout({ children }: LayoutProps<'/'>) {
 					zIndex={1600}
 					showAtBottom={false}
 				/>
-				<Link href="/about">About</Link>
+				<Link href="/contacts">Contacts</Link>
 				{children}
 			</body>
 		</html>

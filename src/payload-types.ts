@@ -1216,7 +1216,7 @@ export interface GeneralDatum {
         }[]
       | null;
   };
-  NavigationGeneral?:
+  navigationGeneral?:
     | {
         level?: string | null;
         /**
@@ -1273,6 +1273,28 @@ export interface GeneralDatum {
         id?: string | null;
       }[]
     | null;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+    keywords?: string | null;
+    canonicalUrl?: string | null;
+    metaRobots?: ('index,follow' | 'noindex,follow' | 'index,nofollow' | 'noindex,nofollow') | null;
+    ogTitle?: string | null;
+    ogDescription?: string | null;
+    ogImage?: (number | null) | Media;
+    twitterCard?: ('summary' | 'summary_large_image' | 'app' | 'player') | null;
+    twitterTitle?: string | null;
+    twitterDescription?: string | null;
+    twitterImage?: (number | null) | Media;
+    /**
+     * JSON-LD structured data in JSON format
+     */
+    structuredData?: string | null;
+  };
   _status?: ('draft' | 'published') | null;
   updatedAt?: string | null;
   createdAt?: string | null;
@@ -1466,7 +1488,7 @@ export interface GeneralDataSelect<T extends boolean = true> {
               id?: T;
             };
       };
-  NavigationGeneral?:
+  navigationGeneral?:
     | T
     | {
         level?: T;
@@ -1502,6 +1524,24 @@ export interface GeneralDataSelect<T extends boolean = true> {
         url?: T;
         isExternal?: T;
         id?: T;
+      };
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+        keywords?: T;
+        canonicalUrl?: T;
+        metaRobots?: T;
+        ogTitle?: T;
+        ogDescription?: T;
+        ogImage?: T;
+        twitterCard?: T;
+        twitterTitle?: T;
+        twitterDescription?: T;
+        twitterImage?: T;
+        structuredData?: T;
       };
   _status?: T;
   updatedAt?: T;

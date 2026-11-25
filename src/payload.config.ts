@@ -16,7 +16,7 @@ import { ru } from '@payloadcms/translations/languages/ru'
 
 // Plugins
 import { translator, openAIResolver } from '@payload-enchants/translator'
-import { geminiResolver, openRouterResolver } from './translatorResolvers'
+import { geminiResolver, openRouterResolver } from './utils/translatorResolvers'
 
 import { openapi, swaggerUI } from 'payload-oapi'
 import { htmlEditorPlugin } from 'payload-html-editor'
@@ -139,7 +139,7 @@ export default buildConfig({
 			mediaCollection: 'media',
 		}),
 		seoPlugin({
-			globals: ['homePage'],
+			globals: ['generalData', 'homePage'],
 			collections: ['pages', 'cases'],
 			uploadsCollection: 'media',
 			// tabbedUI: true,
@@ -155,7 +155,7 @@ export default buildConfig({
 				// 		? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
 				// 		: 'http://localhost:3000')
 
-				const url = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
+				const url = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
 
 				return doc?.slug ? `${url}/${doc.slug}` : url
 			},

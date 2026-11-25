@@ -3,7 +3,7 @@ import { MenuItemFields } from './MenuItemFields'
 import { MenuSub } from './MenuSub'
 
 export const Menu: Field = {
-	name: 'NavigationGeneral',
+	name: 'navigationGeneral',
 	type: 'array',
 	labels: {
 		singular: 'Menu Link',
