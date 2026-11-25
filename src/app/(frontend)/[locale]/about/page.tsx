@@ -1,0 +1,12 @@
+import Link from 'next/link'
+
+export default function About() {
+	return (
+		<>
+			<div>About page</div>
+			<Link href={`/`} className="btn btn--primary btn--lg">
+				Homepage
+			</Link>
+		</>
+	)
+}

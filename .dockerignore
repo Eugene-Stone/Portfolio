@@ -1,0 +1,9 @@
+# Он сообщает Docker, какие файлы не нужно отправлять в контекст сборки.
+node_modules
+.next
+.git
+.env
+.env.*
+!.env.example
+npm-debug.log
+.DS_Store
