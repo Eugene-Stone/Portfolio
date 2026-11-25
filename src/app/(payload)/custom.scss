@@ -13,3 +13,26 @@
 	padding-top: 0;
 	border-top: 0;
 }
+
+
+.translator__close {
+	&::before,
+	&::after {
+		margin-top: -15px;
+		margin-left: 5px;
+		zoom: .7;
+	}
+}
+
+
+
+.frontend-link {
+	position: absolute;
+	z-index: 10;
+	top: 13px;
+	right: 0;
+	@media (max-width: 1440px) {
+		top: 16px;
+		right: -10px;
+	}
+}

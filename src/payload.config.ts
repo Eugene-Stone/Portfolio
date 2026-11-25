@@ -45,7 +45,8 @@ export default buildConfig({
 		components: {
 			// Добавляем собственную ссылку после стандартных ссылок навигации.
 			afterNavLinks: [
-				'@/app_payload/components/ApiLink#ApiLink',
+				'@/app_payload/components/AsideLinks/AdditionalLinks#AdditionalLinks', // решетка #AdditionalLinks требует именованный экспорт
+				// '@/app_payload/components/ApiLink#ApiLink',
 				// '@/app_payload/components/SidebarLink#SidebarLink_2',
 			],
 		},

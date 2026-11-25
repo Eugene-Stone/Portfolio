@@ -17,6 +17,7 @@ export const GeneralData: GlobalConfig = {
 	},
 	versions: {
 		drafts: true,
+		maxPerDoc: 3,
 	},
 
 	fields: [

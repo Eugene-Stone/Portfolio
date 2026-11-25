@@ -27,6 +27,7 @@ export const HomePage: GlobalConfig = {
 
 	versions: {
 		drafts: true,
+		maxPerDoc: 3,
 	},
 
 	fields: [

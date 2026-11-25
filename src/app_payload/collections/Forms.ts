@@ -18,6 +18,7 @@ export const Forms: CollectionConfig = {
 
 	versions: {
 		drafts: true,
+		maxPerDoc: 3,
 	},
 
 	fields: [

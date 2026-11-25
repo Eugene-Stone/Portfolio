@@ -39,6 +39,7 @@ export const Cases: CollectionConfig = {
 
 	versions: {
 		drafts: true,
+		maxPerDoc: 3,
 	},
 
 	fields: [

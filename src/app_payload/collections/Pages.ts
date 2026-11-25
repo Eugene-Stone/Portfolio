@@ -37,6 +37,7 @@ export const Pages: CollectionConfig = {
 
 	versions: {
 		drafts: true,
+		maxPerDoc: 3,
 	},
 
 	fields: [

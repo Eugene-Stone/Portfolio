@@ -54,3 +54,4 @@ node_modules/
 /backups
 portfolio.sql
 docker-steps.txt
+.env.docker

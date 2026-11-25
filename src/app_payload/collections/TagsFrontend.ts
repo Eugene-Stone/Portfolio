@@ -34,6 +34,7 @@ export const TagsFrontend: CollectionConfig = {
 
 	versions: {
 		drafts: true,
+		maxPerDoc: 3,
 	},
 
 	fields: [
