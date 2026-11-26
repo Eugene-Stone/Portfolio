@@ -92,6 +92,32 @@
 	gap: 12px;
 }
 
+.header__language {
+	display: inline-flex;
+	align-items: center;
+	gap: 2px;
+	padding: 3px;
+	border: 1px solid var(--line);
+	border-radius: var(--radius-pill);
+	background: var(--surface);
+}
+
+.header__language-link {
+	padding: 6px 9px;
+	border-radius: var(--radius-pill);
+	color: var(--text-soft);
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1;
+	transition: .2s var(--ease);
+}
+
+.header__language-link:hover,
+.header__language-link[aria-current='page'] {
+	background: var(--brand-soft);
+	color: var(--brand);
+}
+
 .burger {
 	display: none;
 	width: 44px;

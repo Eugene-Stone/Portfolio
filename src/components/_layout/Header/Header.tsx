@@ -1,11 +1,12 @@
 'use client'
 
-import { Locale, Dictionary } from '@/i18n/config'
+import { Dictionary, Locale, locales } from '@/i18n/config'
 import { GeneralDatum } from '@/payload-types'
 import { imageObj } from '@/utils/imageNormalize'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import HeaderMenu from './HeaderMenu'
 
 type Props = {
@@ -16,6 +17,7 @@ type Props = {
 export default function Header({ generalData, locale, dict }: Props) {
 	const { header, navigationGeneral, contactsList } = generalData
 	const [openMenu, setOpenMenu] = useState(false)
+	const pathname = usePathname()
 
 	// если header окажется undefined или null, возьмется пустой объект {}, и ошибки на деструктуризации не будет.
 	const { logo, buttonsInHeader } = header ?? {}
@@ -49,6 +51,28 @@ export default function Header({ generalData, locale, dict }: Props) {
 				/>
 
 				<div className="header__actions">
+					<nav className="header__language" aria-label="Выбор языка">
+						{locales.map((language) => {
+							const currentLocale = locales.find(
+								(candidate) => pathname === `/${candidate}` || pathname.startsWith(`/${candidate}/`),
+							)
+							const restOfPath = currentLocale ? pathname.slice(currentLocale.length + 1) : pathname
+							const href = `/${language}${restOfPath}`
+
+							return (
+								<Link
+									key={language}
+									className="header__language-link"
+									href={href}
+									lang={language}
+									aria-current={locale === language ? 'page' : undefined}
+								>
+									{language.toUpperCase()}
+								</Link>
+							)
+						})}
+					</nav>
+
 					{buttonsInHeader?.map((button, i) => {
 						const target = button.isExternal ? '_blank' : '_self'
 						const btnClass =
