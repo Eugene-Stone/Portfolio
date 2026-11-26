@@ -6,5 +6,9 @@
 			"keywords 1",
 			"keywords 2"
 		]
+	},
+
+	"skip-links": {
+		"skipToContent": "Skip to content"
 	}
 }

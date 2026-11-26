@@ -12,6 +12,7 @@ export const Hero: Block = {
 			name: 'subTitle',
 			type: 'text',
 			localized: true,
+			required: true,
 		},
 		{
 			name: 'title',
@@ -23,6 +24,7 @@ export const Hero: Block = {
 			name: 'description',
 			type: 'textarea',
 			localized: true,
+			required: true,
 		},
 		{
 			type: 'array',
@@ -39,7 +41,7 @@ export const Hero: Block = {
 						{
 							name: 'number',
 							type: 'text',
-							required: false,
+							required: true,
 							admin: {
 								width: '25%',
 							},
@@ -47,7 +49,7 @@ export const Hero: Block = {
 						{
 							name: 'text',
 							type: 'text',
-							required: false,
+							required: true,
 							localized: true,
 							admin: {
 								width: '75%',

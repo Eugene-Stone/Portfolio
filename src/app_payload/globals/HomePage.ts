@@ -27,7 +27,7 @@ export const HomePage: GlobalConfig = {
 
 	versions: {
 		drafts: true,
-		maxPerDoc: 3,
+		max: 3, // для Globals (GlobalConfig) свойство называется max, а не maxPerDoc
 	},
 
 	fields: [
@@ -35,6 +35,7 @@ export const HomePage: GlobalConfig = {
 			name: '__component',
 			type: 'text',
 			defaultValue: 'home',
+			required: true,
 			admin: {
 				hidden: true,
 			},
@@ -82,6 +83,7 @@ export const HomePage: GlobalConfig = {
 			type: 'text',
 			name: 'titlePage',
 			localized: true,
+			required: true,
 		},
 		{
 			name: 'sections',

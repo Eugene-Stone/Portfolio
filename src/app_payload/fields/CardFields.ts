@@ -9,12 +9,13 @@ export const CardFields: Field[] = [
 	{
 		name: 'title', // required
 		type: 'text', // required
-		required: true,
 		localized: true,
+		required: true,
 	},
 	{
 		name: 'text', // required
 		type: 'textarea', // required
 		localized: true,
+		required: true,
 	},
 ]

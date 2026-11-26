@@ -67,6 +67,7 @@ export const Cases: CollectionConfig = {
 					name: 'title',
 					type: 'text',
 					localized: true,
+					required: true,
 					admin: {
 						width: '50%',
 					},
@@ -88,6 +89,7 @@ export const Cases: CollectionConfig = {
 					name: 'description',
 					type: 'textarea',
 					localized: true,
+					required: true,
 					admin: {
 						width: '50%',
 					},

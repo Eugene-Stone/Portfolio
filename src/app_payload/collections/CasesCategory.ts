@@ -55,6 +55,7 @@ export const CasesCategory: CollectionConfig = {
 			name: 'title',
 			type: 'text',
 			localized: true,
+			required: true,
 		},
 	],
 

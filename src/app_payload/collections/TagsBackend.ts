@@ -55,6 +55,7 @@ export const TagsBackend: CollectionConfig = {
 			name: 'title',
 			type: 'text',
 			localized: true,
+			required: true,
 		},
 	],
 

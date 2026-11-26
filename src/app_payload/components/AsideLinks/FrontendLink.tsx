@@ -7,8 +7,9 @@ export const FrontendLink: React.FC = () => {
 
 	return (
 		<a className="nav__link frontend-link" href={href} target="_blank">
-			<span className="nav__link-label">
-				<h3>Site link</h3>
+			<span className="frontend-link__label">
+				<img className="frontend-link__image" src="/images/favicon.png" alt="Favicon" />
+				<span className="frontend-link__title">Site link</span>
 			</span>
 		</a>
 	)

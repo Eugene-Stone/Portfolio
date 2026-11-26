@@ -22,6 +22,7 @@ export const Cases: Block = {
 			name: 'allCasesUrl',
 			type: 'text',
 			localized: true,
+			required: true,
 		},
 		{
 			name: 'bestCases',

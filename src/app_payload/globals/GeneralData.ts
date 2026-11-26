@@ -17,7 +17,7 @@ export const GeneralData: GlobalConfig = {
 	},
 	versions: {
 		drafts: true,
-		maxPerDoc: 3,
+		max: 3, // для Globals (GlobalConfig) свойство называется max, а не maxPerDoc
 	},
 
 	fields: [
@@ -108,6 +108,7 @@ export const GeneralData: GlobalConfig = {
 					name: 'description',
 					type: 'textarea',
 					localized: true,
+					required: true,
 				},
 				{
 					type: 'row',
@@ -116,11 +117,13 @@ export const GeneralData: GlobalConfig = {
 							name: 'copyrightLeft',
 							type: 'textarea',
 							localized: true,
+							required: true,
 						},
 						{
 							name: 'copyrightRight',
 							type: 'textarea',
 							localized: true,
+							required: true,
 						},
 					],
 				},
@@ -138,19 +141,28 @@ export const GeneralData: GlobalConfig = {
 				{
 					type: 'row',
 					fields: [
+						// {
+						// 	name: 'label',
+						// 	type: 'text',
+						// 	localized: true,
+						// 	admin: {
+						// 		width: '30%',
+						// 	},
+						// },
 						{
 							name: 'text',
 							type: 'text',
 							localized: true,
+							required: true,
 							admin: {
-								width: '40%',
+								width: '30%',
 							},
 						},
 						{
 							name: 'url',
 							type: 'text',
 							admin: {
-								width: '40%',
+								width: '25%',
 								// siblingData смотрит на поля внутри текущего блока
 								// condition: (data, siblingData) => siblingData?.isLink !== false,
 							},
@@ -159,8 +171,9 @@ export const GeneralData: GlobalConfig = {
 							name: 'isExternal',
 							type: 'checkbox',
 							defaultValue: false,
+							required: true,
 							admin: {
-								width: '20%',
+								width: '15%',
 								style: {
 									marginTop: 35,
 								},

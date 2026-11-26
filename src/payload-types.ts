@@ -149,27 +149,27 @@ export interface Page {
   generateSlug?: boolean | null;
   slug: string;
   publishedAt?: string | null;
-  titlePage?: string | null;
+  titlePage: string;
   descriptionPage?: string | null;
   sections?:
     | (
         | {
-            subTitle?: string | null;
+            subTitle: string;
             title: string;
-            description?: string | null;
+            description: string;
             buttons?:
               | {
-                  type?: ('Primary' | 'Secondary') | null;
-                  text?: string | null;
-                  url?: string | null;
-                  isExternal?: boolean | null;
+                  type: 'Primary' | 'Secondary';
+                  text: string;
+                  url: string;
+                  isExternal: boolean;
                   id?: string | null;
                 }[]
               | null;
             stats?:
               | {
-                  number?: string | null;
-                  text?: string | null;
+                  number: string;
+                  text: string;
                   id?: string | null;
                 }[]
               | null;
@@ -192,7 +192,7 @@ export interface Page {
               | {
                   image?: (number | null) | Media;
                   title: string;
-                  text?: string | null;
+                  text: string;
                   id?: string | null;
                 }[]
               | null;
@@ -204,7 +204,7 @@ export interface Page {
         | {
             subTitle?: string | null;
             title: string;
-            allCasesUrl?: string | null;
+            allCasesUrl: string;
             bestCases?:
               | {
                   relationTo: 'cases';
@@ -225,27 +225,27 @@ export interface Page {
             blockType: 'stack';
           }
         | {
-            aboutBadge?: {
-              number?: string | null;
-              text?: string | null;
+            aboutBadge: {
+              number: string;
+              text: string;
             };
-            image?: (number | null) | Media;
+            image: number | Media;
             subTitle?: string | null;
             title: string;
             description?: string | null;
             paragraph?: string | null;
             list?:
               | {
-                  text?: string | null;
+                  text: string;
                   id?: string | null;
                 }[]
               | null;
             buttons?:
               | {
-                  type?: ('Primary' | 'Secondary') | null;
-                  text?: string | null;
-                  url?: string | null;
-                  isExternal?: boolean | null;
+                  type: 'Primary' | 'Secondary';
+                  text: string;
+                  url: string;
+                  isExternal: boolean;
                   id?: string | null;
                 }[]
               | null;
@@ -256,13 +256,13 @@ export interface Page {
           }
         | {
             title: string;
-            description?: string | null;
+            description: string;
             buttons?:
               | {
-                  type?: ('Primary' | 'Secondary') | null;
-                  text?: string | null;
-                  url?: string | null;
-                  isExternal?: boolean | null;
+                  type: 'Primary' | 'Secondary';
+                  text: string;
+                  url: string;
+                  isExternal: boolean;
                   id?: string | null;
                 }[]
               | null;
@@ -389,12 +389,12 @@ export interface Case {
   generateSlug?: boolean | null;
   slug: string;
   publishedAt?: string | null;
-  title?: string | null;
+  title: string;
   typeProject?: {
     relationTo: 'casesCategory';
     value: number | CasesCategory;
   } | null;
-  description?: string | null;
+  description: string;
   tags?:
     | (
         | {
@@ -446,7 +446,7 @@ export interface CasesCategory {
    */
   generateSlug?: boolean | null;
   slug: string;
-  title?: string | null;
+  title: string;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -462,7 +462,7 @@ export interface TagsFrontend {
    */
   generateSlug?: boolean | null;
   slug: string;
-  title?: string | null;
+  title: string;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -478,7 +478,7 @@ export interface TagsBackend {
    */
   generateSlug?: boolean | null;
   slug: string;
-  title?: string | null;
+  title: string;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -516,36 +516,36 @@ export interface User {
  */
 export interface Form {
   id: number;
-  title?: string | null;
-  submitUrl?: string | null;
-  successMessage?: string | null;
-  errorMessage?: string | null;
+  title: string;
+  submitUrl: string;
+  successMessage: string;
+  errorMessage: string;
   fields?:
     | (
         | {
-            label?: string | null;
+            label: string;
             name: string;
             placeholder?: string | null;
-            isRequired?: boolean | null;
+            isRequired: boolean;
             id?: string | null;
             blockName?: string | null;
             blockType: 'formTextarea';
           }
         | {
-            label?: string | null;
+            label: string;
             id?: string | null;
             blockName?: string | null;
             blockType: 'formSubmit';
           }
         | {
-            label?: string | null;
+            label: string;
             name: string;
             placeholder?: string | null;
-            isRequired?: boolean | null;
+            isRequired: boolean;
             options?:
               | {
-                  label?: string | null;
-                  value?: string | null;
+                  label: string;
+                  value: string;
                   id?: string | null;
                 }[]
               | null;
@@ -554,23 +554,23 @@ export interface Form {
             blockType: 'formSelect';
           }
         | {
-            label?: string | null;
+            label: string;
             name: string;
             placeholder?: string | null;
-            type?: ('text' | 'email') | null;
-            isRequired?: boolean | null;
+            type: 'text' | 'email';
+            isRequired: boolean;
             id?: string | null;
             blockName?: string | null;
             blockType: 'formInput';
           }
         | {
-            label?: string | null;
+            label: string;
             name: string;
             items?:
               | {
-                  label?: string | null;
+                  label: string;
                   value: string;
-                  isChecked?: boolean | null;
+                  isChecked: boolean;
                   id?: string | null;
                 }[]
               | null;
@@ -579,7 +579,7 @@ export interface Form {
             blockType: 'formCheckboxes';
           }
         | {
-            label?: string | null;
+            label: string;
             name: string;
             id?: string | null;
             blockName?: string | null;
@@ -597,7 +597,7 @@ export interface Form {
  */
 export interface FormRequest {
   id: number;
-  formTitle?: string | null;
+  formTitle: string;
   formData?: string | null;
   formDataJSON?:
     | {
@@ -1208,10 +1208,10 @@ export interface GeneralDatum {
     logo?: (number | null) | Media;
     buttonsInHeader?:
       | {
-          type?: ('Primary' | 'Secondary') | null;
-          text?: string | null;
-          url?: string | null;
-          isExternal?: boolean | null;
+          type: 'Primary' | 'Secondary';
+          text: string;
+          url: string;
+          isExternal: boolean;
           id?: string | null;
         }[]
       | null;
@@ -1233,7 +1233,7 @@ export interface GeneralDatum {
               relationTo: 'pages';
               value: number | Page;
             } | null);
-        isExternal?: boolean | null;
+        isExternal: boolean;
         hasChildren?: boolean | null;
         subMenu?:
           | {
@@ -1252,24 +1252,24 @@ export interface GeneralDatum {
                     relationTo: 'pages';
                     value: number | Page;
                   } | null);
-              isExternal?: boolean | null;
+              isExternal: boolean;
               id?: string | null;
             }[]
           | null;
         id?: string | null;
       }[]
     | null;
-  footer?: {
+  footer: {
     logo?: (number | null) | Media;
-    description?: string | null;
-    copyrightLeft?: string | null;
-    copyrightRight?: string | null;
+    description: string;
+    copyrightLeft: string;
+    copyrightRight: string;
   };
   contactsList?:
     | {
-        text?: string | null;
+        text: string;
         url?: string | null;
-        isExternal?: boolean | null;
+        isExternal: boolean;
         id?: string | null;
       }[]
     | null;
@@ -1305,33 +1305,33 @@ export interface GeneralDatum {
  */
 export interface HomePage {
   id: number;
-  __component?: string | null;
+  __component: string;
   /**
    * When enabled, the slug will auto-generate from the title field on save and autosave.
    */
   generateSlug?: boolean | null;
   slug: string;
   publishedAt?: string | null;
-  titlePage?: string | null;
+  titlePage: string;
   sections?:
     | (
         | {
-            subTitle?: string | null;
+            subTitle: string;
             title: string;
-            description?: string | null;
+            description: string;
             buttons?:
               | {
-                  type?: ('Primary' | 'Secondary') | null;
-                  text?: string | null;
-                  url?: string | null;
-                  isExternal?: boolean | null;
+                  type: 'Primary' | 'Secondary';
+                  text: string;
+                  url: string;
+                  isExternal: boolean;
                   id?: string | null;
                 }[]
               | null;
             stats?:
               | {
-                  number?: string | null;
-                  text?: string | null;
+                  number: string;
+                  text: string;
                   id?: string | null;
                 }[]
               | null;
@@ -1354,7 +1354,7 @@ export interface HomePage {
               | {
                   image?: (number | null) | Media;
                   title: string;
-                  text?: string | null;
+                  text: string;
                   id?: string | null;
                 }[]
               | null;
@@ -1366,7 +1366,7 @@ export interface HomePage {
         | {
             subTitle?: string | null;
             title: string;
-            allCasesUrl?: string | null;
+            allCasesUrl: string;
             bestCases?:
               | {
                   relationTo: 'cases';
@@ -1387,27 +1387,27 @@ export interface HomePage {
             blockType: 'stack';
           }
         | {
-            aboutBadge?: {
-              number?: string | null;
-              text?: string | null;
+            aboutBadge: {
+              number: string;
+              text: string;
             };
-            image?: (number | null) | Media;
+            image: number | Media;
             subTitle?: string | null;
             title: string;
             description?: string | null;
             paragraph?: string | null;
             list?:
               | {
-                  text?: string | null;
+                  text: string;
                   id?: string | null;
                 }[]
               | null;
             buttons?:
               | {
-                  type?: ('Primary' | 'Secondary') | null;
-                  text?: string | null;
-                  url?: string | null;
-                  isExternal?: boolean | null;
+                  type: 'Primary' | 'Secondary';
+                  text: string;
+                  url: string;
+                  isExternal: boolean;
                   id?: string | null;
                 }[]
               | null;
@@ -1418,13 +1418,13 @@ export interface HomePage {
           }
         | {
             title: string;
-            description?: string | null;
+            description: string;
             buttons?:
               | {
-                  type?: ('Primary' | 'Secondary') | null;
-                  text?: string | null;
-                  url?: string | null;
-                  isExternal?: boolean | null;
+                  type: 'Primary' | 'Secondary';
+                  text: string;
+                  url: string;
+                  isExternal: boolean;
                   id?: string | null;
                 }[]
               | null;

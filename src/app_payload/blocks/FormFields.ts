@@ -5,6 +5,7 @@ const baseField = [
 		name: 'label',
 		type: 'text' as const,
 		localized: true,
+		required: true,
 	},
 	{
 		name: 'name',
@@ -30,11 +31,14 @@ export const FormInput: Block = {
 			name: 'type',
 			type: 'select',
 			options: ['text', 'email'],
+			required: true,
+			defaultValue: 'text',
 		},
 		{
 			name: 'isRequired',
 			type: 'checkbox',
 			defaultValue: false,
+			required: true,
 		},
 	],
 }
@@ -56,6 +60,7 @@ export const FormTextarea: Block = {
 			name: 'isRequired',
 			type: 'checkbox',
 			defaultValue: false,
+			required: true,
 		},
 	],
 }
@@ -77,6 +82,7 @@ export const FormSelect: Block = {
 			name: 'isRequired',
 			type: 'checkbox',
 			defaultValue: false,
+			required: true,
 		},
 		{
 			name: 'options',
@@ -86,10 +92,12 @@ export const FormSelect: Block = {
 					name: 'label',
 					type: 'text',
 					localized: true,
+					required: true,
 				},
 				{
 					name: 'value',
 					type: 'text',
+					required: true,
 				},
 			],
 		},
@@ -112,6 +120,7 @@ export const FormCheckboxes: Block = {
 					name: 'label',
 					type: 'text',
 					localized: true,
+					required: true,
 				},
 				{
 					name: 'value',
@@ -122,6 +131,7 @@ export const FormCheckboxes: Block = {
 					name: 'isChecked',
 					type: 'checkbox',
 					defaultValue: false,
+					required: true,
 				},
 			],
 		},
@@ -144,6 +154,7 @@ export const FormRadio: Block = {
 					name: 'label',
 					type: 'text',
 					localized: true,
+					required: true,
 				},
 				{
 					name: 'value',
@@ -154,6 +165,7 @@ export const FormRadio: Block = {
 					name: 'isChecked',
 					type: 'checkbox',
 					defaultValue: false,
+					required: true,
 				},
 			],
 		},
@@ -180,6 +192,7 @@ export const FormSubmit: Block = {
 			name: 'label',
 			type: 'text',
 			localized: true,
+			required: true,
 		},
 	],
 }

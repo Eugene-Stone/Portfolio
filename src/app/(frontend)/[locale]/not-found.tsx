@@ -6,7 +6,7 @@ export const dynamic = 'force-static' // 'force-dynamic' || 'force-static';
 
 export default async function NotFound() {
 	return (
-		<main id="main-content" data-page-is={'not-found'}>
+		<main id="main" data-page-is={'not-found'}>
 			<section className="sect-404">
 				<div className="container">
 					<br />

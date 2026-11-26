@@ -5,6 +5,7 @@ export const ButtonFields: Field[] = [
 		name: 'type',
 		type: 'select',
 		defaultValue: 'Primary',
+		required: true,
 		options: [
 			{ label: 'Primary', value: 'Primary' },
 			{ label: 'Secondary', value: 'Secondary' },
@@ -17,10 +18,12 @@ export const ButtonFields: Field[] = [
 				name: 'text',
 				type: 'text',
 				localized: true,
+				required: true,
 			},
 			{
 				name: 'url',
 				type: 'text',
+				required: true,
 			},
 		],
 	},
@@ -28,5 +31,6 @@ export const ButtonFields: Field[] = [
 		name: 'isExternal',
 		type: 'checkbox',
 		defaultValue: false,
+		required: true,
 	},
 ]

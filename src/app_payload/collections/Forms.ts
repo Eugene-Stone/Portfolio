@@ -26,20 +26,24 @@ export const Forms: CollectionConfig = {
 			name: 'title',
 			type: 'text',
 			localized: true,
+			required: true,
 		},
 		{
 			name: 'submitUrl',
 			type: 'text',
+			required: true,
 		},
 		{
 			name: 'successMessage',
 			type: 'text',
 			localized: true,
+			required: true,
 		},
 		{
 			name: 'errorMessage',
 			type: 'text',
 			localized: true,
+			required: true,
 		},
 		{
 			name: 'fields',

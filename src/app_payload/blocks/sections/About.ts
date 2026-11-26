@@ -18,7 +18,7 @@ export const About: Block = {
 						{
 							name: 'number',
 							type: 'text',
-							required: false,
+							required: true,
 							admin: {
 								width: '25%',
 							},
@@ -26,7 +26,7 @@ export const About: Block = {
 						{
 							name: 'text',
 							type: 'text',
-							required: false,
+							required: true,
 							localized: true,
 							admin: {
 								width: '75%',
@@ -40,6 +40,7 @@ export const About: Block = {
 			name: 'image',
 			type: 'upload',
 			relationTo: 'media',
+			required: true,
 		},
 
 		{
@@ -75,6 +76,7 @@ export const About: Block = {
 					name: 'text',
 					type: 'text',
 					localized: true,
+					required: true,
 				},
 			],
 		},

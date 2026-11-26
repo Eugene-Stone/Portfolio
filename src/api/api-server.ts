@@ -5,12 +5,7 @@ import { BACKEND_URL, FRONTEND_URL } from '@/CONSTANTS'
 import { defaultLocale, Locale, locales, ogLocale } from '@/i18n/config'
 import type { GeneralDatum, Page, Case } from '@/payload-types'
 import { Metadata } from 'next'
-
-export type MetaProps = {
-	children: React.ReactNode
-	params: Promise<{ locale: Locale; slug?: string }>
-}
-export type SeoData = NonNullable<GeneralDatum['meta']>
+import { SeoData } from '@/TYPES'
 
 export function createMetadata(
 	pageTitle: string,

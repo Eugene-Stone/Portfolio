@@ -1,0 +1,14 @@
+{
+	"metadata": {
+		"siteTitle": "Site Title",
+		"siteDescription": "Site Description",
+		"keywords": [
+			"keywords 1",
+			"keywords 2"
+		]
+	},
+
+	"skip-links": {
+		"skipToContent": "Перейти до вмісту"
+	}
+}

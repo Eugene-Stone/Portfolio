@@ -62,6 +62,7 @@ export const MenuItemFields = (menuLevel: string): Field[] => {
 					name: 'isExternal',
 					type: 'checkbox',
 					defaultValue: false,
+					required: true,
 					admin: {
 						width: '50%',
 						// Сдвигаем чекбокс чуть ниже, чтобы он визуально выровнялся с инпутом (без учета текста ошибки/описания)

@@ -64,5 +64,5 @@ export const config = {
 	 * /my-route
 	 * файлов с расширением
 	 */
-	matcher: ['/((?!api|_next/static|_next/image|admin|my-route|.*\\..*).*)'],
+	matcher: ['/((?!api|_next/static|_next/image|admin|my-route|\\.well-known|.*\\..*).*)'],
 }
