@@ -32,6 +32,7 @@ export type RootProps = {
 // export default async function RootLayout({ children }: LayoutProps<'/'>) {
 export default async function RootLayout({ children, params }: RootProps) {
 	const { locale, slug } = await params
+	const generalData = await getGeneralData(locale)
 	const dict = await getDictionary(locale)
 
 	// console.log('locale', locale)
@@ -58,7 +59,7 @@ export default async function RootLayout({ children, params }: RootProps) {
 					{dict['skip-links'].skipToContent}
 				</a>
 
-				<Header locale={locale} dict={dict} />
+				<Header generalData={generalData} locale={locale} dict={dict} />
 				{children}
 				<Footer />
 			</body>

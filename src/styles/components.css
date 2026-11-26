@@ -786,7 +786,7 @@
 		background: var(--surface);
 		border-bottom: 1px solid var(--line);
 		padding: 16px;
-		transform: translateY(-120%);
+		transform: translateY(-128%);
 		transition: .35s var(--ease);
 		box-shadow: var(--shadow-lg);
 	}

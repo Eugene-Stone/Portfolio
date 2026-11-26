@@ -190,3 +190,28 @@ export async function getPageData(
 
 	return result.docs[0] ?? null
 }
+
+export async function getCaseData(
+	slug: string,
+	locale: Locale = 'uk',
+	draft = false,
+): Promise<Case | null> {
+	const payloadConfig = await config
+	const payload = await getPayload({ config: payloadConfig })
+
+	const result = await payload.find({
+		collection: 'cases',
+		depth: 2,
+		locale,
+		draft,
+		limit: 1,
+		pagination: false,
+		where: {
+			slug: {
+				equals: slug,
+			},
+		},
+	})
+
+	return result.docs[0] ?? null
+}

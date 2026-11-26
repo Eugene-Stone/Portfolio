@@ -1,6 +1,7 @@
-import { createMetadata, getGeneralData, getPageData, MetaProps } from '@/api/api-server'
+import { createMetadata, getGeneralData, getPageData } from '@/api/api-server'
 import { SITE_TITLE } from '@/CONSTANTS'
 import { Locale } from '@/i18n/config'
+import { MetaProps } from '@/TYPES'
 import { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -24,12 +25,12 @@ export type PageProps = {
 export default async function Page({ params }: PageProps) {
 	const { locale, slug } = await params
 
-	console.log('locale', locale)
-	console.log('slug', slug)
+	// console.log('locale', locale)
+	// console.log('slug', slug)
 
 	const dataPage = await getPageData(slug!, locale)
 
-	console.log('dataPage', dataPage)
+	// console.log('dataPage', dataPage)
 
 	return (
 		<main id="main">
