@@ -55,13 +55,13 @@ export default async function RootLayout({ children, params }: RootProps) {
 					showAtBottom={false}
 				/>
 
-				<a className="skip-link" href="#main">
+				{/* 	<a className="skip-link" href="#main">
 					{dict['skip-links'].skipToContent}
-				</a>
+				</a> */}
 
 				<Header generalData={generalData} locale={locale} dict={dict} />
 				{children}
-				<Footer />
+				<Footer generalData={generalData} locale={locale} dict={dict} />
 			</body>
 		</html>
 	)

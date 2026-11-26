@@ -1,71 +1,101 @@
+'use client'
+import { GeneralDatum } from '@/payload-types'
 import ButtonScrollTop from '../ButtonScrollTop'
+import { Dictionary, Locale } from '@/i18n/config'
+import { imageObj } from '@/utils/imageNormalize'
+import Image from 'next/image'
+import { detectActiveLink } from '@/utils/detectActiveLink'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 
-export default function Footer() {
+type Props = {
+	generalData: GeneralDatum
+	locale: Locale
+	dict: Dictionary
+}
+
+export default function Footer({ generalData, locale, dict }: Props) {
+	const pathname = usePathname()
+	const { navigationGeneral, contactsList, footer } = generalData
+
+	// если footer окажется undefined или null, возьмется пустой объект {}, и ошибки на деструктуризации не будет.
+	const { logo, description, copyrightLeft, copyrightRight } = footer ?? {}
+	const logoObj = imageObj(logo)
+
 	return (
 		<>
 			<footer className="site-footer">
 				<div className="container">
 					<div className="footer__top">
 						<div className="footer__brand">
-							<a className="logo logo--footer" href="index.html">
-								<span className="logo__mark">ES</span>
-								<span className="logo__text">
-									Eugene<em>Stone</em>
-								</span>
+							<a className="logo logo--footer" href={`/${locale}`}>
+								<Image src={logoObj.url} alt={logoObj.alt} width={150} height={38} />
 							</a>
-							<p className="footer__desc">
-								Frontend та Fullstack розробник.
-								<br />
-								Next.js, React, TypeScript, Strapi.
-							</p>
+							{description && <p className="footer__desc">{description}</p>}
 						</div>
 						<nav className="footer__nav" aria-label="Навігація в нижній частині">
 							<h3 className="footer__title">Розділи</h3>
-							<ul>
-								<li>
-									<a href="index.html">Головна</a>
-								</li>
-								<li>
-									<a href="portfolio.html">Проєкти</a>
-								</li>
-								<li>
-									<a href="blog.html">Блог</a>
-								</li>
-								<li>
-									<a href="contacts.html">Контакти</a>
-								</li>
-							</ul>
+							{navigationGeneral && (
+								<ul>
+									{navigationGeneral.map((link, i) => {
+										const relValue = link.relationLink?.value
+										const relSlug =
+											typeof relValue === 'object' &&
+											relValue !== null &&
+											'slug' in relValue &&
+											typeof relValue.slug === 'string'
+												? relValue.slug
+												: ''
+
+										// const url = link.url ? `/${locale}${link.url}` : relValue ? `/${locale}/${relSlug}` : ''
+										const url = link.url ? `${link.url}` : relValue ? `/${relSlug}` : ''
+										const title = link.title ? link.title : ''
+										const isActive = detectActiveLink(pathname, url)
+
+										// console.log('isActive', isActive)
+										// console.log('pathname', pathname)
+										// console.log('url', url)
+
+										return (
+											<li key={i}>
+												<Link
+													className={`${isActive ? 'is-active' : ''}`}
+													// href={url}
+													href={`/${locale}${url}`}
+												>
+													{title}
+												</Link>
+											</li>
+										)
+									})}
+								</ul>
+							)}
 						</nav>
+
 						<div className="footer__contacts">
 							<h3 className="footer__title">Контакти</h3>
-							<ul>
-								<li>
-									<a href="https://t.me/LINK_TELEGRAM" target="_blank" rel="noopener">
-										t.me/LINK_TELEGRAM
-									</a>
-								</li>
-								<li>
-									<a href="http://github.com/Eugene-Stone" target="_blank" rel="noopener">
-										github.com/Eugene-Stone
-									</a>
-								</li>
-								<li>
-									<a
-										href="https://www.linkedin.com/in/LINKEDIN_LINK/"
-										target="_blank"
-										rel="noopener"
-									>
-										linkedin.com/in/LINKEDIN_LINK
-									</a>
-								</li>
-							</ul>
+
+							{contactsList && (
+								<ul>
+									{contactsList.map((item, i) => {
+										const title = item.text ? item.text : ''
+										const url = item.url ? item.url : ''
+
+										return (
+											<li key={i}>
+												<a target="_blank" rel="noopener" href={url}>
+													{title}
+												</a>
+											</li>
+										)
+									})}
+								</ul>
+							)}
 						</div>
 					</div>
 					<div className="footer__bottom">
-						<p>
-							© <span data-year>2025</span> Eugene Stone. Усі права захищено.
-						</p>
-						<p>Україна · Працюю віддалено</p>
+						<p>{copyrightLeft}</p>
+						<p>{copyrightRight}</p>
 					</div>
 				</div>
 			</footer>

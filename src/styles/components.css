@@ -711,6 +711,10 @@
 	transition: .2s;
 }
 
+.footer__nav a.is-active {
+	color: var(--brand);
+}
+
 .footer__nav a:hover,
 .footer__contacts a:hover {
 	color: var(--brand);

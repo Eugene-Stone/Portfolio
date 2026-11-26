@@ -8,25 +8,22 @@ import Link from 'next/link'
 import { useState } from 'react'
 import HeaderMenu from './HeaderMenu'
 
-type HeaderProps = {
+type Props = {
 	generalData: GeneralDatum
 	locale: Locale
 	dict: Dictionary
 }
-export default function Header({ generalData, locale, dict }: HeaderProps) {
+export default function Header({ generalData, locale, dict }: Props) {
 	const { header, navigationGeneral, contactsList } = generalData
 	const [openMenu, setOpenMenu] = useState(false)
 
 	// если header окажется undefined или null, возьмется пустой объект {}, и ошибки на деструктуризации не будет.
 	const { logo, buttonsInHeader } = header ?? {}
 	const logoObj = imageObj(logo)
-	console.log(buttonsInHeader)
 
 	function toggleMenu() {
 		setOpenMenu((prev) => !prev)
 	}
-
-	// console.log('navigationGeneral', navigationGeneral)
 
 	return (
 		<header className="site-header" data-header>
@@ -67,7 +64,7 @@ export default function Header({ generalData, locale, dict }: HeaderProps) {
 								href={`/${locale}${button.url}`}
 								target={target}
 							>
-								Обговорити проєкт
+								{button.text}
 							</Link>
 						)
 					})}
