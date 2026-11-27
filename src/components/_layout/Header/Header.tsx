@@ -5,7 +5,7 @@ import { GeneralDatum } from '@/payload-types'
 import { imageObj } from '@/utils/imageNormalize'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import HeaderMenu from './HeaderMenu'
 
@@ -18,6 +18,26 @@ export default function Header({ generalData, locale, dict }: Props) {
 	const { header, navigationGeneral, contactsList } = generalData
 	const [openMenu, setOpenMenu] = useState(false)
 	const pathname = usePathname()
+	const headerRef = useRef<HTMLElement | null>(null)
+	const progressRef = useRef<HTMLDivElement | null>(null)
+
+	useEffect(() => {
+		function onScroll() {
+			const scrollY = window.scrollY
+			headerRef.current?.classList.toggle('is-scrolled', scrollY > 8)
+
+			const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
+			if (progressRef.current) {
+				const progress = scrollableHeight > 0 ? (scrollY / scrollableHeight) * 100 : 0
+				progressRef.current.style.width = `${progress}%`
+			}
+		}
+
+		window.addEventListener('scroll', onScroll, { passive: true })
+		onScroll()
+
+		return () => window.removeEventListener('scroll', onScroll)
+	}, [])
 
 	// если header окажется undefined или null, возьмется пустой объект {}, и ошибки на деструктуризации не будет.
 	const { logo, buttonsInHeader } = header ?? {}
@@ -28,8 +48,8 @@ export default function Header({ generalData, locale, dict }: Props) {
 	}
 
 	return (
-		<header className="site-header" data-header>
-			<div className="scroll-progress" data-scroll-progress />
+		<header ref={headerRef} className="site-header" data-header>
+			<div ref={progressRef} className="scroll-progress" data-scroll-progress />
 			<div className="container header__inner">
 				<a className="logo" href={`/${locale}`}>
 					<Image
