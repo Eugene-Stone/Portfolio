@@ -10,7 +10,7 @@ import { SeoData } from '@/TYPES'
 export function createMetadata(
 	pageTitle: string,
 	seo: SeoData,
-	locale: Locale = 'uk',
+	locale: Locale = defaultLocale,
 	pathname = '/',
 ): Metadata {
 	const {
@@ -121,7 +121,10 @@ export function createMetadata(
 }
 
 // Функция для получения данных с Payload через Payload SDK, которая может быть использована в getStaticProps или getServerSideProps
-export async function getGeneralData(locale: Locale = 'uk', draft = false): Promise<GeneralDatum> {
+export async function getGeneralData(
+	locale: Locale = defaultLocale,
+	draft = false,
+): Promise<GeneralDatum> {
 	const payloadConfig = await config
 	const payload = await getPayload({ config: payloadConfig })
 
@@ -134,7 +137,7 @@ export async function getGeneralData(locale: Locale = 'uk', draft = false): Prom
 }
 
 // Функция для получения данных через fetch, которая может быть использована в getStaticProps или getServerSideProps
-export async function getGeneralDataFetch(locale: Locale = 'uk'): Promise<GeneralDatum> {
+export async function getGeneralDataFetch(locale: Locale = defaultLocale): Promise<GeneralDatum> {
 	const headers = { 'Content-Type': 'application/json' }
 	const apiUrl = `${BACKEND_URL}/api/globals/generalData?depth=2&draft=false&locale=${locale}`
 
@@ -166,41 +169,38 @@ export async function getGeneralDataFetch(locale: Locale = 'uk'): Promise<Genera
 	}
 }
 
-export async function getPageData(
-	slug: string,
-	locale: Locale = 'uk',
+// Функция для получения данных глобального объекта через Payload SDK, которая может быть использована в getStaticProps или getServerSideProps
+import type { GlobalSlug, DataFromGlobalSlug } from 'payload'
+export async function getGlobalData<T extends GlobalSlug>(
+	slug: T,
+	locale: Locale = defaultLocale,
 	draft = false,
-): Promise<Page | null> {
+): Promise<DataFromGlobalSlug<T>> {
 	const payloadConfig = await config
 	const payload = await getPayload({ config: payloadConfig })
 
-	const result = await payload.find({
-		collection: 'pages',
+	return (await payload.findGlobal({
+		slug: slug,
 		depth: 2,
 		locale,
 		draft,
-		limit: 1,
-		pagination: false,
-		where: {
-			slug: {
-				equals: slug,
-			},
-		},
-	})
-
-	return result.docs[0] ?? null
+	})) as DataFromGlobalSlug<T>
 }
 
-export async function getCaseData(
+// Функция для получения данных страницы через Payload SDK, которая может быть использована в getStaticProps или getServerSideProps
+import type { CollectionSlug, DataFromCollectionSlug } from 'payload'
+export async function getPageData<T extends CollectionSlug>(
+	collection: T,
 	slug: string,
-	locale: Locale = 'uk',
+	locale: Locale = defaultLocale,
 	draft = false,
-): Promise<Case | null> {
+): Promise<DataFromCollectionSlug<T> | null> {
 	const payloadConfig = await config
 	const payload = await getPayload({ config: payloadConfig })
 
 	const result = await payload.find({
-		collection: 'cases',
+		// collection: 'pages',
+		collection: collection,
 		depth: 2,
 		locale,
 		draft,

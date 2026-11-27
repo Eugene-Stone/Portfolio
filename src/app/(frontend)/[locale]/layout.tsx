@@ -1,23 +1,24 @@
-import { BACKEND_URL, FRONTEND_URL, SITE_TITLE } from '@/CONSTANTS'
-import { createMetadata, getGeneralData } from '@/api/api-server'
+import { SITE_TITLE } from '@/CONSTANTS'
+import { createMetadata, getGlobalData } from '@/api/api-server'
 
 import { Metadata } from 'next'
-import Link from 'next/link'
 import NextTopLoader from 'nextjs-toploader'
 
 import Header from '@/components/_layout/Header/Header'
 import Footer from '@/components/_layout/Footer/Footer'
 
+import { MetaProps } from '@/TYPES'
 import { Locale, getDictionary } from '@/i18n/config'
 
 import '@/styles/base.css'
 import '@/styles/components.css'
 import '@/styles/pages.css'
-import { MetaProps } from '@/TYPES'
 
 export async function generateMetadata({ params }: MetaProps): Promise<Metadata> {
 	const { locale, slug } = await params
-	const { meta } = await getGeneralData(locale)
+	// const { meta } = await getGlobalData('generalData', locale)
+	const dataPage = await getGlobalData('generalData', locale)
+	const meta = dataPage?.meta
 
 	const pageTitle = meta?.title || meta?.ogTitle || SITE_TITLE || 'Site'
 	const seo = meta || {}
@@ -32,11 +33,8 @@ export type RootProps = {
 // export default async function RootLayout({ children }: LayoutProps<'/'>) {
 export default async function RootLayout({ children, params }: RootProps) {
 	const { locale, slug } = await params
-	const generalData = await getGeneralData(locale)
+	const generalData = await getGlobalData('generalData', locale)
 	const dict = await getDictionary(locale)
-
-	// console.log('locale', locale)
-	// console.log('slug', slug)
 
 	return (
 		<html lang={locale}>

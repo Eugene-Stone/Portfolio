@@ -4,7 +4,7 @@ import { slugField } from '@/app_payload/fields/slugField'
 import { generateSlug } from '../utils/slugify/generateSlug'
 
 const slugSourceField = 'title'
-const collectionName = 'CasesCategory'
+const collectionName = 'casesCategory'
 
 export const CasesCategory: CollectionConfig = {
 	slug: 'casesCategory',

@@ -13,7 +13,7 @@ export default function InfoFieldComponent({ field }: UIFieldClientProps) {
 	if (!description) return null
 
 	return (
-		<div className="field-type" style={{ transform: 'translateY(-15px)' }}>
+		<div className="field-type" style={{ transform: 'translateY(-15px)', marginBottom: '5px' }}>
 			{description}
 		</div>
 	)

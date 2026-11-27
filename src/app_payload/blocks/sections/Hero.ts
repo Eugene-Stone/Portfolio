@@ -1,4 +1,5 @@
 import { ButtonFields } from '@/app_payload/fields/ButtonFields'
+import { InfoField } from '@/app_payload/fields/InfoField'
 import type { Block } from 'payload'
 
 export const Hero: Block = {
@@ -20,6 +21,7 @@ export const Hero: Block = {
 			required: true,
 			localized: true,
 		},
+		InfoField('Текст в двойных фигурных скобках {{text}} будет подсвечен на сайте'),
 		{
 			name: 'description',
 			type: 'textarea',

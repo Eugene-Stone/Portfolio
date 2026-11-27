@@ -1,14 +1,19 @@
-import { createMetadata, getGeneralData, getPageData } from '@/api/api-server'
+import { createMetadata, getPageData } from '@/api/api-server'
+import DynamicSections from '@/components/Sections/DynamicSections'
 import { SITE_TITLE } from '@/CONSTANTS'
-import { Locale } from '@/i18n/config'
-import { MetaProps } from '@/TYPES'
+import { MetaProps, PageProps } from '@/TYPES'
 import { Metadata } from 'next'
-import Link from 'next/link'
+import { notFound } from 'next/navigation'
+
+// 1. Set background revalidation interval (3600 sec = 1 hour)
+export const revalidate = 3600
+
+// 2. Allow dynamic generation for newly created CMS pages not built during compile time
+export const dynamicParams = true
 
 export async function generateMetadata({ params }: MetaProps): Promise<Metadata> {
 	const { locale, slug } = await params
-	// const { meta } = await getGeneralData(locale)
-	const dataPage = await getPageData(slug!, locale)
+	const dataPage = await getPageData('pages', slug!, locale)
 	const meta = dataPage?.meta
 
 	const pageTitle = meta?.title || meta?.ogTitle || SITE_TITLE || 'Site'
@@ -17,27 +22,30 @@ export async function generateMetadata({ params }: MetaProps): Promise<Metadata>
 	return createMetadata(pageTitle, seo, locale, slug)
 }
 
-export type PageProps = {
-	children: React.ReactNode
-	params: Promise<{ locale: Locale; slug?: string }>
-}
-
 export default async function Page({ params }: PageProps) {
 	const { locale, slug } = await params
+	const dataPage = await getPageData('pages', slug!, locale)
+	if (!dataPage) notFound()
 
-	// console.log('locale', locale)
-	// console.log('slug', slug)
-
-	const dataPage = await getPageData(slug!, locale)
+	const structuredData = dataPage.meta?.structuredData
+	const { sections } = dataPage ?? {}
 
 	// console.log('dataPage', dataPage)
 
 	return (
-		<main id="main">
-			<div>{slug} - page</div>
-			<Link href={`/`} className="btn btn--primary btn--lg">
-				Homepage
-			</Link>
-		</main>
+		<>
+			{structuredData && (
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{
+						__html: structuredData.replace(/</g, '\\u003c'), // Защита от XSS
+					}}
+				/>
+			)}
+
+			<main id="main">
+				<DynamicSections locale={locale} sections={sections} />
+			</main>
+		</>
 	)
 }
