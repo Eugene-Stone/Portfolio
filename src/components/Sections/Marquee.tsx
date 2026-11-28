@@ -32,6 +32,7 @@ export default async function Marquee({ locale, dict, data }: PropsSection<'marq
 	])
 
 	// const tags = [...frontendRes.docs, ...backendRes.docs]
+
 	function shuffleArray<T>(items: readonly T[]): T[] {
 		const result = [...items]
 

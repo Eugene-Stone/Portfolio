@@ -1,0 +1,113 @@
+/* ===== VARIABLES - Dark Obsidian ===== */
+:root {
+  /* ---------- BRAND ---------- */
+  --brand: #10b981;
+  --brand-hover: #059669;
+  --brand-2: #06b6d4;
+  --brand-soft: rgba(16, 185, 129, .12);
+  --brand-rgb: 16, 185, 129;
+  --brand-2-rgb: 6, 182, 212;
+
+  /* ---------- NEUTRAL ---------- */
+  --bg: #090a0f;
+  --bg-rgb: 9, 10, 15;
+  --bg-soft: #12141c;
+  --surface: #181a24;
+  --text: #f3f4f6;
+  --text-soft: #9ca3af;
+  --text-article: #d1d5db;
+  --line: #26293b;
+
+  /* ---------- BASE ---------- */
+  --white: #ffffff;
+  --white-rgb: 255, 255, 255;
+
+  /* ---------- OVERLAYS ---------- */
+  --overlay-10: rgba(255, 255, 255, .03);
+  --overlay-15: rgba(255, 255, 255, .06);
+  --overlay-50: rgba(0, 0, 0, .60);
+  --overlay-80: rgba(9, 10, 15, .80);
+  --overlay-90: rgba(9, 10, 15, .90);
+  --overlay-92: rgba(9, 10, 15, .92);
+
+  /* ---------- HEADER ---------- */
+  --header-bg: rgba(9, 10, 15, .80);
+
+  /* ---------- DECOR BLOBS ---------- */
+  --blob-1: rgba(16, 185, 129, .15);
+  --blob-2: rgba(6, 182, 212, .12);
+
+  /* ---------- STATUS ---------- */
+  --status-online: #10b981;
+  --status-online-rgb: 16, 185, 129;
+
+  /* ---------- CODE WINDOW ---------- */
+  --code-bg: #050608;
+  --code-bg-bar: #0d0e12;
+  --code-border: #1e202e;
+  --code-text: #e5e7eb;
+  --code-key: #34d399;
+  --code-str: #22d3ee;
+  --code-bool: #fbbf24;
+  --code-num: #fbbf24;
+  --code-com: #6b7280;
+  --code-type: #a78bfa;
+  --code-fn: #f472b6;
+  --code-dot-red: #ef4444;
+  --code-dot-yellow: #f59e0b;
+  --code-dot-green: #10b981;
+
+  /* ---------- SHADOWS ---------- */
+  --shadow-rgb: 0, 0, 0;
+  --shadow-brand-rgb: var(--brand-rgb);
+
+  --shadow-xs: 0 4px 12px rgba(var(--shadow-rgb), .30);
+  --shadow: 0 8px 24px rgba(var(--shadow-rgb), .40);
+  --shadow-lg: 0 20px 48px rgba(var(--shadow-rgb), .60);
+  --shadow-brand: 0 0 20px rgba(var(--shadow-brand-rgb), .25);
+  --shadow-eyebrow: 0 0 0 1px var(--line);
+  --shadow-status: 0 0 0 3px rgba(var(--status-online-rgb), .20);
+
+  /* ---------- GRADIENTS ---------- */
+  --gradient-brand: linear-gradient(135deg, var(--brand), var(--brand-2));
+  --gradient-progress: linear-gradient(90deg, var(--brand), var(--brand-2));
+  --gradient-cta: linear-gradient(135deg, #10b981, #059669);
+  --gradient-hero-glow: radial-gradient(
+    circle at center,
+    rgba(var(--brand-rgb), .15) 0%,
+    transparent 70%
+  );
+
+  /* ---------- RADIUS ---------- */
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-2xl: 22px;
+  --radius-pill: 999px;
+
+  /* ---------- BLUR & LAYOUT ---------- */
+  --blur-sm: 8px;
+  --blur-md: 12px;
+  --blur-lg: 20px;
+  --blur-xl: 32px;
+  --blur-blob: 100px;
+
+  --container: 1200px;
+  --header-h: 68px;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+  --font: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+.logo {
+	img {
+		filter: brightness(0) invert(1);
+		opacity: 0.75;
+		transition: .25s var(--ease);
+	}
+	&:hover {
+		img {
+			opacity: 1;
+		}
+	}
+}

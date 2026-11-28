@@ -1,7 +1,3 @@
-import '@/styles/base.css'
-import '@/styles/components.css'
-import '@/styles/pages.css'
-
 import { createMetadata, getGlobalData } from '@/api/api-server'
 
 import { Metadata } from 'next'

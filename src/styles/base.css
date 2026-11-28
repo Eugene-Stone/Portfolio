@@ -1,6 +1,6 @@
-@import url('./vars_1.css');
+/* @import url('./vars_1.css'); */
 /* @import url('./vars_2.css'); */
-/* @import url('./vars_3.css'); */
+@import url('./vars_3.css');
 /* @import url('./vars_4.css'); */
 /* @import url('./vars_5.css'); */
 /* @import url('./vars_6.css'); */
@@ -11,6 +11,12 @@
 *::before,
 *::after {
 	box-sizing: border-box;
+}
+
+pre,
+code {
+	tab-size: 3;
+	-moz-tab-size: 3;
 }
 
 html {

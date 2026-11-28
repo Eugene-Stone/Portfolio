@@ -27,6 +27,10 @@ export const Cases: CollectionConfig = {
 	defaultPopulate: {
 		title: true,
 		slug: true,
+		description: true,
+		typeProject: true,
+		tags: true,
+		image: true,
 	},
 
 	access: {

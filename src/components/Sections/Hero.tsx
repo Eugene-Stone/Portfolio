@@ -4,9 +4,9 @@ import Link from 'next/link'
 import type { CSSProperties } from 'react'
 
 export default async function Hero({ locale, dict, data }: PropsSection<'hero'>) {
-	const { subTitle, title, description, buttons, stats } = data
+	const { subTitle, title, description, buttons, stats, id_anchor } = data
 	return (
-		<section className="hero">
+		<section className="hero" id={id_anchor || undefined}>
 			<div className="hero__bg" aria-hidden="true">
 				<span className="blob blob--1" />
 				<span className="blob blob--2" />
